@@ -1,0 +1,17 @@
+.sidebar {
+  background-color: #212527;
+  left: 0;
+  bottom: 0;
+  width: 75px;
+  height: 100%;
+  position: fixed;
+  writing-mode: vertical-rl;
+  display: flex;
+  text-orientation: sideways-right;
+  justify-content: center;
+  align-items: center;
+  color: #e5ebec;
+  font-weight: 200;
+  text-transform: capitalize;
+  transform: rotate(-180deg);
+}

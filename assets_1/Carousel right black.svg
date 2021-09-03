@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.438" height="23.036" viewBox="0 0 26.438 23.036">
+  <g id="Carousel_right_black" data-name="Carousel right black" transform="translate(0.5 0.5)">
+    <g id="Group_1009" data-name="Group 1009" transform="translate(0 0)">
+      <g id="Group_1008" data-name="Group 1008">
+        <path id="Path_7022" data-name="Path 7022" d="M0,44.408a11.018,11.018,0,0,1,22.026-.447l1.434-1.434a1.1,1.1,0,1,1,1.558,1.558l-3.305,3.305a1.1,1.1,0,0,1-1.558,0L16.85,44.085a1.1,1.1,0,1,1,1.558-1.558l1.412,1.412A8.814,8.814,0,0,0,2.2,44.408c0,.023,0,.046,0,.069s0,.047,0,.071a8.819,8.819,0,0,0,.246,1.94A1.1,1.1,0,0,1,.309,47,11.088,11.088,0,0,1,0,44.582c0-.027,0-.054,0-.081S0,44.439,0,44.408Z" transform="translate(0 -33.39)" fill="#7e7e7e" stroke="#fff" stroke-width="1"/>
+        <path id="Path_7023" data-name="Path 7023" d="M391.39,360.3a1.1,1.1,0,0,1,1.549.162,8.811,8.811,0,0,0,1.393,1.371,1.1,1.1,0,0,1-1.363,1.732,11.041,11.041,0,0,1-1.741-1.714A1.1,1.1,0,0,1,391.39,360.3Z" transform="translate(-388.763 -343.886)" fill="#7e7e7e" stroke="#fff" stroke-width="1"/>
+        <path id="Path_7024" data-name="Path 7024" d="M268.474,429.24a8.888,8.888,0,0,0,1.944.215,1.1,1.1,0,0,1,0,2.2,11.057,11.057,0,0,1-2.427-.269,1.1,1.1,0,0,1,.484-2.15Z" transform="translate(-259.399 -409.623)" fill="#7e7e7e" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
