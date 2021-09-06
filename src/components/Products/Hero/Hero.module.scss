@@ -1,0 +1,22 @@
+.hero {
+  background-color: black;
+  background-image: url("/productsbanner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 65vh;
+  color: #E5EBEC;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 100px;
+
+  h1 {
+    font-size: large;
+    color: #E5EBEC;
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  h1 span {
+    font-weight: 500;
+  }
+}
