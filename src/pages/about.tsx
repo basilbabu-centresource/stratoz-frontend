@@ -5,7 +5,7 @@ import LayoutDefault from "../layout/Default";
 import styles from "../../styles/About.module.scss";
 import Hero from "../components/About/Hero";
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
   return (
     <>
       <LayoutDefault>
@@ -129,4 +129,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default About;

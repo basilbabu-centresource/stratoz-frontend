@@ -1,0 +1,143 @@
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  padding: 4rem 0;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x)/ -2);
+  margin-left: calc(var(--bs-gutter-x)/ -2);
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+}
+.col7 {
+  flex: 0 0 auto;
+  width: 58.3333333333%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+}
+.col6 {
+  flex: 0 0 auto;
+  width: 50%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+}
+.col5 {
+  flex: 0 0 auto;
+  width: 41.6666666667%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+}
+.col4 {
+  flex: 0 0 auto;
+  width: 33.3333333333%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+  margin-bottom: 35px;
+}
+.offset1 {
+  margin-left: 8.3333333333%;
+}
+
+.title_desc h2 {
+  color: #70797B;
+  font-size: 1.2rem;
+  line-height: 20px;
+  font-weight: 300;
+
+  span {
+    color: #373F41;
+    font-weight: 500;
+  }
+}
+.title_desc p {
+  color: #70797B;
+  font-size: 1rem;
+  margin-bottom: 35px;
+}
+.title_desc hr {
+  height: 2px;
+  border-width: 0;
+  background-color: #373F41;
+  width: 2%;
+  margin-left: 0;
+}
+.mt15 {
+  margin-top: 15px;
+}
+.mt25 {
+  margin-top: 25px;
+}
+.mb75 {
+  margin-bottom: 75px;
+}
+
+.showroomBox {
+  background: #F8F8F8;
+  padding: 20px;
+
+  .mapBox {
+    width: 100%;
+    height: 436px;
+  }
+
+  h6 {
+    margin: 0;
+    color: #171717;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  select {
+    height: 46px;
+    background: #FFFFFF;
+    border: 1px solid #4550522E;
+    width: 96%;
+    margin-bottom: 17px;
+    padding: 15px;
+    outline: unset;
+    color: #171717ad;
+  }
+
+  .addressBox {
+    height: 230px;
+    overflow-y: scroll;
+  }
+  .individualBox {
+    background: #FFFFFF;
+    border: 1px solid #7070702E;
+    padding: 14px 15px 32px;
+    margin-bottom: 12px;
+
+    h5 {
+      margin: 0;
+      color: #575655;
+      margin-bottom: 12px;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .activeBox {
+    background: #EFEFEF;
+  }
+}
+
+
