@@ -23,9 +23,19 @@ const Home: NextPage = () => {
                 <h2 className={styles.h2_title}>
                   <span>Explore</span> Products
                 </h2>
-                <hr/>
-                <p>Design a space perfectly tailored for your personal needs and transform the everyday bathroom experience with our range of products. It is the freedom to create a space that is connected to one’s own senses and needs – a place for inner contemplation, regeneration, and revitalization </p>
-                <p>Our curated collections offer you a variety of high-quality solutions for a wide range of styles which guarantees aesthetic longevity.</p>
+                <hr />
+                <p>
+                  Design a space perfectly tailored for your personal needs and
+                  transform the everyday bathroom experience with our range of
+                  products. It is the freedom to create a space that is
+                  connected to one’s own senses and needs – a place for inner
+                  contemplation, regeneration, and revitalization{" "}
+                </p>
+                <p>
+                  Our curated collections offer you a variety of high-quality
+                  solutions for a wide range of styles which guarantees
+                  aesthetic longevity.
+                </p>
               </div>
             </div>
             <div className={styles.products}>
@@ -33,38 +43,38 @@ const Home: NextPage = () => {
                 <div className={styles.row}>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/1.png"/>
+                      <img src="/products/1.png" />
                       <h6>Basin</h6>
                     </div>
                   </div>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/2.png"/>
+                      <img src="/products/2.png" />
                       <h6>Basin</h6>
                     </div>
                   </div>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/3.png"/>
+                      <img src="/products/3.png" />
                       <h6>Basin</h6>
                     </div>
                   </div>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/4.png"/>
+                      <img src="/products/4.png" />
                       <h6>Basin</h6>
                     </div>
                   </div>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/5.png"/>
+                      <img src="/products/5.png" />
                       <h6>Basin</h6>
                     </div>
                   </div>
                   <div className={styles.col4}>
                     <div className={styles.col4img}>
-                      <img src="/products/6.png"/>
-                      <h6>Basin</h6>
+                      <img src="/products/6.png" />
+                      <h6>Wcs</h6>
                     </div>
                   </div>
                 </div>
