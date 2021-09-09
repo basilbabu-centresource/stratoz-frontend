@@ -4,8 +4,17 @@ import Image from "next/image";
 import LayoutDefault from "../layout/Default";
 import styles from "../../styles/Brochures.module.scss";
 import Hero from "../components/Brochures/Hero";
+import React, { Component } from "react";
+import Slider from "react-slick";
 
-const Home: NextPage = () => {
+const Brochures: NextPage = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   return (
     <>
       <LayoutDefault>
@@ -27,6 +36,17 @@ const Home: NextPage = () => {
                 <div className={styles.row+" "+styles.mb35}>
                   <div className={styles.col12}>
                     <h5 className={styles.titleh5}>Sanitary Wares</h5>
+                    {/* <Slider {...settings}>
+                      <div>
+                        1
+                      </div>
+                      <div>
+                        2
+                      </div>
+                      <div>
+                        3
+                      </div>
+                    </Slider> */}
                     <img src="/brochures1.png"/>
                     <button className={styles.broBtn+" "+styles.mt25}><img src="/icons/download.png"/>Download</button>
                   </div>
@@ -49,4 +69,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Brochures;

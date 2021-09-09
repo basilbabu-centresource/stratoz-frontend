@@ -5,7 +5,7 @@ import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Products.module.scss";
 import Hero from "../../components/Products/Hero";
 
-const Home: NextPage = () => {
+const Products: NextPage = () => {
   return (
     <>
       <LayoutDefault>
@@ -87,4 +87,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Products;
