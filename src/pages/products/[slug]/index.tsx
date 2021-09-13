@@ -40,35 +40,35 @@ const Products: NextPage = ({ product }: any) => {
               {/* {JSON.stringify(product)} */}
 
               {console.log(product)}
-              <h1>{product.title}</h1>
+              <h1 className="product__title mb-4">{product.title}</h1>
               <h4>Product description</h4>
               <p>{product.code}</p>
               <p>
                 SIZE: {product.size.Height} x {product.size.Width} x{" "}
                 {product.size.Length} MM
               </p>
-              <div className="d-flex align-items-center">
-                <span className="me-3">Color:</span>
-                {product.avail_colours.map((item: any, index: number) => (
-                  <a href={`/products/${item.product.slug}`} key={index}>
-                    <div
-                      key={index}
-                      className="me-2"
-                      style={{
-                        height: "30px",
-                        width: "30px",
-                        backgroundColor: item.colour.code,
-                        border: "1px solid #000",
-                      }}
-                    ></div>
-                  </a>
-                ))}
-              </div>
-              <div className="d-flex mt-4">
-                <div className="btn btn-primary me-3 px-4">
-                  Add to Favourites
+              {product.avail_colours.length > 0 && (
+                <div className="d-flex align-items-center">
+                  <span className="me-3">Color:</span>
+                  {product.avail_colours.map((item: any, index: number) => (
+                    <a href={`/products/${item.product.slug}`} key={index}>
+                      <div
+                        key={index}
+                        className="me-2"
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                          backgroundColor: item.colour.code,
+                          border: "1px solid #000",
+                        }}
+                      ></div>
+                    </a>
+                  ))}
                 </div>
-                <div className="btn btn-primary px-4">Enquiry</div>
+              )}
+              <div className="d-flex mt-4">
+                <div className="btn btn-primary me-3">Add to Favourites</div>
+                <div className="btn btn-outline-primary">Enquiry</div>
               </div>
               <div className="mt-5 mb-3">
                 {product.technical_specs && (
@@ -84,8 +84,13 @@ const Products: NextPage = ({ product }: any) => {
                 )}
               </div>
               <div>
-                <h5>Share this on</h5>
-                <div></div>
+                <h5 className="mb-4">Share this on</h5>
+                <div className="d-flex">
+                  <div className="social__media__icons"></div>
+                  <div className="social__media__icons"></div>
+                  <div className="social__media__icons"></div>
+                  <div className="social__media__icons"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -95,7 +100,9 @@ const Products: NextPage = ({ product }: any) => {
         <br />
         <div className="bg-light py-5">
           <div className="container">
-            <h3 className="mb-5">Related Products</h3>
+            <h3 className="section__title mb-5">
+              <span>Related</span> Products
+            </h3>
             <div className="d-flex justify-content-between">
               {product?.related_products.map((item: any, index: number) => (
                 <div key={index}>

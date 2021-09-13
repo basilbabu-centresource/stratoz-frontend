@@ -5,7 +5,7 @@ import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Products.module.scss";
 import Hero from "../../components/Products/Hero";
 
-const Products: NextPage = () => {
+const Products: NextPage = ({ categories }) => {
   return (
     <>
       <LayoutDefault>
@@ -41,7 +41,7 @@ const Products: NextPage = () => {
             <div className={styles.products}>
               <div className="container">
                 <div className={styles.row}>
-                  <div className={styles.col4}>
+                  {/* <div className={styles.col4}>
                     <div className={styles.col4img}>
                       <img src="/products/1.png" />
                       <h6>Basin</h6>
@@ -70,14 +70,29 @@ const Products: NextPage = () => {
                       <img src="/products/5.png" />
                       <h6>Basin</h6>
                     </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/6.png" />
-                      <h6>Wcs</h6>
+                  </div> */}
+                  {/* {JSON.stringify(categories)} */}
+                  {categories.map((category: any, index: number) => (
+                    <div key={index} className={styles.col4}>
+                      <a href={`/categories/${category.slug}`}>
+                        <div className={styles.col4img}>
+                          <Image
+                            src={
+                              category.image
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${category?.image?.url}`
+                                : "/products/5.png"
+                            }
+                            alt={category.name}
+                            height={400}
+                            width={500}
+                          />
+                          <h6>{category.name}</h6>
+                        </div>
+                      </a>
                     </div>
-                  </div>
+                  ))}
                 </div>
+                {console.log(categories)}
               </div>
             </div>
           </main>
@@ -86,5 +101,17 @@ const Products: NextPage = () => {
     </>
   );
 };
+
+const categories_API_URl = "http://192.168.1.13:1339/categories";
+
+export async function getServerSideProps() {
+  // Fetch all categories form API
+  const categoriesRes = await fetch(`${process.env.API_BASE_URL}/categories`);
+
+  const categories = await categoriesRes.json();
+
+  // Pass data to the page via props
+  return { props: { categories } };
+}
 
 export default Products;

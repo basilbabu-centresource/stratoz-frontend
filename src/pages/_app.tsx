@@ -1,5 +1,5 @@
-import "../../node_modules/bootstrap/scss/bootstrap.scss";
 import "../../styles/globals.scss";
+import "../../styles/custom.scss";
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.container}>
+        <div className="container d-flex justify-content-between">
           <div>
             <Image src={"/logo.svg"} alt={"logo"} height={60} width={40} />
           </div>
           <div className={styles.main__menu}>
-            <div className={styles.main__menu__items}>Collections</div>
-            <div className={styles.main__menu__items}>Brochures</div>
-            <div className={styles.main__menu__items}>Our story</div>
+            <a href="/collections" className={styles.main__menu__items}>
+              Collections
+            </a>
+            <Link href="/brochures">
+              <a className={styles.main__menu__items}>Brochures</a>
+            </Link>
+            <a href="/our-story" className={styles.main__menu__items}>
+              Our story
+            </a>
           </div>
           <div className={styles.right__menu}>
             <div className={styles.right__menu__items}>

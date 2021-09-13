@@ -30,6 +30,14 @@
     // border: 1px solid red;
     list-style: none;
     padding-right: 30px;
+    display: grid;
+    place-content: center;
+    color: #fff;
+    // padding-right: 30px;
+  }
+
+  &__items:hover {
+    color: #fff;
   }
 }
 
@@ -42,6 +50,11 @@
     list-style: none;
     display: flex;
     align-items: center;
+    color: #fff;
     // padding-right: 30px;
+  }
+
+  &__items:hover {
+    color: #fff;
   }
 }
