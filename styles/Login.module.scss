@@ -18,7 +18,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 55% 0 50px;
+  padding: 47% 0 50px;
 }
 
 .row {
@@ -47,26 +47,18 @@
 
 .bgheroFrom {
   display: flex;
-  justify-content: center;
 
   .heroFrom {
-    width: 766px;
+    width: 410px;
     background: #0F0F0F;
     border-radius: 5px;
-    padding: 45px 30px 50px;
+    padding: 30px 30px 90px;
 
-    h1 {
-      margin: 0;
-      font-size: 45px;
-      color: #FFFFFF;
-      margin-bottom: 25px;
-      font-weight: 400;
-    }
-    h6 {
-      margin: 0;
-      color: #FFFFFF;
+    h4 {
       font-size: 16px;
+      margin: 0 0 30px;
       font-weight: 400;
+      color: #FFFFFF;
     }
     label {
       width: 100%;
@@ -83,7 +75,7 @@
       height: 46px;
       outline: unset;
       color: #FFFFFF65;
-      padding: 15px;
+      padding: 0 15px;
     }
     input::placeholder, textarea::placeholder {
       color: #FFFFFF65;
@@ -95,8 +87,50 @@
       background: #BFBFBF;
       border: 1px solid #FFFFFF80;
       border-radius: 5px;
-      margin-bottom: 0;
+      margin: 15px 0 30px;
       color: #000000;
     }
+    p {
+      margin: 0;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 300;
+
+      a {
+        text-decoration: underline;
+      }
+
+    }
+
+    .chkBox input {
+      width: auto;
+      margin: auto;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+  }
+  
+}
+
+.titleBox {
+  margin-top: 75px;
+
+  h6 {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0 0 10px;
+  }
+  h1  {
+    font-size: 45px;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin: 0 0 15px;
+  }
+  h5 {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
   }
 }

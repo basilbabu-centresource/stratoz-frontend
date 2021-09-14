@@ -17,15 +17,32 @@ const Home: NextPage = () => {
                 <div className={styles.row}>
                   <div className={styles.col6}>
                     <label>Name</label>
-                    <input type="text" />
-                    <label>Email</label>
-                    <input type="text" />
+                    <input type="text" placeholder="Jonathan Doe"/>
                   </div>
                   <div className={styles.col6}>
-                    <label>Name</label>
-                    <input type="text" />
+                    <label>Mobile</label>
+                    <input type="text" placeholder="+976 256474473"/>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.col6}>
                     <label>Email</label>
-                    <input type="text" />
+                    <input type="email" placeholder="jonathandoe@gamil.com"/>
+                  </div>
+                  <div className={styles.col6}>
+                    <label>Subject</label>
+                    <input type="text" placeholder="Enter Subject"/>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.col12}>
+                    <label>Message</label>
+                    <textarea placeholder="Enter Message"></textarea>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.col6}>
+                    <input type="submit" value="Submit"/>
                   </div>
                 </div>
               </div>
