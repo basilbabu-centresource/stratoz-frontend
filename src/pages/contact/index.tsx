@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../layout/Default";
-import styles from "../../styles/Contact.module.scss";
+import LayoutDefault from "../../layout/Default";
+import styles from "../../../styles/Contact.module.scss";
 
 const Home: NextPage = () => {
   return (
@@ -17,21 +17,21 @@ const Home: NextPage = () => {
                 <div className={styles.row}>
                   <div className={styles.col6}>
                     <label>Name</label>
-                    <input type="text" placeholder="Jonathan Doe"/>
+                    <input type="text" placeholder="Jonathan Doe" />
                   </div>
                   <div className={styles.col6}>
                     <label>Mobile</label>
-                    <input type="text" placeholder="+976 256474473"/>
+                    <input type="text" placeholder="+976 256474473" />
                   </div>
                 </div>
                 <div className={styles.row}>
                   <div className={styles.col6}>
                     <label>Email</label>
-                    <input type="email" placeholder="jonathandoe@gamil.com"/>
+                    <input type="email" placeholder="jonathandoe@gamil.com" />
                   </div>
                   <div className={styles.col6}>
                     <label>Subject</label>
-                    <input type="text" placeholder="Enter Subject"/>
+                    <input type="text" placeholder="Enter Subject" />
                   </div>
                 </div>
                 <div className={styles.row}>
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                 </div>
                 <div className={styles.row}>
                   <div className={styles.col6}>
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Submit" />
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import styles from "../../../../styles/Favorites.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
 
-const Favorites: NextPage = ({ products, category, count }: any) => {
+const Categories: NextPage = ({ products, category, count }: any) => {
   const handlePageChange = (pageNumber: number) => {
     console.log(pageNumber + 1);
 
@@ -67,12 +67,13 @@ const Favorites: NextPage = ({ products, category, count }: any) => {
                       </>
                     ))}
                 </div>
+
                 <ReactPaginate
                   previousLabel={"previous"}
                   nextLabel={"next"}
                   breakLabel={"..."}
                   breakClassName={"break-me"}
-                  pageCount={count / 9}
+                  pageCount={Math.round(count / 9)}
                   marginPagesDisplayed={5}
                   pageRangeDisplayed={5}
                   onPageChange={(e: any) => handlePageChange(e.selected)}
@@ -123,4 +124,4 @@ export async function getServerSideProps({ query }: any) {
   return { props: { products, category, count } };
 }
 
-export default Favorites;
+export default Categories;

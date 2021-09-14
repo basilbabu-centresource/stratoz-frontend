@@ -5,7 +5,7 @@ import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Products.module.scss";
 import Hero from "../../components/Products/Hero";
 
-const Products: NextPage = ({ categories }) => {
+const Products: NextPage = ({ categories }: any) => {
   return (
     <>
       <LayoutDefault>

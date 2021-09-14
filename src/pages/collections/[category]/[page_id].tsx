@@ -25,7 +25,7 @@ const Collections: NextPage = ({ products, category, count }: any) => {
                         />
                         <link rel="icon" href="/favicon.ico" />
                     </Head>
-
+                    {console.log("Count", Math.round(count / 9))}
                     <main className={styles.main}>
                         <div className={styles.title_desc}>
                             <div className={"container " + styles.mb50}>
@@ -86,7 +86,7 @@ const Collections: NextPage = ({ products, category, count }: any) => {
                                     nextLabel={"next"}
                                     breakLabel={"..."}
                                     breakClassName={"break-me"}
-                                    pageCount={count / 9}
+                                    pageCount={Math.round(count / 9)}
                                     marginPagesDisplayed={5}
                                     pageRangeDisplayed={5}
                                     onPageChange={(e: any) =>

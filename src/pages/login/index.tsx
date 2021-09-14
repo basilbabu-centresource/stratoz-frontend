@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../layout/Default";
-import styles from "../../styles/Register.module.scss";
+import LayoutDefault from "../../layout/Default";
+import styles from "../../../styles/Login.module.scss";
 
 const Home: NextPage = () => {
   return (
@@ -14,33 +14,30 @@ const Home: NextPage = () => {
               <div className={styles.col6}>
                 <div className={styles.bgheroFrom}>
                   <div className={styles.heroFrom}>
-                    <h4>Create your account</h4>
+                    <h4>Login in to your account</h4>
                     <div className={styles.row}>
                       <div className={styles.col12}>
-                        <label>Name</label>
-                        <input type="text" placeholder="Jonathan Doe"/>
                         <label>Email</label>
-                        <input type="email" placeholder="jonathandoe@gamil.com"/>
+                        <input
+                          type="email"
+                          placeholder="jonathandoe@gamil.com"
+                        />
                         <label>Mobile</label>
-                        <input type="text" placeholder="+976 256474473"/>
-                      </div>
-                    </div>
-                    <div className={styles.row}>
-                      <div className={styles.col6}>
-                        <label>Password</label>
-                        <input type="password" placeholder="****************"/>
-                      </div>
-                      <div className={styles.col6}>
-                        <label>Repeat Password</label>
-                        <input type="password" placeholder="****************"/>
+                        <input type="password" placeholder="****************" />
+                        <div className={styles.chkBox}>
+                          <input type="checkbox" />
+                          <label> Keep me signed in</label>
+                        </div>
                       </div>
                     </div>
                     <div className={styles.row}>
                       <div className={styles.col12}>
-                        <input type="submit" value="Sign Up" />
+                        <input type="submit" value="Sign In" />
                       </div>
                       <div className={styles.col12}>
-                        <p><a>Sign in instead</a></p>
+                        <p>
+                          Not Registered? <a>Register Now</a>
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../layout/Default";
-import styles from "../../styles/Brochures.module.scss";
-import Hero from "../components/Brochures/Hero";
+import LayoutDefault from "../../layout/Default";
+import styles from "../../../styles/Brochures.module.scss";
+import Hero from "../../components/Brochures/Hero";
 import React, { Component, useState } from "react";
 import Slider from "react-slick";
-import { Document, Page } from 'react-pdf';
+import { Document, Page } from "react-pdf";
 
 const Brochures: NextPage = () => {
   const settings = {
@@ -14,13 +14,13 @@ const Brochures: NextPage = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages } : { numPages: any}) { 
+  function onDocumentLoadSuccess({ numPages }: { numPages: any }) {
     setNumPages(numPages);
   }
 
@@ -39,10 +39,10 @@ const Brochures: NextPage = () => {
             <div className={styles.title_desc}>
               <div className={"container " + styles.mb65}>
                 <h2 className={styles.h2_title}>
-                  <span>Brochures</span> 
+                  <span>Brochures</span>
                 </h2>
-                <hr/>
-                <div className={styles.row+" "+styles.mb35}>
+                <hr />
+                <div className={styles.row + " " + styles.mb35}>
                   <div className={styles.col12}>
                     <h5 className={styles.titleh5}>Sanitary Wares</h5>
                     <Document
@@ -51,23 +51,29 @@ const Brochures: NextPage = () => {
                     >
                       <Page pageNumber={pageNumber} />
                     </Document>
-                    <p>Page {pageNumber} of {numPages}</p>
+                    <p>
+                      Page {pageNumber} of {numPages}
+                    </p>
 
-                    <img src="/brochures1.png"/>
-                    <button className={styles.broBtn+" "+styles.mt25}><img src="/icons/download.png"/>Download</button>
+                    <img src="/brochures1.png" />
+                    <button className={styles.broBtn + " " + styles.mt25}>
+                      <img src="/icons/download.png" />
+                      Download
+                    </button>
                   </div>
                 </div>
                 <div className={styles.row}>
                   <div className={styles.col12}>
                     <h5 className={styles.titleh5}>COLORS OF ART</h5>
-                    <img src="/brochures2.png"/>
-                    <button className={styles.broBtn+" "+styles.mt25}><img src="/icons/download.png"/>Download</button>
+                    <img src="/brochures2.png" />
+                    <button className={styles.broBtn + " " + styles.mt25}>
+                      <img src="/icons/download.png" />
+                      Download
+                    </button>
                   </div>
                 </div>
               </div>
-              
             </div>
-            
           </main>
         </div>
       </LayoutDefault>

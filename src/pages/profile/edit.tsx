@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../layout/Default";
-import styles from "../../styles/ChangePassword.module.scss";
+import LayoutDefault from "../../layout/Default";
+import styles from "../../../styles/EditProfile.module.scss";
 
 const Home: NextPage = () => {
   return (
@@ -12,18 +12,20 @@ const Home: NextPage = () => {
           <div className="container">
             <div className={styles.bgheroFrom}>
               <div className={styles.heroFrom}>
-                <h4>Change Password</h4>
+                <h4>Edit Profile</h4>
                 <div className={styles.row}>
                   <div className={styles.col12}>
-                    <label>Password</label>
-                    <input type="password" placeholder="****************"/>
-                    <label>Password</label>
-                    <input type="password" placeholder="****************"/>
+                    <label>Name</label>
+                    <input type="text" placeholder="Jonathan Doe" />
+                    <label>Email</label>
+                    <input type="email" placeholder="jonathandoe@gamil.com" />
+                    <label>Mobile</label>
+                    <input type="text" placeholder="+976 256474473" />
                   </div>
                 </div>
                 <div className={styles.row}>
                   <div className={styles.col12}>
-                    <input type="submit" value="Change" />
+                    <input type="submit" value="Save" />
                   </div>
                 </div>
               </div>

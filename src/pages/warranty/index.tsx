@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../layout/Default";
+import LayoutDefault from "../../layout/Default";
 import styles from "../../styles/Warranty.module.scss";
-import Hero from "../components/Warranty/Hero";
-import React, { Component } from "react";
+import Hero from "../../components/Warranty/Hero";
+import React from "react";
 
 const Showroom: NextPage = () => {
   return (
@@ -20,30 +20,30 @@ const Showroom: NextPage = () => {
 
           <main className={styles.main}>
             <div className={styles.title_desc}>
-              <div className={"container " }>
+              <div className={"container "}>
                 <h2 className={styles.h2_title}>
                   <span>Warranty </span> Registration
                 </h2>
-                <hr/>
-                <form className={styles.formBox+" "+styles.mt30}>
+                <hr />
+                <form className={styles.formBox + " " + styles.mt30}>
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>First Name</label>
-                      <input type="text" placeholder="Jonathan "/>
+                      <input type="text" placeholder="Jonathan " />
                     </div>
                     <div className={styles.col6}>
                       <label>Last Name</label>
-                      <input type="text" placeholder="Doe"/>
+                      <input type="text" placeholder="Doe" />
                     </div>
                   </div>
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Email ID</label>
-                      <input type="email" placeholder="jon.doe@gmail.com "/>
+                      <input type="email" placeholder="jon.doe@gmail.com " />
                     </div>
                     <div className={styles.col6}>
                       <label>Phone Number</label>
-                      <input type="text" placeholder="9731111000"/>
+                      <input type="text" placeholder="9731111000" />
                     </div>
                   </div>
                   <div className={styles.row}>
@@ -56,7 +56,7 @@ const Showroom: NextPage = () => {
                     </div>
                     <div className={styles.col6}>
                       <label>Date of Purchase</label>
-                      <input type="date" placeholder="Doe"/>
+                      <input type="date" placeholder="Doe" />
                     </div>
                   </div>
                   <div className={styles.row}>
@@ -64,16 +64,16 @@ const Showroom: NextPage = () => {
                       <label>Upload Invoice</label>
                       <div className="fileUpload">
                         <input type="file" />
-                        <img src=""/>
+                        <img src="" />
                       </div>
                     </div>
                     <div className={styles.col6}>
                       <label>Product Code</label>
-                      <input type="text" placeholder="LoreumIpsum"/>
+                      <input type="text" placeholder="LoreumIpsum" />
                     </div>
                   </div>
                   <div className={styles.row}>
-                    <div className={styles.col12+" "+styles.txtrgt}>
+                    <div className={styles.col12 + " " + styles.txtrgt}>
                       <input type="submit" value="Submit" />
                     </div>
                   </div>
