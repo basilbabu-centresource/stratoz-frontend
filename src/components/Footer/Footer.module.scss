@@ -5,8 +5,25 @@
     text-transform: uppercase;
     font-size: 14px;
     color: #111;
-    margin-bottom: 1rem;
+    margin-bottom: 2.2rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background: #4a4644;
+      left: 0;
+      bottom: -15px;
+    }
   }
+}
+
+.right__text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #4a4644;
 }
 
 .footer__text {
@@ -15,4 +32,35 @@
 
 .footer__link {
   margin-bottom: 1rem;
+}
+
+.newsletter {
+  &__title {
+    font-size: 13px;
+    color: #4a4644;
+    font-weight: 300;
+  }
+
+  &__input {
+    width: 196px;
+    height: 32px;
+    background: #f8f8f8 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 0;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+
+  &__button {
+    top: 5871px;
+    left: 1114px;
+    width: 94px;
+    height: 32px;
+    background: #9d9d9d 0% 0% no-repeat padding-box;
+    opacity: 0.6;
+    color: #fff;
+    font-size: 13px;
+    display: grid;
+    place-content: center;
+  }
 }

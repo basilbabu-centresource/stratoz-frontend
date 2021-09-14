@@ -49,29 +49,57 @@ const Footer: React.FC = () => {
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Social media</div>
                 <div className={styles.footer__link}>
-                  <a href="#">Facebook</a>
+                  <a href="#" className="me-2">
+                    <Image
+                      src="/icons/facebook.png"
+                      alt={"Facebook icon"}
+                      height={18}
+                      width={18}
+                    />
+                  </a>
+                  <a href="#" className="me-2">
+                    <Image
+                      src="/icons/linkedin.png"
+                      alt={"Facebook icon"}
+                      height={18}
+                      width={18}
+                    />
+                  </a>
+                  <a href="#" className="me-2">
+                    <Image
+                      src="/icons/instagram.png"
+                      alt={"Facebook icon"}
+                      height={18}
+                      width={18}
+                    />
+                  </a>
                 </div>
               </div>
 
               <div className="col-lg-2"></div>
               <div className="col-lg-4">
-                <p>
+                <p className={styles.right__text}>
                   Stratoz Ceramics <br />
                   Redefining luxury
                 </p>
                 <br />
-                <p className="mt-2">Subscribe to newsletter </p>
+                <p className={"mt-2 " + styles.newsletter__title}>
+                  Subscribe to newsletter{" "}
+                </p>
                 <form className="form-inline d-flex">
                   <div className="form-group  mb-2">
                     <input
                       type="password"
-                      className="form-control"
+                      className={"form-control " + styles.newsletter__input}
                       id="inputPassword2"
-                      placeholder=""
+                      placeholder="Your email  address"
                     />
                   </div>
                   <div>
-                    <button type="submit" className="btn btn-primary mb-2 ms-2">
+                    <button
+                      type="submit"
+                      className={"btn " + styles.newsletter__button}
+                    >
                       Subscribe
                     </button>
                   </div>
