@@ -4,8 +4,9 @@ import Image from "next/image";
 import LayoutDefault from "../layout/Default";
 import styles from "../../styles/Brochures.module.scss";
 import Hero from "../components/Brochures/Hero";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Slider from "react-slick";
+import { Document, Page } from 'react-pdf';
 
 const Brochures: NextPage = () => {
   const settings = {
@@ -15,6 +16,14 @@ const Brochures: NextPage = () => {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages } : { numPages: any}) { 
+    setNumPages(numPages);
+  }
+
   return (
     <>
       <LayoutDefault>
@@ -36,17 +45,14 @@ const Brochures: NextPage = () => {
                 <div className={styles.row+" "+styles.mb35}>
                   <div className={styles.col12}>
                     <h5 className={styles.titleh5}>Sanitary Wares</h5>
-                    {/* <Slider {...settings}>
-                      <div>
-                        1
-                      </div>
-                      <div>
-                        2
-                      </div>
-                      <div>
-                        3
-                      </div>
-                    </Slider> */}
+                    <Document
+                      file="/profile.pdf"
+                      onLoadSuccess={onDocumentLoadSuccess}
+                    >
+                      <Page pageNumber={pageNumber} />
+                    </Document>
+                    <p>Page {pageNumber} of {numPages}</p>
+
                     <img src="/brochures1.png"/>
                     <button className={styles.broBtn+" "+styles.mt25}><img src="/icons/download.png"/>Download</button>
                   </div>
