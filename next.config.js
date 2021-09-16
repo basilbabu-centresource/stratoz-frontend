@@ -8,6 +8,6 @@ module.exports = {
     // },
   },
   images: {
-    domains: ["192.168.1.13"],
+    domains: ["192.168.1.13", "stratoz.stagingcs.com"],
   },
 };

@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/auth/authSlice";
 
 const Header: React.FC = () => {
+  const { user } = useSelector(selectUser);
+
   return (
     <>
       <div className={styles.navbar}>
@@ -22,9 +26,9 @@ const Header: React.FC = () => {
             <Link href="/brochures">
               <a className={styles.main__menu__items}>Brochures</a>
             </Link>
-            <a href="/our-story" className={styles.main__menu__items}>
-              Our story
-            </a>
+            <Link href="/our-story">
+              <a className={styles.main__menu__items}>Our story</a>
+            </Link>
           </div>
           <div className={styles.right__menu}>
             <div className={styles.right__menu__items}>
@@ -48,11 +52,19 @@ const Header: React.FC = () => {
               </Link>
             </div>
             <div className={styles.right__menu__items}>
-              <Link href="/login">
-                <a>
-                  <div className="btn__outline">Sign in</div>
-                </a>
-              </Link>
+              {user ? (
+                <Link href="/profile">
+                  <a>
+                    <div className="btn__outline">Edwin</div>
+                  </a>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <a>
+                    <div className="btn__outline">Sign in</div>
+                  </a>
+                </Link>
+              )}
             </div>
           </div>
         </div>

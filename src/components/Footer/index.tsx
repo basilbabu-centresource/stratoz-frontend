@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./Footer.module.scss";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -8,7 +9,6 @@ const Footer: React.FC = () => {
       <footer className="">
         <div className="py-5">
           <div className="container">
-            <hr className="mb-5" />
             <br />
             <br />
             <br />
@@ -40,7 +40,9 @@ const Footer: React.FC = () => {
                   <a href="#">Contact us</a>
                 </div>
                 <div className={styles.footer__link}>
-                  <a href="#">Register & Warranty</a>
+                  <Link href="/">
+                    <a> Register & Warranty</a>
+                  </Link>
                 </div>
                 <div className={styles.footer__link}>
                   <a href="#">Nearest showrooms</a>
