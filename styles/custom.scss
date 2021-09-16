@@ -4,9 +4,10 @@ $body-color: #70797b;
 $primary: #455052;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
-
+@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
 body {
   font-size: 14px;
+  font-family: GothamPro;
 }
 
 h1,
@@ -102,4 +103,36 @@ a {
 
 li.previous.disabled {
   background: rgb(221, 221, 221);
+}
+
+p {
+  font-size: 1rem;
+}
+
+.slidenavLine {
+  img {
+    width: 100%;
+  }
+  .slick-dots {
+    bottom: -65px;
+  }
+  .slick-dots li {
+    width: 25px;
+    height: 3px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    background-color: #E5EBEC;
+    opacity: 0.68;
+  }
+  .slick-dots li.slick-active {
+    opacity: 1;
+  }
+  .slick-dots li button {
+    width: 25px;
+    padding: 0px;
+  }
+  .slick-dots li button:before, .slick-dots li.slick-active button:before {
+    color: transparent;
+  }
 }
