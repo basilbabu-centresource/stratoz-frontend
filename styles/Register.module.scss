@@ -17,8 +17,7 @@
   color: aliceblue;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
-  padding: 53% 0 50px;
+  align-items: center;
 }
 
 .row {
@@ -27,21 +26,21 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x)/ -2);
-  margin-left: calc(var(--bs-gutter-x)/ -2);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
 }
 .col12 {
   flex: 0 0 auto;
   width: 100%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col6 {
   flex: 0 0 auto;
   width: 50%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 
@@ -50,7 +49,7 @@
 
   .heroFrom {
     width: 410px;
-    background: #0F0F0F;
+    background: #0f0f0f;
     border-radius: 5px;
     padding: 30px 30px 40px;
 
@@ -58,48 +57,49 @@
       font-size: 16px;
       margin: 0 0 25px;
       font-weight: 400;
-      color: #FFFFFF;
+      color: #ffffff;
     }
     label {
       width: 100%;
       font-size: 14px;
-      color: #FFFFFF;
+      color: #ffffff;
       font-weight: 300;
     }
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       background: #171717;
-      border: 1px solid #FFFFFF80;
+      border: 1px solid #ffffff80;
       border-radius: 5px;
       margin: 10px 0 20px;
       height: 46px;
       outline: unset;
-      color: #FFFFFF65;
+      color: #ffffff65;
       padding: 0 15px;
     }
-    input::placeholder, textarea::placeholder {
-      color: #FFFFFF65;
+    input::placeholder,
+    textarea::placeholder {
+      color: #ffffff65;
     }
     textarea {
       height: 85px;
     }
     input[type="submit"] {
-      background: #BFBFBF;
-      border: 1px solid #FFFFFF80;
+      background: #bfbfbf;
+      border: 1px solid #ffffff80;
       border-radius: 5px;
       margin: 0 0 20px;
       color: #000000;
     }
     p {
       margin: 0;
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 14px;
       font-weight: 300;
 
       a {
         text-decoration: underline;
       }
-
     }
 
     .chkBox input {
@@ -109,26 +109,25 @@
       margin-right: 15px;
     }
   }
-  
 }
 
 .titleBox {
   margin-top: 75px;
 
   h6 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 300;
     margin: 0 0 10px;
   }
-  h1  {
+  h1 {
     font-size: 45px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 400;
     margin: 0 0 15px;
   }
   h5 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 300;
     margin: 0;

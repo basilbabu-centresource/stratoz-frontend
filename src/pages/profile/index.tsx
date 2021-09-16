@@ -3,8 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/MyProfile.module.scss";
+import { useDispatch } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <LayoutDefault>
@@ -29,6 +33,8 @@ const Home: NextPage = () => {
                   </div>
                   <div className={styles.col7}>
                     <div className={styles.btn}>
+                      <button onClick={() => dispatch(logout())}>Logout</button>
+
                       <a href="#">
                         <button>Edit Profile</button>
                       </a>

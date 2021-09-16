@@ -2,11 +2,56 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
-import styles from "../../styles/Warranty.module.scss";
+import styles from "../../../styles/Warranty.module.scss";
 import Hero from "../../components/Warranty/Hero";
 import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import withAuth from "../../hoc/withAuth";
+import useAddWarranty from "../../hooks/useAddWarranty";
+import useStores from "../../hooks/useStores";
+
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  purchasedFrom: string;
+  dateOfPurchase: string;
+  invoice: string;
+  productCode: string;
+};
 
 const Showroom: NextPage = () => {
+  const { mutate } = useAddWarranty();
+
+  const stores = useStores();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const formData = new FormData();
+
+    const saticData = {
+      name: `${data.firstName} ${data.lastName}`,
+      email: data.email,
+      phone_number: data.phoneNumber,
+      store: Number(data.purchasedFrom),
+      purchase_date: data.dateOfPurchase,
+      product_code: data.productCode,
+    };
+
+    formData.append("data", JSON.stringify(saticData));
+
+    alert("Login");
+
+    mutate(formData);
+  };
+
   return (
     <>
       <LayoutDefault>
@@ -25,51 +70,88 @@ const Showroom: NextPage = () => {
                   <span>Warranty </span> Registration
                 </h2>
                 <hr />
-                <form className={styles.formBox + " " + styles.mt30}>
+                {/* {JSON.stringify(data)} */}
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className={styles.formBox + " " + styles.mt30}
+                >
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>First Name</label>
-                      <input type="text" placeholder="Jonathan " />
+                      <input
+                        type="text"
+                        placeholder="Jonathan "
+                        {...register("firstName", { required: true })}
+                      />
                     </div>
                     <div className={styles.col6}>
                       <label>Last Name</label>
-                      <input type="text" placeholder="Doe" />
+                      <input
+                        type="text"
+                        placeholder="Doe"
+                        {...register("lastName", { required: true })}
+                      />
                     </div>
                   </div>
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Email ID</label>
-                      <input type="email" placeholder="jon.doe@gmail.com " />
+                      <input
+                        type="email"
+                        placeholder="jon.doe@gmail.com "
+                        {...register("email", { required: true })}
+                      />
                     </div>
                     <div className={styles.col6}>
                       <label>Phone Number</label>
-                      <input type="text" placeholder="9731111000" />
+                      <input
+                        type="text"
+                        placeholder="9731111000"
+                        {...register("phoneNumber", { required: true })}
+                      />
                     </div>
                   </div>
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Purchased From</label>
-                      <select>
-                        <option>Ababeel Emporio</option>
-                        <option>Ababeel Emporio</option>
+                      <select
+                        {...register("purchasedFrom", { required: true })}
+                      >
+                        {stores.data &&
+                          stores.data.map((store: any, index: any) => (
+                            <option key={index} value={store.id}>
+                              {store.name}
+                            </option>
+                          ))}
                       </select>
                     </div>
                     <div className={styles.col6}>
                       <label>Date of Purchase</label>
-                      <input type="date" placeholder="Doe" />
+                      <input
+                        type="date"
+                        placeholder="Doe"
+                        {...register("dateOfPurchase", { required: true })}
+                      />
                     </div>
                   </div>
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Upload Invoice</label>
                       <div className="fileUpload">
-                        <input type="file" />
-                        <img src="" />
+                        <input
+                          type="file"
+                          {...register("invoice", { required: true })}
+                        />
+                        {/* <img src="" /> */}
                       </div>
                     </div>
                     <div className={styles.col6}>
                       <label>Product Code</label>
-                      <input type="text" placeholder="LoreumIpsum" />
+                      <input
+                        type="text"
+                        placeholder="LoreumIpsum"
+                        {...register("productCode", { required: true })}
+                      />
                     </div>
                   </div>
                   <div className={styles.row}>
@@ -87,4 +169,4 @@ const Showroom: NextPage = () => {
   );
 };
 
-export default Showroom;
+export default withAuth(Showroom);
