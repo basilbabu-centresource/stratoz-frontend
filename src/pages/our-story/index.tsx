@@ -89,7 +89,7 @@ const About: NextPage = ({ about }: any) => {
                 </div>
                 <div className="row">
                   {about.footer_top.content.map((content: any, i: number) => (
-                    <div className="col-md-6"  key={i}>
+                    <div className={"col-md-6 " + styles.mb30}  key={i}>
                       <div className={styles.mb40 + " " + styles.iconBox}>
                         <div>
                           <img

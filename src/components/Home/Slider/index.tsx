@@ -12,55 +12,61 @@ const Hero: React.FC = () => {
   };
   return (
     <div className={"slidenavLine " + styles.slider}>
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-md-12">
-          {/* <div
-            id="carouselExampleDark"
-            className="carousel slide carousel-fade"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide-to="0"
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
+          <div className="col-md-12 p-0">
+          <section>
+            <div
+              id="carouselExampleDark"
+              className="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="0"
+                  className="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleDark"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img
+                    src="/banner.png"
+                  />
+                </div>
+                <div className="carousel-item ">
+                  <img
+                    src="/banner.png"
+                  />
+                </div>
+                <div className="carousel-item ">
+                  <img
+                    src="/banner.png"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  src="/banner.png"
-                />
-              </div>
-              <div className="carousel-item ">
-                <img
-                  src="/banner.png"
-                />
-              </div>
-              <div className="carousel-item ">
-                <img
-                  src="/banner.png"
-                />
-              </div>
+            
+            <div className="scrollanim">
+              <span>.</span>
             </div>
-          </div> */}
-          <Slider {...settings}>
+
+          {/* <Slider {...settings}>
             <div>
               <img className="w-100" src="/banner.png"/>
             </div>
@@ -70,7 +76,8 @@ const Hero: React.FC = () => {
             <div>
               <img  className="w-100" src="/banner.png"/>
             </div>
-          </Slider>
+          </Slider> */}
+          </section>
           </div>
         </div>
       </div>

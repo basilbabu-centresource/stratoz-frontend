@@ -221,39 +221,38 @@ li.previous.disabled {
 
   &.oppenned {
     left: 0;
-    width: 350px;
+    width: 310px;
     // display: block;
   }
-  ul {
-    margin: 0;
-  }
-  li {
-    display: block;
-    list-style: none;
-    height: auto;
-    // text-align: center;
-    margin-left: 0;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  // ul {
+  //   margin: 0;
+  // }
+  // li {
+  //   display: block;
+  //   list-style: none;
+  //   height: auto;
+  //   margin-left: 0;
+  //   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    &:first-child {
-      margin-top: 100px;
-    }
+  //   &:first-child {
+  //     margin-top: 100px;
+  //   }
 
-    a {
-      color: #fff;
-      font-size: 16px;
-      width: 100%;
-      display: block;
-      float: left;
-      text-transform: uppercase;
-      line-height: 30px;
+  //   a {
+  //     color: #fff;
+  //     font-size: 16px;
+  //     width: 100%;
+  //     display: block;
+  //     float: left;
+  //     text-transform: uppercase;
+  //     line-height: 30px;
 
-      &:hover {
-        font-weight: bold;
-        text-decontarion: none;
-      }
-    }
-  }
+  //     &:hover {
+  //       font-weight: bold;
+  //       text-decontarion: none;
+  //     }
+  //   }
+  // }
 }
 p {
   font-size: 1rem;
@@ -285,5 +284,149 @@ p {
   .slick-dots li button:before,
   .slick-dots li.slick-active button:before {
     color: transparent;
+  }
+}
+
+.filterCheck {
+  .checkbox-button {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  input {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 11px 23px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    outline: 0;
+    background-color: transparent;
+  }
+
+  .checkbox-button__input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .checkbox-button__control {
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background-color: inherit;
+    color: #707070;
+    border: 1px solid #707070;
+    border-radius: 2px;
+  }
+
+  .checkbox-button__input:checked + .checkbox-button__control:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #707070;
+  }
+
+  .checkbox-button__input:checked + .checkbox-button__control {
+    border-color: #707070;
+  }
+
+  .checkbox-button__control {
+    transform: scale(0.75);
+  }
+
+  .accordion-item {
+    border: unset;
+    background: transparent;
+  }
+
+  .accordion-button {
+    color: #696969;
+    background-color: #efefef;
+    font-size: 0.875rem;
+    box-shadow: unset;
+    padding: 0.85rem 1.25rem;
+  }
+  .accordion-button:focus {
+    box-shadow: unset;
+    outline: none;
+  }
+  .checkbox-button__label {
+    color: #535252;
+    font-size: 0.75rem;
+    font-weight: 200;
+  }
+}
+
+.slidenavLine {
+  .carousel-indicators {
+    top: 45%;
+    bottom: auto;
+    margin-right: 0%;
+    left: auto;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .carousel-inner {
+    z-index: -1;
+  }
+
+  .carousel-inner {
+    height: 100%;
+  }
+
+  .carousel {
+    height: 100%;
+  }
+
+  .carousel-item {
+    height: 100%;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    background: #dfdfdf 0% 0% no-repeat padding-box;
+  }
+
+  .scrollanim {
+    height: 29px;
+    width: 16px;
+    border: 1px solid #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    border-radius: 9px;
+  }
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      top: -5px;
+    }
+
+    50% {
+      top: 1px;
+    }
+  }
+
+  .scrollanim span {
+    font-size: 40px;
+    position: absolute;
+    top: 2px;
+    line-height: 0;
+    margin: 0;
+    line-break: 0;
+    color: #ffffff;
+    left: 2px;
+    animation: MoveUpDown 1.5s linear infinite;
   }
 }

@@ -40,7 +40,7 @@ const Products: NextPage = ({ categories }: any) => {
             </div>
             <div className={styles.products}>
               <div className="container">
-                <div className={styles.row}>
+                <div className="row">
                   {/* <div className={styles.col4}>
                     <div className={styles.col4img}>
                       <img src="/products/1.png" />
@@ -73,7 +73,7 @@ const Products: NextPage = ({ categories }: any) => {
                   </div> */}
                   {/* {JSON.stringify(categories)} */}
                   {categories.map((category: any, index: number) => (
-                    <div key={index} className={styles.col4}>
+                    <div key={index} className="col-md-4">
                       <a href={`/categories/${category.slug}`}>
                         <div className={styles.col4img}>
                           <Image

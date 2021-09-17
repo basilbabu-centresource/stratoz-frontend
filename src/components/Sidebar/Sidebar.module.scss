@@ -27,3 +27,58 @@
     margin-right: 20px;
   }
 }
+.sideMenu {
+  margin-top: 75px;
+
+  h6 {
+    font-size: 1rem;
+    color: #e5ebec;
+    font-weight: 100;
+    position: relative;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 18%;
+      bottom: -10px;
+      width: 100px;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      border-bottom: 1px solid #e5ebec;
+    }
+  }
+
+  h5 {
+    color: #e5ebec;
+    font-size: 1rem;
+    font-weight: 200;
+    margin-bottom: 17px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-bottom: 35px;
+    li {
+      margin-bottom: 9px;
+      a {
+        color: #e5ebec;
+        font-size: 0.875rem;
+        font-weight: 200;
+        opacity: 0.6;
+        text-transform: capitalize;
+      }
+      &:first-child {
+        margin-top: 0px;
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .qlinks ul {
+    display: inline-flex;
+  }
+}

@@ -2,13 +2,13 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../../layout/Default";
-import styles from "../../../../styles/Favorites.module.scss";
+import styles from "../../../../styles/Categories.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
 
-const Categories: NextPage = ({ products, category, count }: any) => {
+const Categories: NextPage = ({ products, category, count, cat_listing }: any) => {
   const handlePageChange = (pageNumber: number) => {
-    console.log(pageNumber + 1);
+    //console.log(pageNumber + 1);
 
     Router.push(`/collections/${category}/${pageNumber + 1}`);
   };
@@ -24,23 +24,166 @@ const Categories: NextPage = ({ products, category, count }: any) => {
           </Head>
 
           <main className={styles.main}>
-            <div className={styles.title_desc}>
-              <div className={"container " + styles.mb50}>
-                <h2 className={styles.h2_title}>
-                  <span>{category}</span>
-                </h2>
-                {console.log(products)}
-                <hr />
-              </div>
-            </div>
-            <div className={styles.products}>
-              <div className="container">
-                <div className={styles.row}>
+            <div className="container">
+              <div className="row">
+                <div className={"col-md-3 p-0 " +styles.bg3full}>
+                  <div className={styles.titleBox}>
+                    <h1>{category}</h1>
+                    <ul>
+                      <li><a href="">Home</a></li>
+                      <li><a href="">Products</a></li>
+                      <li><a href="">{category}</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div className="accordion filterCheck" id="accordionExample">
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id="headingOne">
+                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Series
+                        </button>
+                      </h2>
+                      <div id="collapseOne" className="accordion-collapse collapse show " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div className="accordion-body">
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1" checked/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Colors of Art Wash Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Countertop Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Free Standing Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Integrated Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Stone Countertop Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Undercounter Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Wall Mounted Basins</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id="headingTwo">
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Color
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" className="accordion-collapse collapse filterCheck" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div className="accordion-body">
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Undercounter Basins</span>
+                            </label>
+                          </div>
+                          <div className="example">
+                            <label className="checkbox-button">
+                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <span className="checkbox-button__control"></span>
+                              <span className="checkbox-button__label">Wall Mounted Basins</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div className="col-md-9">
+                  <div className={"row " + styles.catList}>
+                    {cat_listing.map((cate: any) => (
+                    <div className="col-md-2">
+                      <a href={`/categories/${cate.slug}`}>
+                        <div className={styles.col4img + " " +styles.overlay}>
+                          <Image
+                            src={
+                              cate.image
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${cate?.image?.url}`
+                                : "/products/5.png"
+                            }
+                            alt={cate.name}
+                            height={400}
+                            width={500}
+                          />
+                          <div className={ styles.middle }>
+                            <div className={ styles.text } >
+                              <h6>{cate.name}</h6>
+                            </div>
+                          </div>
+                        </div>
+
+                        
+                        {/* <div className={styles.col4img}>
+                          <Image
+                            src={
+                              cate.image
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${cate?.image?.url}`
+                                : "/products/5.png"
+                            }
+                            alt={cate.name}
+                            height={400}
+                            width={500}
+                          />
+                          <h6>{cate.name}</h6>
+                        </div> */}
+                      </a>
+                    </div>
+                    ))}
+                  </div>
+                  
+                  <div className="row">
+                    <div className="col-md-8">
+                        <div className={styles.searchProduct}>
+                          <div className="m-auto">
+                            <button><img src="/icons/searchpl.png"/></button>
+                            <input type="text"/>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
                   {products &&
                     products.map((product: any) => (
                       <>
-                        <a href={`/products/${product.slug}`}>
-                          <div className={styles.col4}>
+                        <div className={"col-md-4 "+ styles.mb25}>
+                          <a href={`/products/${product.slug}`}>
                             <div className={styles.col4fav}>
                               <div className={styles.fIcon}>
                                 <Image
@@ -62,8 +205,8 @@ const Categories: NextPage = ({ products, category, count }: any) => {
                                 <h5>product_code - {product?.colour?.name}</h5>
                               </div>
                             </div>
-                          </div>
-                        </a>
+                          </a>
+                        </div>
                       </>
                     ))}
                 </div>
@@ -80,8 +223,10 @@ const Categories: NextPage = ({ products, category, count }: any) => {
                   containerClassName={"pagination"}
                   activeClassName={"active"}
                 />
+                </div>
               </div>
             </div>
+            
           </main>
         </div>
       </LayoutDefault>
@@ -114,6 +259,12 @@ export async function getServerSideProps({ query }: any) {
     `${process.env.API_BASE_URL}/products/count?category.slug=${query.category}`
   );
 
+  
+  const categoriesRes = await fetch(`${process.env.API_BASE_URL}/categories`);
+
+  const cat_listing = await categoriesRes.json();
+
+
   const products = await productsRes.json();
 
   const count = await countRes.json();
@@ -121,7 +272,7 @@ export async function getServerSideProps({ query }: any) {
   const { category } = query;
 
   // Pass data to the page via props
-  return { props: { products, category, count } };
+  return { props: { products, category, count, cat_listing } };
 }
 
 export default Categories;

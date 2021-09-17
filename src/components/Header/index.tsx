@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <>
       <div className={styles.navbar}>
@@ -28,12 +29,41 @@ const Header: React.FC = () => {
           </div>
           <div className={styles.right__menu}>
             <div className={styles.right__menu__items}>
-              <Image
-                src={"/icons/search.png"}
-                alt="search icon"
-                height={18}
-                width={18}
-              />
+                {!isOpen ? (
+                  <>
+                  <div className={styles.search}>
+                    <input
+                      type="text"
+                      name="search"
+                      required
+                      aria-label="Search"
+                      placeholder="Search here"
+                      className="header-search"
+                    />
+                    <button type="submit" >
+                      <Image
+                        src={"/icons/search.png"}
+                        alt="search icon"
+                        height={18}
+                        width={18}
+                      />
+                    </button>
+                  </div>
+                  </>
+                ): (
+                  <>
+                    <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+                <Image
+                  src={"/icons/search.png"}
+                  alt="search icon"
+                  height={18}
+                  width={18}
+                />
+              </button>
+                  </>
+                )
+              }
+              
             </div>
             <div className={styles.right__menu__items}>
               <Link href="/products/favourites">
