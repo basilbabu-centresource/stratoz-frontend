@@ -46,10 +46,10 @@ const Brochures: NextPage = ({ brochure }: any) => {
 
                 {brochure.brochure.map((value: any, i: number) => (
                   <div className={"row " + styles.mb35} key={i}>
-                    <div className={styles.col12}>
+                    <div className="col-md-12">
                       <h5 className={styles.titleh5}>{value.title}</h5>
                       <Document
-                        file="/profile.pdf"
+                        file={ `${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}` }
                         onLoadSuccess={onDocumentLoadSuccess}
                       >
                         <Page pageNumber={pageNumber} />
@@ -58,13 +58,22 @@ const Brochures: NextPage = ({ brochure }: any) => {
                         Page {pageNumber} of {numPages}
                       </p>
 
-                      <img src="/brochures1.png" />
-                      <a href={ `${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}` }>
-                        <button className={styles.broBtn + " " + styles.mt25}>
-                          <img src="/icons/download.png" />
-                          Download
-                        </button>
-                      </a>
+                      {/* <img src="/brochures1.png" width="100%"/> */}
+
+                      <div className="row">
+                        <div className={"col-md-6 "+ styles.mt25}>
+                          <a href={ `${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}` }>
+                            <button className={styles.broBtn }>
+                              <img src="/icons/download.png" />
+                              Download
+                            </button>
+                          </a>
+                        </div>
+                        <div className={"col-md-6 text-end " + styles.mt25 + " "+ styles.slideBtn}>
+                          <button><img src="/icons/left.png"/></button>
+                          <button><img src="/icons/right.png"/></button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                  ))}
