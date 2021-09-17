@@ -38,6 +38,7 @@ const Register: NextPage = () => {
     console.log("Data from forms", data);
 
     const credentials = {
+<<<<<<< HEAD
       name: "asaasa",
       username: data.email,
       email: data.email,
@@ -46,6 +47,13 @@ const Register: NextPage = () => {
     };
 
     dispatch(register(credentials));
+=======
+      identifier: data.email,
+      password: data.password,
+    };
+
+    dispatch(login(credentials));
+>>>>>>> a82b540055a85b05d2a66552da5eca4ea17f7caa
   };
 
   return (
