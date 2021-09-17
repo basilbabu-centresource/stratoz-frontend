@@ -56,6 +56,7 @@ export function login(credentials: any) {
 }
 
 // Asynchronous thunk action
+
 export function register(credentials: any) {
   return async (dispatch: any) => {
     try {
@@ -80,6 +81,7 @@ export function register(credentials: any) {
 }
 
 // Asynchronous thunk action
+
 export function logout() {
   return async (dispatch: any) => {
     try {
