@@ -8,17 +8,17 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 
 const Home: NextPage = () => {
-  const slider = React.useRef(null);
-  const simDesignslider = React.useRef(null);
-  const excRangeslider = React.useRef(null);
-  const preSlider = React.useRef(null);
-  
+  const slider = React.useRef<any>(null);
+  const simDesignslider = React.useRef<any>(null);
+  const excRangeslider = React.useRef<any>(null);
+  const preSlider = React.useRef<any>(null);
+
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1.09,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
   const simDesignsettings = {
     dots: false,
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    arrows: false
+    arrows: false,
   };
   const excRangesettings1 = {
     dots: false,
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
     speed: 500,
     slidesToShow: 3.5,
     slidesToScroll: 3,
-    arrows: false
+    arrows: false,
   };
   const bgSlidesettings = {
     dots: true,
@@ -63,14 +63,13 @@ const Home: NextPage = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
   };
 
   return (
     <>
       <LayoutDefault>
-
-        <Sliders/>
+        <Sliders />
         <main className={styles.main}>
           <div className="container">
             <Head>
@@ -80,29 +79,40 @@ const Home: NextPage = () => {
             </Head>
             <div className={"row " + styles.exProducts}>
               <div className={"col-md-12 " + styles.mb35}>
-                <h3>Explore <span>Products</span></h3>
+                <h3>
+                  Explore <span>Products</span>
+                </h3>
 
                 <Slider ref={slider} {...settings}>
                   <div>
                     <div className={"row"}>
                       <div className={"col-md-6 " + styles.col6}>
                         <div className={styles.epImages}>
-                          <img src="/home/1.png"/>
-                          <h3>EXPERIENCE <br/><span>THE SPIRITS OF WATER</span></h3>
+                          <img src="/home/1.png" />
+                          <h3>
+                            EXPERIENCE <br />
+                            <span>THE SPIRITS OF WATER</span>
+                          </h3>
                         </div>
                       </div>
                       <div className={"col-md-5 " + styles.col5}>
                         <div className={"row"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
-                              <img src="/home/2.png"/>
-                              <h3>SENSUAL <br/><span>MOMENTS</span></h3>
+                              <img src="/home/2.png" />
+                              <h3>
+                                SENSUAL <br />
+                                <span>MOMENTS</span>
+                              </h3>
                             </div>
                           </div>
                           <div className="col-md-12">
                             <div className={styles.epImages}>
-                              <img src="/home/3.png"/>
-                              <h3>THE CLASSIC <br/><span>INTERPRETED</span></h3>
+                              <img src="/home/3.png" />
+                              <h3>
+                                THE CLASSIC <br />
+                                <span>INTERPRETED</span>
+                              </h3>
                             </div>
                           </div>
                         </div>
@@ -113,22 +123,31 @@ const Home: NextPage = () => {
                     <div className={"row"}>
                       <div className={"col-md-6 " + styles.col6}>
                         <div className={styles.epImages}>
-                          <img src="/home/1.png"/>
-                          <h3>EXPERIENCE <br/><span>THE SPIRITS OF WATER</span></h3>
+                          <img src="/home/1.png" />
+                          <h3>
+                            EXPERIENCE <br />
+                            <span>THE SPIRITS OF WATER</span>
+                          </h3>
                         </div>
                       </div>
                       <div className={"col-md-5 " + styles.col5}>
                         <div className={"row"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
-                              <img src="/home/2.png"/>
-                              <h3>SENSUAL <br/><span>MOMENTS</span></h3>
+                              <img src="/home/2.png" />
+                              <h3>
+                                SENSUAL <br />
+                                <span>MOMENTS</span>
+                              </h3>
                             </div>
                           </div>
                           <div className="col-md-12">
                             <div className={styles.epImages}>
-                              <img src="/home/3.png"/>
-                              <h3>THE CLASSIC <br/><span>INTERPRETED</span></h3>
+                              <img src="/home/3.png" />
+                              <h3>
+                                THE CLASSIC <br />
+                                <span>INTERPRETED</span>
+                              </h3>
                             </div>
                           </div>
                         </div>
@@ -138,11 +157,17 @@ const Home: NextPage = () => {
                 </Slider>
               </div>
               <div className="col-md-6 col-6">
-                <button onClick={() => slider?.current?.slickPrev()}><img src="/icons/left.png"/></button>
-                <button onClick={() => slider?.current?.slickNext()}><img src="/icons/right.png"/></button>
+                <button onClick={() => slider?.current?.slickPrev()}>
+                  <img src="/icons/left.png" />
+                </button>
+                <button onClick={() => slider?.current?.slickNext()}>
+                  <img src="/icons/right.png" />
+                </button>
               </div>
               <div className="col-md-6 col-6 text-end">
-                <a href="#"><button>View all</button></a>
+                <a href="#">
+                  <button>View all</button>
+                </a>
               </div>
             </div>
           </div>
@@ -151,66 +176,86 @@ const Home: NextPage = () => {
         <section className={styles.bgblack}>
           <div className="container">
             <div className={"row " + styles.excRange}>
-              <div className={"col-md-3 " }>
+              <div className={"col-md-3 "}>
                 <Slider ref={excRangeslider} {...excRangesettings1}>
                   <div>
-                    <img src="/home/sd1.png"/>
+                    <img src="/home/sd1.png" />
                   </div>
                   <div>
-                    <img src="/home/sd2.png"/>
+                    <img src="/home/sd2.png" />
                   </div>
                   <div>
-                    <img src="/home/sd3.png"/>
+                    <img src="/home/sd3.png" />
                   </div>
                   <div>
-                    <img src="/home/sd1.png"/>
+                    <img src="/home/sd1.png" />
                   </div>
                   <div>
-                    <img src="/home/sd2.png"/>
+                    <img src="/home/sd2.png" />
                   </div>
                   <div>
-                    <img src="/home/sd3.png"/>
+                    <img src="/home/sd3.png" />
                   </div>
                 </Slider>
               </div>
-              <div className={"col-md-3 " }>
+              <div className={"col-md-3 "}>
                 <Slider ref={excRangeslider} {...excRangesettings2}>
                   <div>
-                    <img src="/home/sd1.png"/>
+                    <img src="/home/sd1.png" />
                   </div>
                   <div>
-                    <img src="/home/sd2.png"/>
+                    <img src="/home/sd2.png" />
                   </div>
                   <div>
-                    <img src="/home/sd3.png"/>
+                    <img src="/home/sd3.png" />
                   </div>
                   <div>
-                    <img src="/home/sd1.png"/>
+                    <img src="/home/sd1.png" />
                   </div>
                   <div>
-                    <img src="/home/sd2.png"/>
+                    <img src="/home/sd2.png" />
                   </div>
                   <div>
-                    <img src="/home/sd3.png"/>
+                    <img src="/home/sd3.png" />
                   </div>
                 </Slider>
               </div>
               <div className="col-md-6">
-                <div className={"row justify-content-center align-items-center" }>
+                <div
+                  className={"row justify-content-center align-items-center"}
+                >
                   <div className={styles.width405}>
-                    <div className={"row "+ styles.mb35}>
+                    <div className={"row " + styles.mb35}>
                       <div className="col-md-12 p-0">
-                        <h2 className={styles.mb35}>Introducing <br/><span>Our Exclusive Range</span></h2>
-                        <p>All new collection for your dream home. This is a breakthrough of traditional design. The basin forms a 75 degree angle with the counter to break the space balance.</p>
+                        <h2 className={styles.mb35}>
+                          Introducing <br />
+                          <span>Our Exclusive Range</span>
+                        </h2>
+                        <p>
+                          All new collection for your dream home. This is a
+                          breakthrough of traditional design. The basin forms a
+                          75 degree angle with the counter to break the space
+                          balance.
+                        </p>
                       </div>
                     </div>
                     <div className="row ">
                       <div className="col-md-6 col-6 p-0">
-                        <button onClick={() => excRangeslider?.current?.slickPrev()}><img src="/icons/left.png"/></button>
-                        <button onClick={() => excRangeslider?.current?.slickNext()}><img src="/icons/right.png"/></button>
+                        <button
+                          onClick={() => excRangeslider?.current?.slickPrev()}
+                        >
+                          <img src="/icons/left.png" />
+                        </button>
+                        <button
+                          onClick={() => excRangeslider?.current?.slickNext()}
+                        >
+                          <img src="/icons/right.png" />
+                        </button>
                       </div>
                       <div className="col-md-6 col-6 p-0 text-end">
-                        <a href="#"><button>View all</button></a>
+                        <a href="#">
+                          <button>View all</button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -219,21 +264,29 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        
+
         <section className={styles.premium}>
           <div className="container">
             <div className={"row " + styles.preTiles}>
-              <h3>Premium <span>Tiles & Ceramics</span></h3>
+              <h3>
+                Premium <span>Tiles & Ceramics</span>
+              </h3>
               <div className={"col-md-8 " + styles.mb30}>
-                <div className={"row " }>
+                <div className={"row "}>
                   <div className="col-md-5">
-                  <div>
-                    <img src="/home/p1.png"/>
-                  </div>
+                    <div>
+                      <img src="/home/p1.png" />
+                    </div>
                   </div>
                   <div className="col-md-7">
                     <h2 className={styles.mb35}>Ivory Floor Tiles</h2>
-                    <p>As the era of 'less is more' is fading, many look for new ways to express their personality in their private spaces. Some tips below on how to personalise your bathroom, by giving it a bold look through stylised fixtures and unconventional finishes.</p>
+                    <p>
+                      As the era of 'less is more' is fading, many look for new
+                      ways to express their personality in their private spaces.
+                      Some tips below on how to personalise your bathroom, by
+                      giving it a bold look through stylised fixtures and
+                      unconventional finishes.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -241,50 +294,75 @@ const Home: NextPage = () => {
                 <Slider ref={preSlider} {...preSettings}>
                   <div>
                     <div className={styles.slideInd}>
-                    <img src="/home/p2.png"/>
-                    <p>Terrazzo Countertop <br/><span>Wash Basin STL-1905-GR-WB - Grey</span></p>
+                      <img src="/home/p2.png" />
+                      <p>
+                        Terrazzo Countertop <br />
+                        <span>Wash Basin STL-1905-GR-WB - Grey</span>
+                      </p>
                     </div>
                   </div>
                   <div>
                     <div className={styles.slideInd}>
-                      <img src="/home/p3.png"/>
-                      <p>Filita Close Coupled WC <br/><span>STL-1900-GR-FC - Crome</span></p>
+                      <img src="/home/p3.png" />
+                      <p>
+                        Filita Close Coupled WC <br />
+                        <span>STL-1900-GR-FC - Crome</span>
+                      </p>
                     </div>
                   </div>
                   <div>
                     <div className={styles.slideInd}>
-                      <img src="/home/p4.png"/>
-                      <p>Marble Countertop Wash Basin<br/><span> STL-1906-GR-WB - White</span></p>
+                      <img src="/home/p4.png" />
+                      <p>
+                        Marble Countertop Wash Basin
+                        <br />
+                        <span> STL-1906-GR-WB - White</span>
+                      </p>
                     </div>
                   </div>
                   <div>
                     <div className={styles.slideInd}>
-                      <img src="/home/p2.png"/>
-                      <p>Terrazzo Countertop <br/><span>Wash Basin STL-1905-GR-WB - Grey</span></p>
+                      <img src="/home/p2.png" />
+                      <p>
+                        Terrazzo Countertop <br />
+                        <span>Wash Basin STL-1905-GR-WB - Grey</span>
+                      </p>
                     </div>
                   </div>
                   <div>
                     <div className={styles.slideInd}>
-                      <img src="/home/p3.png"/>
-                      <p>Filita Close Coupled WC <br/><span>STL-1900-GR-FC - Crome</span></p>
+                      <img src="/home/p3.png" />
+                      <p>
+                        Filita Close Coupled WC <br />
+                        <span>STL-1900-GR-FC - Crome</span>
+                      </p>
                     </div>
                   </div>
                   <div>
                     <div className={styles.slideInd}>
-                      <img src="/home/p4.png"/>
-                      <p>Marble Countertop Wash Basin<br/><span> STL-1906-GR-WB - White</span></p>
+                      <img src="/home/p4.png" />
+                      <p>
+                        Marble Countertop Wash Basin
+                        <br />
+                        <span> STL-1906-GR-WB - White</span>
+                      </p>
                     </div>
                   </div>
                 </Slider>
               </div>
               <div className="col-md-6 col-6">
-                <button onClick={() => preSlider?.current?.slickPrev()}><img src="/icons/left.png"/></button>
-                <button onClick={() => preSlider?.current?.slickNext()}><img src="/icons/right.png"/></button>
+                <button onClick={() => preSlider?.current?.slickPrev()}>
+                  <img src="/icons/left.png" />
+                </button>
+                <button onClick={() => preSlider?.current?.slickNext()}>
+                  <img src="/icons/right.png" />
+                </button>
               </div>
               <div className="col-md-6 col-6 text-end">
-                <a href="#"><button>View all Products</button></a>
+                <a href="#">
+                  <button>View all Products</button>
+                </a>
               </div>
-              
             </div>
           </div>
         </section>
@@ -292,32 +370,53 @@ const Home: NextPage = () => {
         <section className={"slidenavLine " + styles.bgImg}>
           <div className="container">
             <div className={"row " + styles.bgSlide}>
-              <div className={"col-md-12 " }>
+              <div className={"col-md-12 "}>
                 <Slider {...bgSlidesettings}>
                   <div>
                     <div className={styles.carouselItem}>
-                      <img src="/home/g1.png"/>
+                      <img src="/home/g1.png" />
                       <div className={styles.carouselCaption}>
-                        <h2>German <br/><span>Perfected Design</span></h2>
-                        <p>Designed and tuned with Stratoz concepts, Designing with humble shades of black and white is as exciting as it would be challenging.</p>
+                        <h2>
+                          German <br />
+                          <span>Perfected Design</span>
+                        </h2>
+                        <p>
+                          Designed and tuned with Stratoz concepts, Designing
+                          with humble shades of black and white is as exciting
+                          as it would be challenging.
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div>
                     <div className={styles.carouselItem}>
-                      <img src="/home/g1.png"/>
+                      <img src="/home/g1.png" />
                       <div className={styles.carouselCaption}>
-                        <h2>German <br/><span>Perfected Design</span></h2>
-                        <p>Designed and tuned with Stratoz concepts, Designing with humble shades of black and white is as exciting as it would be challenging.</p>
+                        <h2>
+                          German <br />
+                          <span>Perfected Design</span>
+                        </h2>
+                        <p>
+                          Designed and tuned with Stratoz concepts, Designing
+                          with humble shades of black and white is as exciting
+                          as it would be challenging.
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div>
                     <div className={styles.carouselItem}>
-                      <img src="/home/g1.png"/>
+                      <img src="/home/g1.png" />
                       <div className={styles.carouselCaption}>
-                        <h2>German <br/><span>Perfected Design</span></h2>
-                        <p>Designed and tuned with Stratoz concepts, Designing with humble shades of black and white is as exciting as it would be challenging.</p>
+                        <h2>
+                          German <br />
+                          <span>Perfected Design</span>
+                        </h2>
+                        <p>
+                          Designed and tuned with Stratoz concepts, Designing
+                          with humble shades of black and white is as exciting
+                          as it would be challenging.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -332,7 +431,7 @@ const Home: NextPage = () => {
             <div className="row">
               <div className="col-md-3 ">
                 <div className={styles.flipMain}>
-                  <img src="/home/f1.png"/>
+                  <img src="/home/f1.png" />
                   <h2>Timeless Designs</h2>
                 </div>
               </div>
@@ -340,17 +439,20 @@ const Home: NextPage = () => {
                 <div className={"row " + styles.row1}>
                   <div className="col-md-4 p-0">
                     <div className={styles.flipImg}>
-                      <img src="/home/f2.png"/>
+                      <img src="/home/f2.png" />
                     </div>
                   </div>
                   <div className="col-md-4 p-0">
                     <div className={styles.flipImg}>
-                      <img src="/home/f3.png"/>
+                      <img src="/home/f3.png" />
                     </div>
                   </div>
                   <div className={"col-md-4 p-0 " + styles.bgTitle1}>
                     <div className={styles.flipTitle}>
-                      <h6>Classic Black <br/>Interior</h6>
+                      <h6>
+                        Classic Black <br />
+                        Interior
+                      </h6>
                     </div>
                   </div>
                 </div>
@@ -358,17 +460,23 @@ const Home: NextPage = () => {
                   <div className={"col-md-4 p-0 " + styles.bgTitle2}>
                     <div className={styles.flipcontent}>
                       <p>Envision the future of bathware</p>
-                      <a><button>View all</button></a>
+                      <a>
+                        <button>View all</button>
+                      </a>
                     </div>
                   </div>
                   <div className={"col-md-4 p-0 " + styles.bgTitle3}>
                     <div className={styles.flipcontent}>
-                      <p>Designed and tuned with Stratoz concepts, Designing with humble shades of black and white is as exciting as it would be challenging.</p>
+                      <p>
+                        Designed and tuned with Stratoz concepts, Designing with
+                        humble shades of black and white is as exciting as it
+                        would be challenging.
+                      </p>
                     </div>
                   </div>
                   <div className="col-md-4 p-0">
                     <div className="flipImg">
-                      <img src="/home/f4.png"/>
+                      <img src="/home/f4.png" />
                     </div>
                   </div>
                 </div>
@@ -376,52 +484,75 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-        
+
         <section className={styles.bgblack}>
           <div className="container">
             <div className={"row " + styles.simDesign}>
               <div className="col-md-6">
-                <div className={"row justify-content-center align-items-center" }>
+                <div
+                  className={"row justify-content-center align-items-center"}
+                >
                   <div className={styles.width365}>
-                    <div className={"row "+ styles.mb35}>
+                    <div className={"row " + styles.mb35}>
                       <div className="col-md-12 p-0">
-                        <h2 className={styles.mb35}>Simple Design <br/><span>Modern Bath ware <br/>Solutions</span></h2>
-                        <p>Weather traditional or contemporary, a faucet that bears the name stratoz carries with it the pride of having been designed to be exceptional on its own way, and each collection is perfectly proportioned.</p>
+                        <h2 className={styles.mb35}>
+                          Simple Design <br />
+                          <span>
+                            Modern Bath ware <br />
+                            Solutions
+                          </span>
+                        </h2>
+                        <p>
+                          Weather traditional or contemporary, a faucet that
+                          bears the name stratoz carries with it the pride of
+                          having been designed to be exceptional on its own way,
+                          and each collection is perfectly proportioned.
+                        </p>
                       </div>
                     </div>
                     <div className="row ">
                       <div className="col-md-6 col-6 p-0">
-                        <button onClick={() => simDesignslider?.current?.slickPrev()}><img src="/icons/left.png"/></button>
-                        <button onClick={() => simDesignslider?.current?.slickNext()}><img src="/icons/right.png"/></button>
+                        <button
+                          onClick={() => simDesignslider?.current?.slickPrev()}
+                        >
+                          <img src="/icons/left.png" />
+                        </button>
+                        <button
+                          onClick={() => simDesignslider?.current?.slickNext()}
+                        >
+                          <img src="/icons/right.png" />
+                        </button>
                       </div>
                       <div className="col-md-6 col-6 p-0 text-end">
-                        <a href="#"><button>View all</button></a>
+                        <a href="#">
+                          <button>View all</button>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className={"col-md-6 " }>
-              <Slider ref={simDesignslider} {...simDesignsettings}>
-                <div>
-                  <img src="/home/sd1.png"/>
-                </div>
-                <div>
-                  <img src="/home/sd2.png"/>
-                </div>
-                <div>
-                  <img src="/home/sd3.png"/>
-                </div>
-                <div>
-                  <img src="/home/sd1.png"/>
-                </div>
-                <div>
-                  <img src="/home/sd2.png"/>
-                </div>
-                <div>
-                  <img src="/home/sd3.png"/>
-                </div>
-              </Slider>
+              <div className={"col-md-6 "}>
+                <Slider ref={simDesignslider} {...simDesignsettings}>
+                  <div>
+                    <img src="/home/sd1.png" />
+                  </div>
+                  <div>
+                    <img src="/home/sd2.png" />
+                  </div>
+                  <div>
+                    <img src="/home/sd3.png" />
+                  </div>
+                  <div>
+                    <img src="/home/sd1.png" />
+                  </div>
+                  <div>
+                    <img src="/home/sd2.png" />
+                  </div>
+                  <div>
+                    <img src="/home/sd3.png" />
+                  </div>
+                </Slider>
               </div>
             </div>
           </div>
