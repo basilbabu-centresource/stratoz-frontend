@@ -6,7 +6,7 @@ import LayoutDefault from "../../layout/Default";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { login, selectUser } from "../../features/auth/authSlice";
+import { registerUser, selectUser } from "../../features/auth/authSlice";
 import router from "next/router";
 
 type Inputs = {
@@ -18,7 +18,7 @@ type Inputs = {
 };
 
 const Register: NextPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
 
   const { token, user } = useSelector(selectUser);
 
@@ -38,14 +38,14 @@ const Register: NextPage = () => {
     console.log("Data from forms", data);
 
     const credentials = {
-      name: "asaasa",
+      name: data.name,
       username: data.email,
       email: data.email,
-      password: "qwerty",
-      confirm_password: "querty",
+      password: data.password,
+      confirm_password: data.passwordConfirm,
     };
 
-    dispatch(register(credentials));
+    dispatch(registerUser(credentials));
   };
 
   return (

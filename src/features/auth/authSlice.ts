@@ -57,7 +57,7 @@ export function login(credentials: any) {
 
 // Asynchronous thunk action
 
-export function register(credentials: any) {
+export function registerUser(credentials: any) {
   return async (dispatch: any) => {
     try {
       const response = await axios.post(

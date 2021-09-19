@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Favorites.module.scss";
+import withAuth from "../../hoc/withAuth";
 
 const Favorites: NextPage = () => {
   return (
@@ -21,7 +22,7 @@ const Favorites: NextPage = () => {
                 <h2 className={styles.h2_title}>
                   <span>Favourite </span> Products
                 </h2>
-                <hr/>
+                <hr />
               </div>
             </div>
             <div className={styles.products}>
@@ -30,9 +31,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product1.png"/>
+                      <img src="/product1.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -42,9 +43,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product2.png"/>
+                      <img src="/product2.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -54,9 +55,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product3.png"/>
+                      <img src="/product3.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -66,9 +67,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product1.png"/>
+                      <img src="/product1.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -78,9 +79,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product2.png"/>
+                      <img src="/product2.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -90,9 +91,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product3.png"/>
+                      <img src="/product3.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -102,9 +103,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product1.png"/>
+                      <img src="/product1.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -114,9 +115,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product2.png"/>
+                      <img src="/product2.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -126,9 +127,9 @@ const Favorites: NextPage = () => {
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
-                        <img src="/icons/like.svg"/>
+                        <img src="/icons/like.svg" />
                       </div>
-                      <img src="/product3.png"/>
+                      <img src="/product3.png" />
                       <div className={styles.favDetails}>
                         <h4>Marble Countertop Wash Basin</h4>
                         <h5>STL-1905-GR-WB - Grey</h5>
@@ -163,4 +164,4 @@ const Favorites: NextPage = () => {
   );
 };
 
-export default Favorites;
+export default withAuth(Favorites);
