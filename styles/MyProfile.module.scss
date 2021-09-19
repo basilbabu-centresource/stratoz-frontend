@@ -17,8 +17,8 @@
   color: aliceblue;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
-  padding: 54% 0 50px;
+  align-items: center;
+  // padding: 54% 0 50px;
 }
 
 .row {
@@ -27,42 +27,42 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x)/ -2);
-  margin-left: calc(var(--bs-gutter-x)/ -2);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
 }
 .col12 {
   flex: 0 0 auto;
   width: 100%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col7 {
   flex: 0 0 auto;
   width: 58.3333333333%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col6 {
   flex: 0 0 auto;
   width: 50%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col5 {
   flex: 0 0 auto;
   width: 41.6666666667%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col4 {
   flex: 0 0 auto;
   width: 33.3333333333%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
   margin-bottom: 35px;
 }
@@ -73,49 +73,51 @@
 
   .profile {
     width: 766px;
-    background: #0F0F0F;
+    background: #0f0f0f;
     border-radius: 5px;
     padding: 45px 30px;
 
     h2 {
       margin: 20px 0 0;
       font-size: 25px;
-      color: #FFFFFF;
+      color: #ffffff;
       margin-bottom: 25px;
       font-weight: 400;
     }
     h4 {
       margin: 0 0 40px;
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 20px;
       font-weight: 400;
     }
     label {
       width: 100%;
       font-size: 14px;
-      color: #FFFFFF;
+      color: #ffffff;
       font-weight: 300;
     }
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       background: #171717;
-      border: 1px solid #FFFFFF80;
+      border: 1px solid #ffffff80;
       border-radius: 5px;
       margin: 10px 0 20px;
       height: 46px;
       outline: unset;
-      color: #FFFFFF65;
+      color: #ffffff65;
       padding: 15px;
     }
-    input::placeholder, textarea::placeholder {
-      color: #FFFFFF65;
+    input::placeholder,
+    textarea::placeholder {
+      color: #ffffff65;
     }
     textarea {
       height: 85px;
     }
     input[type="submit"] {
-      background: #BFBFBF;
-      border: 1px solid #FFFFFF80;
+      background: #bfbfbf;
+      border: 1px solid #ffffff80;
       border-radius: 5px;
       margin-bottom: 0;
       color: #000000;
@@ -132,7 +134,7 @@
   right: 0px;
 }
 .proDetails {
-  border-left: 1px solid #FFFFFF65;
+  border-left: 1px solid #ffffff65;
   padding-left: 40px;
   p {
     display: flex;
@@ -154,8 +156,8 @@
   text-align: right;
   margin-bottom: 40px;
   button {
-    background: #BFBFBF 0% 0% no-repeat padding-box;
-    border: 1px solid #FFFFFF80;
+    background: #bfbfbf 0% 0% no-repeat padding-box;
+    border: 1px solid #ffffff80;
     border-radius: 5px;
     width: 111px;
     height: 32px;
