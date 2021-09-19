@@ -6,7 +6,12 @@ import styles from "../../../../styles/Categories.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
 
-const Categories: NextPage = ({ products, category, count, cat_listing }: any) => {
+const Categories: NextPage = ({
+  products,
+  category,
+  count,
+  cat_listing,
+}: any) => {
   const handlePageChange = (pageNumber: number) => {
     //console.log(pageNumber + 1);
 
@@ -26,72 +31,133 @@ const Categories: NextPage = ({ products, category, count, cat_listing }: any) =
           <main className={styles.main}>
             <div className="container">
               <div className="row">
-                <div className={"col-md-3 p-0 " +styles.bg3full}>
+                <div className={"col-md-3 p-0 " + styles.bg3full}>
                   <div className={styles.titleBox}>
                     <h1>{category}</h1>
                     <ul>
-                      <li><a href="">Home</a></li>
-                      <li><a href="">Products</a></li>
-                      <li><a href="">{category}</a></li>
+                      <li>
+                        <a href="">Home</a>
+                      </li>
+                      <li>
+                        <a href="">Products</a>
+                      </li>
+                      <li>
+                        <a href="">{category}</a>
+                      </li>
                     </ul>
                   </div>
-                  
+
                   <div className="accordion filterCheck" id="accordionExample">
                     <div className="accordion-item">
                       <h2 className="accordion-header" id="headingOne">
-                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button
+                          className="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
                           Series
                         </button>
                       </h2>
-                      <div id="collapseOne" className="accordion-collapse collapse show " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div
+                        id="collapseOne"
+                        className="accordion-collapse collapse show "
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
                         <div className="accordion-body">
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1" checked/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                                checked
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Colors of Art Wash Basins</span>
+                              <span className="checkbox-button__label">
+                                Colors of Art Wash Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Countertop Basins</span>
+                              <span className="checkbox-button__label">
+                                Countertop Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Free Standing Basins</span>
+                              <span className="checkbox-button__label">
+                                Free Standing Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Integrated Basins</span>
+                              <span className="checkbox-button__label">
+                                Integrated Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Stone Countertop Basins</span>
+                              <span className="checkbox-button__label">
+                                Stone Countertop Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Undercounter Basins</span>
+                              <span className="checkbox-button__label">
+                                Undercounter Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Wall Mounted Basins</span>
+                              <span className="checkbox-button__label">
+                                Wall Mounted Basins
+                              </span>
                             </label>
                           </div>
                         </div>
@@ -99,57 +165,81 @@ const Categories: NextPage = ({ products, category, count, cat_listing }: any) =
                     </div>
                     <div className="accordion-item">
                       <h2 className="accordion-header" id="headingTwo">
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button
+                          className="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwo"
+                          aria-expanded="false"
+                          aria-controls="collapseTwo"
+                        >
                           Color
                         </button>
                       </h2>
-                      <div id="collapseTwo" className="accordion-collapse collapse filterCheck" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div
+                        id="collapseTwo"
+                        className="accordion-collapse collapse filterCheck"
+                        aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample"
+                      >
                         <div className="accordion-body">
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Undercounter Basins</span>
+                              <span className="checkbox-button__label">
+                                Undercounter Basins
+                              </span>
                             </label>
                           </div>
                           <div className="example">
                             <label className="checkbox-button">
-                              <input type="checkbox" className="checkbox-button__input" name="choice1"/>
+                              <input
+                                type="checkbox"
+                                className="checkbox-button__input"
+                                name="choice1"
+                              />
                               <span className="checkbox-button__control"></span>
-                              <span className="checkbox-button__label">Wall Mounted Basins</span>
+                              <span className="checkbox-button__label">
+                                Wall Mounted Basins
+                              </span>
                             </label>
                           </div>
                         </div>
                       </div>
                     </div>
-                    
                   </div>
                 </div>
                 <div className="col-md-9">
                   <div className={"row " + styles.catList}>
-                    {cat_listing.map((cate: any) => (
-                    <div className="col-md-2">
-                      <a href={`/categories/${cate.slug}`}>
-                        <div className={styles.col4img + " " +styles.overlay}>
-                          <Image
-                            src={
-                              cate.image
-                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${cate?.image?.url}`
-                                : "/products/5.png"
-                            }
-                            alt={cate.name}
-                            height={400}
-                            width={500}
-                          />
-                          <div className={ styles.middle }>
-                            <div className={ styles.text } >
-                              <h6>{cate.name}</h6>
+                    {cat_listing.map((category: any, index: number) => (
+                      <div key={index} className="col-md-2">
+                        <a href={`/categories/${category.slug}`}>
+                          <div
+                            className={styles.col4img + " " + styles.overlay}
+                          >
+                            <Image
+                              src={
+                                category.image
+                                  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${category?.image?.url}`
+                                  : "/products/5.png"
+                              }
+                              alt={category.name}
+                              height={400}
+                              width={500}
+                            />
+                            <div className={styles.middle}>
+                              <div className={styles.text}>
+                                <h6>{category.name}</h6>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        
-                        {/* <div className={styles.col4img}>
+                          {/* <div className={styles.col4img}>
                           <Image
                             src={
                               cate.image
@@ -162,71 +252,74 @@ const Categories: NextPage = ({ products, category, count, cat_listing }: any) =
                           />
                           <h6>{cate.name}</h6>
                         </div> */}
-                      </a>
-                    </div>
+                        </a>
+                      </div>
                     ))}
                   </div>
-                  
+
                   <div className="row">
                     <div className="col-md-8">
-                        <div className={styles.searchProduct}>
-                          <div className="m-auto">
-                            <button><img src="/icons/searchpl.png"/></button>
-                            <input type="text"/>
-                          </div>
+                      <div className={styles.searchProduct}>
+                        <div className="m-auto">
+                          <button>
+                            <img src="/icons/searchpl.png" />
+                          </button>
+                          <input type="text" />
                         </div>
+                      </div>
                     </div>
                   </div>
 
                   <div className="row">
-                  {products &&
-                    products.map((product: any) => (
-                      <>
-                        <div className={"col-md-4 "+ styles.mb25}>
-                          <a href={`/products/${product.slug}`}>
-                            <div className={styles.col4fav}>
-                              <div className={styles.fIcon}>
+                    {products &&
+                      products.map((product: any) => (
+                        <>
+                          <div className={"col-md-4 " + styles.mb25}>
+                            <a href={`/products/${product.slug}`}>
+                              <div className={styles.col4fav}>
+                                <div className={styles.fIcon}>
+                                  <Image
+                                    src="/icons/like.svg"
+                                    alt="favourite-icon"
+                                    height={50}
+                                    width={50}
+                                  />
+                                </div>
                                 <Image
-                                  src="/icons/like.svg"
-                                  alt="favourite-icon"
-                                  height={50}
-                                  width={50}
+                                  alt="product_image"
+                                  src="/product2.png"
+                                  // layout="responsive"
+                                  height={100}
+                                  width={100}
                                 />
+                                <div className={styles.favDetails}>
+                                  <h4>{product.title}</h4>
+                                  <h5>
+                                    product_code - {product?.colour?.name}
+                                  </h5>
+                                </div>
                               </div>
-                              <Image
-                                alt="product_image"
-                                src="/product2.png"
-                                // layout="responsive"
-                                height={100}
-                                width={100}
-                              />
-                              <div className={styles.favDetails}>
-                                <h4>{product.title}</h4>
-                                <h5>product_code - {product?.colour?.name}</h5>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </>
-                    ))}
-                </div>
+                            </a>
+                          </div>
+                        </>
+                      ))}
+                  </div>
 
-                <ReactPaginate
-                  previousLabel={"previous"}
-                  nextLabel={"next"}
-                  breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  pageCount={Math.round(count / 9)}
-                  marginPagesDisplayed={5}
-                  pageRangeDisplayed={5}
-                  onPageChange={(e: any) => handlePageChange(e.selected)}
-                  containerClassName={"pagination"}
-                  activeClassName={"active"}
-                />
+                  <ReactPaginate
+                    previousLabel={"previous"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.round(count / 9)}
+                    marginPagesDisplayed={5}
+                    pageRangeDisplayed={5}
+                    onPageChange={(e: any) => handlePageChange(e.selected)}
+                    containerClassName={"pagination"}
+                    activeClassName={"active"}
+                  />
                 </div>
               </div>
             </div>
-            
           </main>
         </div>
       </LayoutDefault>
@@ -259,11 +352,9 @@ export async function getServerSideProps({ query }: any) {
     `${process.env.API_BASE_URL}/products/count?category.slug=${query.category}`
   );
 
-  
   const categoriesRes = await fetch(`${process.env.API_BASE_URL}/categories`);
 
   const cat_listing = await categoriesRes.json();
-
 
   const products = await productsRes.json();
 

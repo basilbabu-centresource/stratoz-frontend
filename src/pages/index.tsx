@@ -281,11 +281,11 @@ const Home: NextPage = () => {
                   <div className="col-md-7">
                     <h2 className={styles.mb35}>Ivory Floor Tiles</h2>
                     <p>
-                      As the era of 'less is more' is fading, many look for new
-                      ways to express their personality in their private spaces.
-                      Some tips below on how to personalise your bathroom, by
-                      giving it a bold look through stylised fixtures and
-                      unconventional finishes.
+                      As the era of `&apos;`less is more`&apos;` is fading, many
+                      look for new ways to express their personality in their
+                      private spaces. Some tips below on how to personalise your
+                      bathroom, by giving it a bold look through stylised
+                      fixtures and unconventional finishes.
                     </p>
                   </div>
                 </div>

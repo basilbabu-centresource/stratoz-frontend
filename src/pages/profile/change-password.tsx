@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
-import styles from "../../styles/ChangePassword.module.scss";
+import styles from "../../../styles/ChangePassword.module.scss";
 
 const Home: NextPage = () => {
   return (
