@@ -1,27 +1,21 @@
+import router from "next/router";
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/auth/authSlice";
 
 export function withAuth(Component) {
   return function AuthenticatedComponent() {
-    const isAuthenticated = () => {
-      return false;
-    };
+    const { user } = useSelector(selectUser);
 
     useEffect(() => {
-      if (!isAuthenticated) {
-        alert("Not logged in");
+      if (!user) {
+        router.push("/login");
       }
-    }, []);
+    }, [user]);
 
     return (
       <>
-        {true ? (
-          <Component />
-        ) : (
-          <div>
-            Please <a href="/login">login</a> in order to view this part of the
-            application.
-          </div>
-        )}
+        <Component />
       </>
     );
   };
