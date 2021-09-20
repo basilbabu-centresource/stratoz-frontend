@@ -51,7 +51,10 @@ const Footer: React.FC = () => {
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Social media</div>
                 <div className={styles.footer__link}>
-                  <a href="#" className="me-2">
+                  <a
+                    href="https://www.facebook.com/stratozceramica/"
+                    className="me-2"
+                  >
                     <Image
                       src="/icons/facebook.png"
                       alt={"Facebook icon"}
@@ -59,7 +62,10 @@ const Footer: React.FC = () => {
                       width={18}
                     />
                   </a>
-                  <a href="#" className="me-2">
+                  <a
+                    href="https://www.linkedin.com/company/stratoz/"
+                    className="me-2"
+                  >
                     <Image
                       src="/icons/linkedin.png"
                       alt={"Facebook icon"}
@@ -67,7 +73,10 @@ const Footer: React.FC = () => {
                       width={18}
                     />
                   </a>
-                  <a href="#" className="me-2">
+                  <a
+                    href="https://www.instagram.com/stratoz_ceramica"
+                    className="me-2"
+                  >
                     <Image
                       src="/icons/instagram.png"
                       alt={"Facebook icon"}

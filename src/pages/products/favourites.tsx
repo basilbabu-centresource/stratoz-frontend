@@ -27,7 +27,10 @@ const Favorites: NextPage = () => {
             </div>
             <div className={styles.products}>
               <div className="container">
-                <div className={styles.row}>
+                <br />
+                <br />
+                <h3>There are no favourite products yet.</h3>
+                {/* <div className={styles.row}>
                   <div className={styles.col4}>
                     <div className={styles.col4fav}>
                       <div className={styles.fIcon}>
@@ -136,10 +139,10 @@ const Favorites: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className={styles.navigation}>
+            {/* <div className={styles.navigation}>
               <div className="container">
                 <div className={styles.row}>
                   <div className={styles.col12}>
@@ -156,7 +159,7 @@ const Favorites: NextPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </main>
         </div>
       </LayoutDefault>
