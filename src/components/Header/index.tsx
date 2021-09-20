@@ -9,6 +9,18 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { user } = useSelector(selectUser);
 
+  const getInitials = (name: any) => {
+    let rgx = new RegExp(/(\p{L}{1})\p{L}+/, "gu");
+
+    let initials = [...name.matchAll(rgx)] || [];
+
+    initials = (
+      (initials.shift()?.[1] || "") + (initials.pop()?.[1] || "")
+    ).toUpperCase();
+
+    return initials;
+  };
+
   return (
     <>
       <div className={styles.navbar}>
@@ -83,7 +95,9 @@ const Header: React.FC = () => {
               {user ? (
                 <Link href="/profile">
                   <a>
-                    <div className="btn__outline">Edwin</div>
+                    <div className="btn__outline">
+                      {getInitials(user?.name)}
+                    </div>
                   </a>
                 </Link>
               ) : (

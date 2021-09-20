@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../../layout/Default";
 import styles from "../../../../styles/Products.module.scss";
-import Hero from "../../../components/Products/Hero";
 
 const Products: NextPage = ({ product }: any) => {
   return (
@@ -29,7 +28,7 @@ const Products: NextPage = ({ product }: any) => {
                   product.images.length !== 0
                     ? process.env.NEXT_PUBLIC_API_BASE_URL +
                       product.images[0].url
-                    : "http://192.168.1.13:1339/uploads/counter_basin_500x500_2f4fee6d5e.PNG"
+                    : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/counter_basin_500x500_2f4fee6d5e.PNG`
                 }
                 height={340}
                 width={340}
@@ -37,8 +36,6 @@ const Products: NextPage = ({ product }: any) => {
               />
             </div>
             <div className="col-lg-7">
-              {/* {JSON.stringify(product)} */}
-
               {console.log(product)}
               <h1 className="product__title mb-4">{product.title}</h1>
               <h4>Product description</h4>
@@ -111,7 +108,7 @@ const Products: NextPage = ({ product }: any) => {
                       item.images.length !== 0
                         ? process.env.NEXT_PUBLIC_API_BASE_URL +
                           item.images[0].url
-                        : "http://192.168.1.13:1339/uploads/counter_basin_500x500_2f4fee6d5e.PNG"
+                        : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/counter_basin_500x500_2f4fee6d5e.PNG`
                     }
                     height={340}
                     width={340}
@@ -134,7 +131,7 @@ const Products: NextPage = ({ product }: any) => {
 export async function getServerSideProps({ query }: any) {
   // Fetch product list form API
   const productRes = await fetch(
-    `http://192.168.1.13:1339/products/${query.slug}`
+    `${process.env.API_BASE_URL}/products/${query.slug}`
   );
 
   const product = await productRes.json();

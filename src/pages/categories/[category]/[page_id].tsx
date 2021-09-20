@@ -238,20 +238,6 @@ const Categories: NextPage = ({
                               </div>
                             </div>
                           </div>
-
-                          {/* <div className={styles.col4img}>
-                          <Image
-                            src={
-                              cate.image
-                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${cate?.image?.url}`
-                                : "/products/5.png"
-                            }
-                            alt={cate.name}
-                            height={400}
-                            width={500}
-                          />
-                          <h6>{cate.name}</h6>
-                        </div> */}
                         </a>
                       </div>
                     ))}
@@ -270,32 +256,44 @@ const Categories: NextPage = ({
                     </div>
                   </div>
 
+                  {console.log("products", products)}
                   <div className="row">
                     {products &&
-                      products.map((product: any) => (
+                      products.map((product: any, index: number) => (
                         <>
-                          <div className={"col-md-4 " + styles.mb25}>
+                          <div
+                            key={index}
+                            className={"col-md-4 " + styles.mb25}
+                          >
                             <a href={`/products/${product.slug}`}>
                               <div className={styles.col4fav}>
-                                <div className={styles.fIcon}>
+                                {/* <div className={styles.fIcon}>
                                   <Image
                                     src="/icons/like.svg"
                                     alt="favourite-icon"
                                     height={50}
                                     width={50}
                                   />
+                                </div> */}
+
+                                <div>
+                                  <Image
+                                    alt="product_image"
+                                    src={
+                                      product.images[0]
+                                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                        : "/product2.png"
+                                    }
+                                    layout="responsive"
+                                    height="100%"
+                                    width="100%"
+                                    objectFit="cover"
+                                  />
                                 </div>
-                                <Image
-                                  alt="product_image"
-                                  src="/product2.png"
-                                  // layout="responsive"
-                                  height={100}
-                                  width={100}
-                                />
                                 <div className={styles.favDetails}>
                                   <h4>{product.title}</h4>
                                   <h5>
-                                    product_code - {product?.colour?.name}
+                                    {product.code} - {product?.colour?.name}
                                   </h5>
                                 </div>
                               </div>
