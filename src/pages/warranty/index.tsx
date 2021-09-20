@@ -47,8 +47,6 @@ const Showroom: NextPage = () => {
 
     formData.append("data", JSON.stringify(saticData));
 
-    alert("Login");
-
     mutate(formData);
   };
 

@@ -6,6 +6,7 @@ import styles from "../../styles/Home.module.scss";
 import Sliders from "../components/Home/Slider";
 import React, { Component } from "react";
 import Slider from "react-slick";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const slider = React.useRef<any>(null);
@@ -166,7 +167,11 @@ const Home: NextPage = () => {
               </div>
               <div className="col-md-6 col-6 text-end">
                 <a href="#">
-                  <button>View all</button>
+                  <Link href="/products">
+                    <a>
+                      <button>View all</button>
+                    </a>
+                  </Link>
                 </a>
               </div>
             </div>
@@ -253,9 +258,11 @@ const Home: NextPage = () => {
                         </button>
                       </div>
                       <div className="col-md-6 col-6 p-0 text-end">
-                        <a href="#">
-                          <button>View all</button>
-                        </a>
+                        <Link href="/products">
+                          <a>
+                            <button>View all</button>
+                          </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -359,9 +366,11 @@ const Home: NextPage = () => {
                 </button>
               </div>
               <div className="col-md-6 col-6 text-end">
-                <a href="#">
-                  <button>View all Products</button>
-                </a>
+                <Link href="/products">
+                  <a>
+                    <button>View all</button>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -524,9 +533,11 @@ const Home: NextPage = () => {
                         </button>
                       </div>
                       <div className="col-md-6 col-6 p-0 text-end">
-                        <a href="#">
-                          <button>View all</button>
-                        </a>
+                        <Link href="/products">
+                          <a>
+                            <button>View all</button>
+                          </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

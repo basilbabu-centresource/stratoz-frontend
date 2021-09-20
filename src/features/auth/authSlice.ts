@@ -6,7 +6,7 @@ import type { RootState } from "../../store";
 // Define a type for the slice state
 interface AuthState {
   token: string | null;
-  user: object | null;
+  user: any | null;
 }
 
 // Define the initial state using that type
@@ -85,7 +85,6 @@ export function registerUser(credentials: any) {
 export function logout() {
   return async (dispatch: any) => {
     try {
-      alert("loging out");
       await localStorage.removeItem("token");
 
       dispatch(getToken(null));
@@ -105,16 +104,12 @@ export function logout() {
 export function validateToken(token: string) {
   return async (dispatch: any) => {
     try {
-      alert("Fetching curent use detail");
-
       const headers = { headers: { Authorization: `Bearer ${token}` } };
 
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/me`,
         headers
       );
-
-      console.log("Res", response.data);
 
       const data = response.data;
 

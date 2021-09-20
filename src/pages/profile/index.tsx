@@ -32,10 +32,10 @@ const Home: NextPage = () => {
                     <h2>Jonathan Doe</h2>
                   </div>
                   <div className={styles.col7}>
-                    <div className={styles.btn}>
+                    <div className={styles.btn + " me-1"}>
                       <button onClick={() => dispatch(logout())}>Logout</button>
 
-                      <a href="#">
+                      <a href="#" className="ms-1">
                         <button>Edit Profile</button>
                       </a>
                     </div>
