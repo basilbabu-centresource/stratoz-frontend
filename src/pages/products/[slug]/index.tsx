@@ -4,11 +4,82 @@ import Image from "next/image";
 import LayoutDefault from "../../../layout/Default";
 import styles from "../../../../styles/Products.module.scss";
 import router from "next/router";
+import axios from "axios";
+import api from "../../../api";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../features/auth/authSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+
+const HeartOutlineIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    height="22px"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    />
+  </svg>
+);
+
+const HeartSolidIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    height="22px"
+  >
+    <path
+      fillRule="evenodd"
+      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
 
 const Products: NextPage = ({ product, slug }: any) => {
+  const [isFavourite, setisFavourite] = useState(false);
+
+  const { user } = useSelector(selectUser);
+
+  const handleFavourites = () => {
+    const body = { products: product.id };
+
+    if (isFavourite) {
+      api.delete(`/unfavorite/${product.id}`).then(() => {
+        setisFavourite(false);
+      });
+    } else {
+      api.post(`/favorite`, body).then(() => {
+        setisFavourite(true);
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (!user) return;
+
+    api.get(`/check-favorite/${product.id}`).then(({ data }) => {
+      console.log(data);
+
+      setisFavourite(data.favorite);
+    });
+  }, [product.id, user]);
+
   return (
     <>
       <LayoutDefault>
+        {console.log(product)}
         <div className={styles.container}>
           <Head>
             <title>Stratos</title>
@@ -26,7 +97,7 @@ const Products: NextPage = ({ product, slug }: any) => {
             <div className="col-lg-5">
               <Image
                 src={
-                  product.images.length !== 0
+                  product?.images.length !== 0
                     ? process.env.NEXT_PUBLIC_API_BASE_URL +
                       product.images[0].url
                     : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/counter_basin_500x500_2f4fee6d5e.PNG`
@@ -65,7 +136,16 @@ const Products: NextPage = ({ product, slug }: any) => {
                 </div>
               )}
               <div className="d-flex mt-4">
-                <div className="btn btn-primary me-3">Add to Favourites</div>
+                <div
+                  className="btn btn-primary me-3"
+                  onClick={handleFavourites}
+                >
+                  {/* <span>
+                    <FontAwesomeIcon icon={faCoffee} />
+                  </span> */}
+                  {isFavourite ? <HeartSolidIcon /> : <HeartOutlineIcon />}
+                  <span className="ms-2">Add to Favourites</span>
+                </div>
                 <div
                   className="btn btn-outline-primary"
                   onClick={() => router.push(`/products/${slug}/enquire`)}
@@ -89,10 +169,30 @@ const Products: NextPage = ({ product, slug }: any) => {
               <div>
                 <h5 className="mb-4">Share this on</h5>
                 <div className="d-flex">
-                  <div className="social__media__icons"></div>
-                  <div className="social__media__icons"></div>
-                  <div className="social__media__icons"></div>
-                  <div className="social__media__icons"></div>
+                  <div className="social__media__icons">
+                    <FontAwesomeIcon
+                      icon={faCoffee}
+                      style={{ color: "#fff" }}
+                    />
+                  </div>
+                  <div className="social__media__icons">
+                    <FontAwesomeIcon
+                      icon={faCoffee}
+                      style={{ color: "#fff" }}
+                    />
+                  </div>
+                  <div className="social__media__icons">
+                    <FontAwesomeIcon
+                      icon={faCoffee}
+                      style={{ color: "#fff" }}
+                    />
+                  </div>
+                  <div className="social__media__icons">
+                    <FontAwesomeIcon
+                      icon={faCoffee}
+                      style={{ color: "#fff" }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,7 +237,7 @@ const Products: NextPage = ({ product, slug }: any) => {
 export async function getServerSideProps({ query }: any) {
   // Fetch product list form API
   const productRes = await fetch(
-    `${process.env.API_BASE_URL}/products/${query.slug}`
+    `${process.env.API_BASE_URL}/products/${query.slug}/`
   );
 
   const product = await productRes.json();

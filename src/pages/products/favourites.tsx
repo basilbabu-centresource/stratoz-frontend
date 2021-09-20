@@ -1,11 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Favorites.module.scss";
 import withAuth from "../../hoc/withAuth";
+import { useEffect } from "react";
+import api from "../../api";
+import useFavourites from "../../hooks/useFavourites";
+import Image from "next/image";
 
 const Favorites: NextPage = () => {
+  const { data } = useFavourites();
+
+  useEffect(() => {
+    return () => {};
+  }, []);
+
   return (
     <>
       <LayoutDefault>
@@ -25,121 +34,47 @@ const Favorites: NextPage = () => {
                 <hr />
               </div>
             </div>
+
             <div className={styles.products}>
               <div className="container">
-                <br />
-                <br />
-                <h3>There are no favourite products yet.</h3>
-                {/* <div className={styles.row}>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
+                <div className="row">
+                  {console.log("data", data)}
+                  {data && data[0].products.length === 0 && (
+                    <h3>There are no favourite products yet.</h3>
+                  )}
+                  {data &&
+                    data[0].products.map((product: any, index: number) => (
+                      <div className="col-md-4 " key={index}>
+                        <a href={"/products/" + product.slug}>
+                          {console.log(product)}
+                          <div className={styles.col4fav}>
+                            <div className={styles.fIcon}>
+                              <img src="/icons/like.svg" />
+                            </div>
+                            <Image
+                              alt="product_image"
+                              src={
+                                product.images[0]
+                                  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                  : "/product2.png"
+                              }
+                              layout="responsive"
+                              height="100%"
+                              width="100%"
+                              objectFit="cover"
+                            />
+                            <div className={styles.favDetails}>
+                              <h4 className="mt-4">{product.title}</h4>
+                              <h5>
+                                {" "}
+                                {product.code} - {product?.colour?.name}
+                              </h5>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <img src="/product1.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product2.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product3.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product1.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product2.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product3.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product1.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product2.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4fav}>
-                      <div className={styles.fIcon}>
-                        <img src="/icons/like.svg" />
-                      </div>
-                      <img src="/product3.png" />
-                      <div className={styles.favDetails}>
-                        <h4>Marble Countertop Wash Basin</h4>
-                        <h5>STL-1905-GR-WB - Grey</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                    ))}
+                </div>
               </div>
             </div>
             {/* <div className={styles.navigation}>

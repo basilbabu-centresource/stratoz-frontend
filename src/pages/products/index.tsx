@@ -41,37 +41,6 @@ const Products: NextPage = ({ categories }: any) => {
             <div className={styles.products}>
               <div className="container">
                 <div className="row">
-                  {/* <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/1.png" />
-                      <h6>Basin</h6>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/2.png" />
-                      <h6>Basin</h6>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/3.png" />
-                      <h6>Basin</h6>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/4.png" />
-                      <h6>Basin</h6>
-                    </div>
-                  </div>
-                  <div className={styles.col4}>
-                    <div className={styles.col4img}>
-                      <img src="/products/5.png" />
-                      <h6>Basin</h6>
-                    </div>
-                  </div> */}
-                  {/* {JSON.stringify(categories)} */}
                   {categories.map((category: any, index: number) => (
                     <div key={index} className="col-md-4">
                       <a href={`/categories/${category.slug}`}>

@@ -42,6 +42,9 @@ a {
   background: #b7b5b6 0% 0% no-repeat padding-box;
   border-radius: 2px;
   margin-right: 10px;
+  display: grid;
+  place-content: center;
+  color: #fff;
 }
 
 .section__title {
@@ -64,6 +67,17 @@ a {
   span {
     color: #373f41;
     font-weight: 500;
+  }
+}
+
+.form {
+  &__button {
+    background: #bfbfbf;
+    border: 1px solid #ffffff80;
+    border-radius: 5px;
+    margin: 15px 0 0;
+    color: #000000;
+    height: 46px;
   }
 }
 
@@ -431,4 +445,9 @@ p {
     left: 2px;
     animation: MoveUpDown 1.5s linear infinite;
   }
+}
+
+.error {
+  font-size: 13px;
+  font-weight: 300;
 }

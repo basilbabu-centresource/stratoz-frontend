@@ -6,6 +6,9 @@ import { Provider, useDispatch } from "react-redux";
 import { store } from "../store";
 import { useEffect } from "react";
 import { validateToken } from "../features/auth/authSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import api from "../api";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +21,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     getTokenFromLocalStorage().then((token) => {
       console.log("token", token);
-      if (!token) return;
+      if (!token) {
+        // Remove default headers from axios
+        api.defaults.headers.common["Authorization"] = ``;
+        return;
+      }
 
       store.dispatch(validateToken(token));
     });
@@ -45,6 +52,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
+          <ToastContainer
+            // position="top-center"
+            autoClose={5000}
+            hideProgressBar={true}
+            style={{ marginTop: "6rem" }}
+          />
           <Component {...pageProps} />;
         </QueryClientProvider>
       </Provider>

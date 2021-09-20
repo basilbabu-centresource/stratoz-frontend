@@ -6,7 +6,7 @@ import Link from "next/link";
 const Footer: React.FC = () => {
   return (
     <>
-      <footer className="">
+      <footer className={styles.footer}>
         <div className="py-5">
           <div className="container">
             <br />
@@ -40,13 +40,13 @@ const Footer: React.FC = () => {
                   <a href="#">Contact us</a>
                 </div>
                 <div className={styles.footer__link}>
-                  <Link href="/">
+                  <Link href="/warranty">
                     <a> Register & Warranty</a>
                   </Link>
                 </div>
-                <div className={styles.footer__link}>
+                {/* <div className={styles.footer__link}>
                   <a href="#">Nearest showrooms</a>
-                </div>
+                </div> */}
               </div>
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Social media</div>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                 <form className="form-inline d-flex">
                   <div className="form-group  mb-2">
                     <input
-                      type="password"
+                      type="email"
                       className={"form-control " + styles.newsletter__input}
                       id="inputPassword2"
                       placeholder="Your email  address"
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
         </div>
       </footer>
       <div className={"py-3 text-center " + styles.footer__text}>
-        Copyright Stratos Ceramica &copy; 2021
+        Copyright Stratoz Ceramica &copy; 2021
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import router from "next/router";
+import api from "../../api";
 import type { RootState } from "../../store";
 
 // Define a type for the slice state
@@ -84,6 +85,8 @@ export function registerUser(credentials: any) {
 
 export function logout() {
   return async (dispatch: any) => {
+    api.defaults.headers.common["Authorization"] = ``;
+
     try {
       await localStorage.removeItem("token");
 
@@ -114,6 +117,15 @@ export function validateToken(token: string) {
       const data = response.data;
 
       dispatch(getToken(token));
+
+      axios.interceptors.request.use(function (config) {
+        config.headers.Authorization = `Bearer ${token}`;
+
+        return config;
+      });
+
+      // Alter defaults after instance has been created
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       dispatch(getUser(data));
     } catch (error: any) {

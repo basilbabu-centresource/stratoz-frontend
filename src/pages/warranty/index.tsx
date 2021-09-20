@@ -9,12 +9,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import withAuth from "../../hoc/withAuth";
 import useAddWarranty from "../../hooks/useAddWarranty";
 import useStores from "../../hooks/useStores";
+import { toast } from "react-toastify";
 
 type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
   purchasedFrom: string;
   dateOfPurchase: string;
   invoice: string;
@@ -29,7 +26,7 @@ const Showroom: NextPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -37,17 +34,22 @@ const Showroom: NextPage = () => {
     const formData = new FormData();
 
     const saticData = {
-      name: `${data.firstName} ${data.lastName}`,
-      email: data.email,
-      phone_number: data.phoneNumber,
       store: Number(data.purchasedFrom),
       purchase_date: data.dateOfPurchase,
       product_code: data.productCode,
     };
 
-    formData.append("data", JSON.stringify(saticData));
+    console.log(data.invoice);
 
-    mutate(formData);
+    formData.append("data", JSON.stringify(saticData));
+    formData.append("files.invoice", data.invoice[0]);
+
+    mutate(formData, {
+      onSuccess: () => {
+        toast.success("Warranty registerd successfully");
+        reset();
+      },
+    });
   };
 
   return (
@@ -73,7 +75,7 @@ const Showroom: NextPage = () => {
                   onSubmit={handleSubmit(onSubmit)}
                   className={styles.formBox + " " + styles.mt30}
                 >
-                  <div className={styles.row}>
+                  {/* <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>First Name</label>
                       <input
@@ -90,8 +92,8 @@ const Showroom: NextPage = () => {
                         {...register("lastName", { required: true })}
                       />
                     </div>
-                  </div>
-                  <div className={styles.row}>
+                  </div> */}
+                  {/* <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Email ID</label>
                       <input
@@ -108,7 +110,7 @@ const Showroom: NextPage = () => {
                         {...register("phoneNumber", { required: true })}
                       />
                     </div>
-                  </div>
+                  </div> */}
                   <div className={styles.row}>
                     <div className={styles.col6}>
                       <label>Purchased From</label>

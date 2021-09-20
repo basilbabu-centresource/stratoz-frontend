@@ -335,15 +335,6 @@ export async function getServerSideProps({ query }: any) {
     }&_start=${(pageId - 1) * 9}&_limit=9`
   );
 
-  console.log(
-    "URL",
-    `${process.env.API_BASE_URL}/products?category.slug=${
-      query.category
-    }&_start=${(pageId - 1) * 9}&_limit=9`
-  );
-
-  console.log("PageId", pageId);
-
   // Fetch product count form API
   const countRes = await fetch(
     `${process.env.API_BASE_URL}/products/count?category.slug=${query.category}`

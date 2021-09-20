@@ -3,8 +3,13 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/EditProfile.module.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/auth/authSlice";
+import FormButton from "../../components/FormButton";
 
-const Home: NextPage = () => {
+const EditProfile: NextPage = () => {
+  const { user } = useSelector(selectUser);
+
   return (
     <>
       <LayoutDefault>
@@ -16,16 +21,20 @@ const Home: NextPage = () => {
                 <div className={styles.row}>
                   <div className={styles.col12}>
                     <label>Name</label>
-                    <input type="text" placeholder="Jonathan Doe" />
+                    <input type="text" placeholder={user?.name} />
                     <label>Email</label>
-                    <input type="email" placeholder="jonathandoe@gamil.com" />
+                    <input type="email" placeholder={user?.email} />
                     <label>Mobile</label>
-                    <input type="text" placeholder="+976 256474473" />
+                    <input type="text" placeholder={user?.mobile} />
                   </div>
                 </div>
                 <div className={styles.row}>
                   <div className={styles.col12}>
-                    <input type="submit" value="Save" />
+                    <FormButton
+                      value={"Submit"}
+                      loading={false}
+                      disabled={false}
+                    />
                   </div>
                 </div>
               </div>
@@ -37,4 +46,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default EditProfile;

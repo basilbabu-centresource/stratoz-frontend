@@ -57,24 +57,42 @@ const Header: React.FC = () => {
                       className="header-search"
                     />
                     <button type="submit">
-                      <Image
-                        src={"/icons/search.png"}
-                        alt="search icon"
-                        height={18}
-                        width={18}
-                      />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#fff"
+                        height="22px"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
                     </button>
                   </div>
                 </>
               ) : (
                 <>
                   <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
-                    <Image
-                      src={"/icons/search.png"}
-                      alt="search icon"
-                      height={18}
-                      width={18}
-                    />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#fff"
+                      height="22px"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
                   </button>
                 </>
               )}
@@ -82,12 +100,24 @@ const Header: React.FC = () => {
             <div className={styles.right__menu__items}>
               <Link href="/products/favourites">
                 <a>
-                  <Image
-                    src={"/icons/favourites.png"}
-                    alt="search icon"
-                    height={18}
-                    width={18}
-                  />
+                  <span style={{ color: "#fff" }}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      height="22px"
+                      stroke="#fff"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                      Favs
+                    </svg>
+                  </span>
                 </a>
               </Link>
             </div>

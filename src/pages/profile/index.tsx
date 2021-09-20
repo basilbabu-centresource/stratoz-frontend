@@ -38,9 +38,11 @@ const Home: NextPage = () => {
                     <div className={styles.btn + " me-1"}>
                       <button onClick={() => dispatch(logout())}>Logout</button>
 
-                      <a href="#" className="ms-1">
-                        <button>Edit Profile</button>
-                      </a>
+                      <Link href="/profile/edit">
+                        <a href="#" className="ms-1">
+                          <button>Edit Profile</button>
+                        </a>
+                      </Link>
                     </div>
                     <div className={styles.proDetails}>
                       <p>Name : {user?.name}</p>
