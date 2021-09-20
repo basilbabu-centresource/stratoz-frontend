@@ -79,7 +79,11 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="mobileSidebar">
+        <>Stratoz Versatile Design</>
+      </div>
     </div>
+
   );
 };
 

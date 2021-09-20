@@ -89,3 +89,12 @@
     outline: unset;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    padding: 0px;
+  }
+  .right__menu {
+    width: 90%;
+  }
+}

@@ -96,7 +96,7 @@ const Login: NextPage = () => {
               <div className="col-6">
                 <div className={styles.titleBox}>
                   <h6>Welcome to</h6>
-                  <h1>Stratos Ceramica</h1>
+                  <h1>Stratoz Ceramica</h1>
                   <h5>Luxury Redefined</h5>
                 </div>
               </div>

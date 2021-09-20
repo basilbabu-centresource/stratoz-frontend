@@ -451,17 +451,142 @@ p {
 }
 
 .web-only {
-  display: block;
+  display: flex !important;
 }
 .mobile-only {
-  display: none;
+  display: none !important;
 }
 
-@media screen and (max-width: 767px) {
+.mobileSidebar {
+  background-color: #212527;
+  left: 0;
+  bottom: 0;
+  width: 75px;
+  height: 100%;
+  position: absolute;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  display: -moz-box;
+  display: none;
+  text-orientation: sideways-right;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: center;
+  align-items: center;
+  color: #e5ebec;
+  font-weight: 200;
+  text-transform: capitalize;
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  z-index: 1000;
+}
+
+@include media-breakpoint-down(sm) {
   .web-only {
+    display: none !important;
+  }
+  .mobile-only,
+  .mobileSidebar {
+    display: flex !important;
+  }
+  .sub-menu {
     display: none;
   }
-  .mobile-only {
-    display: block;
+  .mobileSidebar {
+    z-index: auto;
+  }
+  .logoCustom {
+    position: absolute;
+    left: 20px;
+    z-index: 1000;
+    bottom: 10px;
+  }
+}
+@include media-breakpoint-only(sm) {
+  .web-only {
+    display: none !important;
+  }
+  .mobile-only,
+  .mobileSidebar {
+    display: flex !important;
+  }
+  .sub-menu {
+    display: none;
+  }
+  .mobileSidebar {
+    z-index: auto;
+  }
+  .logoCustom {
+    position: absolute;
+    left: 20px;
+    z-index: 1000;
+    bottom: 10px;
+  }
+}
+
+.mobile-menu {
+  padding: 0 0 0 2%;
+  float: left;
+  left: auto;
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease;
+  height: 100vh;
+  width: 75px;
+  position: fixed;
+  margin: 0;
+  border-radius: 0;
+  z-index: 1000;
+  overflow: hidden;
+  // display: none;
+
+  &.oppenned {
+    left: 0;
+    width: 100%;
+    // display: block;
+  }
+  // ul {
+  //   margin: 0;
+  // }
+  // li {
+  //   display: block;
+  //   list-style: none;
+  //   height: auto;
+  //   margin-left: 0;
+  //   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  //   &:first-child {
+  //     margin-top: 100px;
+  //   }
+
+  //   a {
+  //     color: #fff;
+  //     font-size: 16px;
+  //     width: 100%;
+  //     display: block;
+  //     float: left;
+  //     text-transform: uppercase;
+  //     line-height: 30px;
+
+  //     &:hover {
+  //       font-weight: bold;
+  //       text-decontarion: none;
+  //     }
+  //   }
+  // }
+  .sideMenu {
+    background-color: #212527;
+    margin-top: 0px;
+    padding: 75px 0 0 50px;
+    height: 100%;
+
+    h6 {
+      font-size: 1.7rem;
+      &::after {
+        border-bottom: none;
+      }
+    }
   }
 }

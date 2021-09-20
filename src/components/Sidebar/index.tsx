@@ -93,7 +93,7 @@ const Sidebar: React.FC = () => {
             </div>
           </>
         ) : (
-          <div className={"d-none d-lg-flex " + styles.sidebar}>
+          <div className={"d-none d-md-flex " + styles.sidebar}>
             <>Stratoz Versatile Design</>
           </div>
         )}

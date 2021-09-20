@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
         </div>
       </footer>
       <div className={"py-3 text-center " + styles.footer__text}>
-        Copyright Stratos Ceramica &copy; 2021
+        Copyright Stratoz Ceramica &copy; 2021
       </div>
     </>
   );

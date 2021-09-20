@@ -20,3 +20,9 @@
 .slider img {
   width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .slider img {
+    height: 100vh;
+  }
+}

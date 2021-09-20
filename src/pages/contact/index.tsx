@@ -13,7 +13,7 @@ const Home: NextPage = () => {
             <div className={styles.bgheroFrom}>
               <div className={styles.heroFrom}>
                 <h6>Get in touch with</h6>
-                <h1>Stratos Ceramica</h1>
+                <h1>Stratoz Ceramica</h1>
                 <div className={styles.row}>
                   <div className={styles.col6}>
                     <label>Name</label>
