@@ -15,7 +15,7 @@ const Categories: NextPage = ({
   const handlePageChange = (pageNumber: number) => {
     //console.log(pageNumber + 1);
 
-    Router.push(`/collections/${category}/${pageNumber + 1}`);
+    Router.push(`/categories/${category}/${pageNumber + 1}`);
   };
 
   return (
