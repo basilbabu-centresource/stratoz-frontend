@@ -3,8 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../../layout/Default";
 import styles from "../../../../styles/Products.module.scss";
+import router from "next/router";
 
-const Products: NextPage = ({ product }: any) => {
+const Products: NextPage = ({ product, slug }: any) => {
   return (
     <>
       <LayoutDefault>
@@ -65,7 +66,12 @@ const Products: NextPage = ({ product }: any) => {
               )}
               <div className="d-flex mt-4">
                 <div className="btn btn-primary me-3">Add to Favourites</div>
-                <div className="btn btn-outline-primary">Enquiry</div>
+                <div
+                  className="btn btn-outline-primary"
+                  onClick={() => router.push(`/products/${slug}/enquire`)}
+                >
+                  Enquiry
+                </div>
               </div>
               <div className="mt-5 mb-3">
                 {product.technical_specs && (
@@ -137,7 +143,7 @@ export async function getServerSideProps({ query }: any) {
   const product = await productRes.json();
 
   // Pass data to the page via props
-  return { props: { product } };
+  return { props: { product, slug: query.slug } };
 }
 
 export default Products;

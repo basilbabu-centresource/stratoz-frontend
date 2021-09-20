@@ -3,11 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/MyProfile.module.scss";
-import { useDispatch } from "react-redux";
-import { logout } from "../../features/auth/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../../features/auth/authSlice";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
+
+  const { user } = useSelector(selectUser);
 
   return (
     <>
@@ -29,7 +32,7 @@ const Home: NextPage = () => {
                         </a>
                       </div>
                     </div>
-                    <h2>Jonathan Doe</h2>
+                    <h2>{user?.name}</h2>
                   </div>
                   <div className={styles.col7}>
                     <div className={styles.btn + " me-1"}>
@@ -40,16 +43,16 @@ const Home: NextPage = () => {
                       </a>
                     </div>
                     <div className={styles.proDetails}>
-                      <p>Name : Jonathan Doe</p>
-                      <p>Mobile : +976 2564*****</p>
-                      <p className={styles.pmt20}>
-                        Email : jona****doe@gmail.com
-                      </p>
+                      <p>Name : {user?.name}</p>
+                      <p>Mobile : {user?.mobile}</p>
+                      <p className={styles.pmt20}>Email : {user?.email}</p>
                       <p>
                         Password : *************
-                        <a href="#">
-                          <img src="/icons/edit.png" />
-                        </a>
+                        <Link href="/profile/change-password">
+                          <a href="#">
+                            <img src="/icons/edit.png" />
+                          </a>
+                        </Link>
                       </p>
                     </div>
                   </div>

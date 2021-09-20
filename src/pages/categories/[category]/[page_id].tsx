@@ -74,7 +74,6 @@ const Categories: NextPage = ({
                                 type="checkbox"
                                 className="checkbox-button__input"
                                 name="choice1"
-                                checked
                               />
                               <span className="checkbox-button__control"></span>
                               <span className="checkbox-button__label">
