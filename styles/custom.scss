@@ -386,7 +386,7 @@ p {
   }
 
   .carousel {
-    height: 100%;
+    height: 100vh;
   }
 
   .carousel-item {
@@ -397,12 +397,31 @@ p {
     background: #dfdfdf 0% 0% no-repeat padding-box;
   }
 
+  .carousel-caption {
+    position: absolute;
+    bottom: 12%;
+    left: 12%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: left;
+
+    h1 {
+      font-size: 3.188rem;
+      font-weight: 600;
+      color: #e5ebec;
+      span {
+        font-weight: 200;
+      }
+    }
+  }
+
   .scrollanim {
     height: 29px;
     width: 16px;
     border: 1px solid #ffffff;
     position: absolute;
-    bottom: 0;
+    bottom: 8%;
     left: 50%;
     border-radius: 9px;
   }
@@ -428,5 +447,21 @@ p {
     color: #ffffff;
     left: 2px;
     animation: MoveUpDown 1.5s linear infinite;
+  }
+}
+
+.web-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .web-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
   }
 }

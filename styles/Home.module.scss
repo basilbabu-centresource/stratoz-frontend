@@ -38,7 +38,8 @@
   margin-left: 0.5rem;
 }
 
-.main, .premium {
+.main,
+.premium {
   h3 {
     color: #455052;
     font-size: 1.688rem;
@@ -52,12 +53,13 @@
 .exProducts {
   .epImages {
     position: relative;
+    height: 100%;
 
     img {
       width: 100%;
     }
     h3 {
-      color: #FFFFFF;
+      color: #ffffff;
       position: absolute;
       top: 30px;
       left: 40px;
@@ -87,11 +89,11 @@
   width: 44%;
 
   img {
-    height: 242px;
+    height: 100%;
   }
 }
 .bgblack {
-  background: #292D2E;
+  background: #292d2e;
   padding: 50px 0 0;
 }
 .width405 {
@@ -101,33 +103,36 @@
   width: 365px;
 }
 
-.simDesign, .excRange, .premium {
+.simDesign,
+.excRange,
+.premium {
   h2 {
     font-size: 2.5rem;
     font-weight: 200;
-    color: #FFFFFF;
+    color: #ffffff;
   }
   h2 span {
     font-weight: 100;
   }
   p {
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 0.8;
     font-weight: 100;
   }
   button {
     background: transparent;
     border: unset;
-    color: #F8F8F8;
+    color: #f8f8f8;
     font-size: 1rem;
     font-weight: 200;
   }
 }
-.excRange, .carouselCaption {
+.excRange,
+.carouselCaption {
   h2 {
     font-size: 2.063rem;
   }
-} 
+}
 .premium {
   margin: 70px 0;
   h3 {
@@ -137,12 +142,13 @@
     color: #455052;
     margin-bottom: 1rem;
   }
-  p, button {
-    color: #3B3836;
+  p,
+  button {
+    color: #3b3836;
   }
   img {
     width: 100%;
-  } 
+  }
   p span {
     font-weight: 200;
   }
@@ -169,10 +175,10 @@
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   color: #fff;
-  text-align: left; 
+  text-align: left;
   width: 400px;
   h2 {
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 400;
     margin-bottom: 1rem;
   }
@@ -196,7 +202,7 @@
       margin-bottom: 0;
       left: 40px;
       font-weight: 200;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
   // .row1 {
@@ -206,14 +212,15 @@
   //   height: 248px;
   // }
   .bgTitle1 {
-    background-color: #B0B0B0;
+    background-color: #b0b0b0;
     h6 {
       font-size: 1.125rem;
-      color: #F8F8F8;
+      color: #f8f8f8;
       padding-left: 25px;
     }
   }
-  .flipTitle, .flipImg {
+  .flipTitle,
+  .flipImg {
     height: 100%;
     position: relative;
     h6 {
@@ -226,13 +233,13 @@
     height: 100%;
   }
   .bgTitle2 {
-    background-color: #C3CFDB;
+    background-color: #c3cfdb;
     .flipcontent {
       padding: 35px 30px;
       height: 100%;
       position: relative;
       p {
-        color: #F8F8F8;
+        color: #f8f8f8;
         font-weight: 200;
       }
       button {
@@ -242,18 +249,18 @@
         border: unset;
         background: transparent;
         outline: none;
-        color: #F8F8F8;
+        color: #f8f8f8;
         font-weight: 200;
         font-size: 1rem;
-    }
+      }
     }
   }
   .bgTitle3 {
-    background-color: #CBC9C9;
+    background-color: #cbc9c9;
     .flipcontent {
       padding: 35px 23px;
       p {
-        color: #F8F8F8;
+        color: #f8f8f8;
         font-weight: 200;
       }
     }

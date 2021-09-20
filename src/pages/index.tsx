@@ -96,7 +96,7 @@ const Home: NextPage = () => {
                         </div>
                       </div>
                       <div className={"col-md-5 " + styles.col5}>
-                        <div className={"row"}>
+                        <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
                               <img src="/home/2.png" />

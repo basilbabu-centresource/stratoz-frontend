@@ -48,16 +48,25 @@ const Hero: React.FC = () => {
                   <img
                     src="/banner.png"
                   />
+                  <div className="carousel-caption">
+                    <h1>Experience <br/><span>Design Perfection</span></h1>
+                  </div>
                 </div>
                 <div className="carousel-item ">
                   <img
                     src="/banner.png"
                   />
+                  <div className="carousel-caption">
+                    <h1>Experience <br/><span>Design Perfection</span></h1>
+                  </div>
                 </div>
                 <div className="carousel-item ">
                   <img
                     src="/banner.png"
                   />
+                  <div className="carousel-caption">
+                    <h1>Experience <br/><span>Design Perfection</span></h1>
+                  </div>
                 </div>
               </div>
             </div>
@@ -66,17 +75,6 @@ const Hero: React.FC = () => {
               <span>.</span>
             </div>
 
-          {/* <Slider {...settings}>
-            <div>
-              <img className="w-100" src="/banner.png"/>
-            </div>
-            <div>
-              <img  className="w-100" src="/banner.png"/>
-            </div>
-            <div>
-              <img  className="w-100" src="/banner.png"/>
-            </div>
-          </Slider> */}
           </section>
           </div>
         </div>
