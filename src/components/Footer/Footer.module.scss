@@ -1,6 +1,7 @@
 .footer {
   background-color: #fff;
   background-image: url("/footer-bg.png");
+  position: relative;
 
   &__title {
     text-transform: uppercase;
@@ -67,5 +68,23 @@
     font-weight: 300;
 
     place-content: center;
+  }
+}
+
+.bktop {
+  position: absolute;
+  right: 12%;
+  top: -35px;
+  button {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: 0px 16px 10px #0000001a;
+  }
+}
+
+@media (max-width: 767px) {
+  .newsletter__input {
+    width: 160px;
   }
 }

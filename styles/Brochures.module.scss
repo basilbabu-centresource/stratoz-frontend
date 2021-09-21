@@ -33,10 +33,24 @@
   font-size: 1.2rem;
   line-height: 20px;
   font-weight: 300;
+  margin-bottom: 40px;
+  position: relative;
 
   span {
     color: #373f41;
     font-weight: 500;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    bottom: -15px;
+    height: 1px;
+    width: 2%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-bottom: 1px solid #373f41;
   }
 }
 .title_desc p {
@@ -89,4 +103,25 @@
   border: unset;
   background: transparent;
   outline: none;
+}
+
+@media (max-width: 767px) {
+  .title_desc {
+    h2 {
+      font-size: 20pt;
+      &:after {
+        border-bottom: 0px;
+      }
+    }
+    p {
+      font-size: 14pt;
+      font-weight: 200;
+      line-height: 22px;
+      margin-bottom: 0px;
+    }
+  }
+  .titleh5 {
+    margin-bottom: 15px;
+    font-size: 18pt;
+  }
 }

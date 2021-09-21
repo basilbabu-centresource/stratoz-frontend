@@ -127,6 +127,9 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
+        <div className={styles.bktop}>
+          <a href="#top"><button><img src="/icons/top.png"/></button></a>
+        </div>
       </footer>
       <div className={"py-3 text-center " + styles.footer__text}>
         Copyright Stratoz Ceramica &copy; 2021

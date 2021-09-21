@@ -20,3 +20,15 @@
     font-weight: 200;
   }
 }
+
+@media (max-width: 767px) {
+  .hero {
+    height: 45vh;
+    padding-bottom: 40px;
+    h1 {
+      font-size: 20pt;
+      padding-right: var(--bs-gutter-x, 0.75rem);
+      padding-left: var(--bs-gutter-x, 0.75rem);
+    }
+  }
+}

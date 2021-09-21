@@ -23,7 +23,6 @@ const Products: NextPage = ({ categories }: any) => {
                 <h2 className={styles.h2_title}>
                   <span>Explore</span> Products
                 </h2>
-                <hr />
                 <p>
                   Design a space perfectly tailored for your personal needs and
                   transform the everyday bathroom experience with our range of

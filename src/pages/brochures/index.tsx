@@ -42,7 +42,6 @@ const Brochures: NextPage = ({ brochure }: any) => {
                 <h2 className={styles.h2_title}>
                   <span>Brochures</span>
                 </h2>
-                <hr />
 
                 {brochure.brochure.map((value: any, i: number) => (
                   <div className={"row " + styles.mb35} key={i}>

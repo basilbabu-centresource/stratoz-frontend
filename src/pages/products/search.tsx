@@ -53,7 +53,7 @@ const Search: NextPage = () => {
                   {results.length === 0 && (
                     <h3>There are no resulsts for "{query.q}".</h3>
                   )}
-                  {data &&
+                  {/* {data &&
                     data[0].products.map((product: any, index: number) => (
                       <div className="col-md-4 " key={index}>
                         <a href={"/products/" + product.slug}>
@@ -84,7 +84,7 @@ const Search: NextPage = () => {
                           </div>
                         </a>
                       </div>
-                    ))}
+                    ))} */}
                 </div>
               </div>
             </div>

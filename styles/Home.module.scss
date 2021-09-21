@@ -162,7 +162,9 @@
 }
 .bgImg {
   background-color: black;
-  // background-image: url("");
+  background-image: url(/logoblack.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 115px 0;
 }
 .carouselItem {
