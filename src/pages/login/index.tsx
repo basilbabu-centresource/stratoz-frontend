@@ -49,55 +49,67 @@ const Login: NextPage = () => {
       </Head>
       <LayoutDefault>
         <div className={styles.bghero}>
-          <div className="container">
-            <div className="row">
-              <div className="col-6">
-                <div className={styles.bgheroFrom}>
-                  <div className={styles.heroFrom}>
-                    <h4>Login in to your account</h4>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <div className={styles.row}>
-                        <div className={styles.col12}>
-                          <label>Email</label>
-                          <input
-                            type="email"
-                            placeholder="jonathandoe@gamil.com"
-                            {...register("email", { required: true })}
-                          />
-                          <label>Mobile</label>
-                          <input
-                            type="password"
-                            placeholder="****************"
-                            {...register("password", { required: true })}
-                          />
-                          <div className={styles.chkBox}>
-                            <input type="checkbox" />
-                            <label> Keep me signed in</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.col12}>
-                          <input type="submit" value="Sign In" />
-                        </div>
-                        <div className={styles.col12}>
-                          <p>
-                            Not Registered?{" "}
-                            <Link href="/register">
-                              <a className="text-white">Register Now</a>
-                            </Link>
-                          </p>
-                        </div>
-                      </div>
-                    </form>
+          <div className={styles.bgContainer}>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6 col-12 d-md-none">
+                  <div className={"mb-4 " + styles.titleBox}>
+                    <h6>Welcome to</h6>
+                    <h1>Stratoz Ceramica</h1>
+                    <h5>Luxury Redefined</h5>
                   </div>
                 </div>
-              </div>
-              <div className="col-6">
-                <div className={styles.titleBox}>
-                  <h6>Welcome to</h6>
-                  <h1>Stratoz Ceramica</h1>
-                  <h5>Luxury Redefined</h5>
+                <div className="col-md-6 col-12">
+                  <div className={styles.bgheroFrom}>
+                    <div className={styles.heroFrom}>
+                      <h4>Login in to your account</h4>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className={styles.row}>
+                          <div className={styles.col12}>
+                            <label>Email</label>
+                            <input
+                              type="email"
+                              placeholder="jonathandoe@gamil.com"
+                              {...register("email", { required: true })}
+                            />
+                            <label>Mobile</label>
+                            <input
+                              type="password"
+                              placeholder="****************"
+                              {...register("password", { required: true })}
+                            />
+                            <div className={styles.chkBox}>
+                              <label className={styles.checkboxButton}>
+                                <input type="checkbox" className={styles.checkboxButtonInput} name="choice1"/>
+                                  <span className={styles.checkboxButtonControl}></span>
+                                  <span className={styles.checkboxButtonLabel}> Keep me signed in</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.col12}>
+                            <input type="submit" value="Sign In" />
+                          </div>
+                          <div className={styles.col12}>
+                            <p>
+                              Not Registered?{" "}
+                              <Link href="/register">
+                                <a className="text-white">Register Now</a>
+                              </Link>
+                            </p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-12 d-none d-md-flex">
+                  <div className={styles.titleBox}>
+                    <h6>Welcome to</h6>
+                    <h1>Stratoz Ceramica</h1>
+                    <h5>Luxury Redefined</h5>
+                  </div>
                 </div>
               </div>
             </div>

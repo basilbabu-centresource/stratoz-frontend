@@ -46,7 +46,7 @@
   //justify-content: space-between;
 
   justify-content: flex-end;
-  width: 38%;
+  // width: 38%;
 
   &__items {
     list-style: none;
@@ -96,5 +96,11 @@
   }
   .right__menu {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .right__menu__items {
+    padding: 0 5px;
   }
 }

@@ -15,7 +15,7 @@ const Categories: NextPage = ({
   const handlePageChange = (pageNumber: number) => {
     //console.log(pageNumber + 1);
 
-    Router.push(`/collections/${category}/${pageNumber + 1}`);
+    Router.push(`/categories/${category}/${pageNumber + 1}`);
   };
 
   return (
@@ -74,7 +74,6 @@ const Categories: NextPage = ({
                                 type="checkbox"
                                 className="checkbox-button__input"
                                 name="choice1"
-                                checked
                               />
                               <span className="checkbox-button__control"></span>
                               <span className="checkbox-button__label">
@@ -335,15 +334,6 @@ export async function getServerSideProps({ query }: any) {
       query.category
     }&_start=${(pageId - 1) * 9}&_limit=9`
   );
-
-  console.log(
-    "URL",
-    `${process.env.API_BASE_URL}/products?category.slug=${
-      query.category
-    }&_start=${(pageId - 1) * 9}&_limit=9`
-  );
-
-  console.log("PageId", pageId);
 
   // Fetch product count form API
   const countRes = await fetch(

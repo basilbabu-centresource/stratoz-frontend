@@ -36,13 +36,18 @@ const About: NextPage = ({ about }: any) => {
                     { ReactHtmlParser(about.our_story.description) }
                   </div>
                   <div className="col-md-5 offset-md-1">
-                    <img
+                    <Image
+                      alt="about_image"
                       src={
                         about.our_story.image
                           ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${about.our_story?.image?.url}`
                           : "/about-bathroom.png"
                       }
-                    />
+                      layout="responsive"
+                      height="75%"
+                      width="100%"
+                      objectFit="cover"
+                    /> 
                   </div>
                 </div>
               </div>
@@ -71,13 +76,18 @@ const About: NextPage = ({ about }: any) => {
                   ))}
                   
                   <div className={"col-md-12 " + styles.mb35}>
-                    <img
+                    <Image
+                      alt="banner_image"
                       src={
                         about.bottom_banner.image
                           ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${about.bottom_banner?.image?.url}`
                           : "/ourstory.png"
                       }
-                    />
+                      layout="responsive"
+                      height="27%"
+                      width="100%"
+                      objectFit="fill"
+                    /> 
                   </div>
                 </div>
                 <div className="row">

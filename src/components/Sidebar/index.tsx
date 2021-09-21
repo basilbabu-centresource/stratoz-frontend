@@ -55,7 +55,7 @@ const Sidebar: React.FC = () => {
                   <a href="">Nearest Showrooms</a>
                 </li>
               </ul>
-              <h5>QUICK LINKS</h5>
+              <h5>Social Media</h5>
               <div className={styles.qlinks}>
                 <ul className="list-unstyled">
                   <li>

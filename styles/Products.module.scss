@@ -34,10 +34,11 @@
 
 .col4img {
   position: relative;
+  margin-bottom: 20px;
 
   h6 {
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
     transform: translate(-50%, -50%);
     left: 50%;
     font-size: 1rem;
@@ -61,10 +62,25 @@
   font-size: 1.2rem;
   line-height: 20px;
   font-weight: 300;
+  position: relative;
+  margin-bottom: 40px;
 
   span {
     color: #373f41;
     font-weight: 500;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    bottom: -15px;
+    height: 1px;
+    width: 2%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-bottom: 1px solid #373f41;
   }
 }
 
@@ -72,8 +88,31 @@
   color: #70797b;
   font-size: 1rem;
   line-height: 20px;
+  font-weight: 200;
 }
 
 .mb50 {
   margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .title_desc {
+    h2 {
+      margin-bottom: 25px;
+      &:after {
+        border-bottom: 0px;
+      }
+    }
+    p {
+      font-size: 14pt;
+      font-weight: 200;
+      line-height: 22px;
+    }
+  }
+  .col4img h6 {
+    font-size: 20pt;
+    &:before {
+      width: 80%;
+    }
+  }
 }
