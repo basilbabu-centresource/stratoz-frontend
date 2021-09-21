@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/auth/authSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { SocialMediaIconsReact } from "social-media-icons-react";
 
 const HeartOutlineIcon = () => (
   <svg
@@ -135,22 +137,24 @@ const Products: NextPage = ({ product, slug }: any) => {
                   ))}
                 </div>
               )}
-              <div className="d-flex mt-4">
-                <div
-                  className="btn btn-primary me-3"
-                  onClick={handleFavourites}
-                >
-                  {/* <span>
+              <div className="row mt-4">
+                <div className="col-9 d-flex mt-4">
+                  <div
+                    className="btn btn-primary me-3 w-50"
+                    onClick={handleFavourites}
+                  >
+                    {/* <span>
                     <FontAwesomeIcon icon={faCoffee} />
                   </span> */}
-                  {isFavourite ? <HeartSolidIcon /> : <HeartOutlineIcon />}
-                  <span className="ms-2">Add to Favourites</span>
-                </div>
-                <div
-                  className="btn btn-outline-primary"
-                  onClick={() => router.push(`/products/${slug}/enquire`)}
-                >
-                  Enquiry
+                    {isFavourite ? <HeartSolidIcon /> : <HeartOutlineIcon />}
+                    <span className="ms-2">Add to Favourites</span>
+                  </div>
+                  <div
+                    className="btn btn-outline-primary w-50"
+                    onClick={() => router.push(`/products/${slug}/enquire`)}
+                  >
+                    Enquiry
+                  </div>
                 </div>
               </div>
               <div className="mt-5 mb-3">
@@ -169,30 +173,77 @@ const Products: NextPage = ({ product, slug }: any) => {
               <div>
                 <h5 className="mb-4">Share this on</h5>
                 <div className="d-flex">
-                  <div className="social__media__icons">
-                    <FontAwesomeIcon
-                      icon={faCoffee}
-                      style={{ color: "#fff" }}
+                  <div className="me-2">
+                    <a
+                      href="#"
+                      rel="noreferrer"
+                      target="_blank"
+                      title="twitter"
+                    >
+                      <svg
+                        height={30}
+                        width={30}
+                        viewBox="4.650000000000002 7.700000000000001 35.699999999999996 30.599999999999998"
+                        style={{
+                          backgroundColor: "rgb(183, 181, 182)",
+                          borderRadius: "10%",
+                          borderColor: "rgba(0, 0, 0, 0.25)",
+                          borderStyle: "solid",
+                          borderWidth: "0px",
+                        }}
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                      >
+                        <g>
+                          <path
+                            fill="rgba(255,255,255,1)"
+                            id="f_1_"
+                            d="M30.526149,16.8457316 C31.4160944,16.2841254 32.0989611,15.3936155 32.41944,14.3328037 C31.5861948,14.8541095 30.6654341,15.2311137 29.6830428,15.4352159 C28.899102,14.5512061 27.7786582,14 26.5386512,14 C24.1597112,14 22.231907,16.0345226 22.231907,18.5435505 C22.231907,18.8997544 22.2676528,19.2468583 22.3416094,19.578362 C18.762106,19.3885599 15.5881317,17.5815398 13.4618771,14.8307092 C13.0908611,15.5041167 12.8788519,16.2841254 12.8788519,17.1161346 C12.8788519,18.6917521 13.6393731,20.0827676 14.7955626,20.8991767 C14.0892763,20.8757764 13.4248987,20.6690741 12.8431062,20.3310703 L12.8431062,20.386971 C12.8431062,22.5891954 14.3271703,24.4261158 16.3005811,24.8421205 C15.9381933,24.9487217 15.558549,25.0020222 15.1641134,25.0020222 C14.8867758,25.0020222 14.6156013,24.9747219 14.3542877,24.9214213 C14.9015672,26.7258414 16.4928685,28.041456 18.3787639,28.0765564 C16.9033281,29.29597 15.0457827,30.021378 13.0279979,30.021378 C12.6804015,30.021378 12.3365029,30.0018778 12,29.9589773 C13.9068498,31.2472916 16.1711569,32 18.6043317,32 C26.5300229,32 30.8614193,25.0761231 30.8614193,19.0713563 C30.8614193,18.8737542 30.858954,18.677452 30.8503258,18.4837498 C31.6921993,17.8428427 32.4243705,17.0420338 33,16.1307237 C32.2271527,16.4921277 31.3963726,16.7365304 30.526149,16.8457316 Z"
+                          />
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                  <div className="me-2">
+                    <SocialMediaIconsReact
+                      borderColor="rgba(0,0,0,0.25)"
+                      borderWidth="0"
+                      borderStyle="solid"
+                      icon="facebook"
+                      iconColor="rgba(255,255,255,1)"
+                      backgroundColor="rgba(183,181,182,1)"
+                      iconSize="5"
+                      roundness="10%"
+                      url="#"
+                      size="30"
                     />
                   </div>
-                  <div className="social__media__icons">
-                    <FontAwesomeIcon
-                      icon={faCoffee}
-                      style={{ color: "#fff" }}
+                  <div className="me-2">
+                    <SocialMediaIconsReact
+                      borderColor="rgba(0,0,0,0.25)"
+                      borderWidth="0"
+                      borderStyle="solid"
+                      icon="linkedin"
+                      iconColor="rgba(255,255,255,1)"
+                      backgroundColor="rgba(183,181,182,1)"
+                      iconSize="5"
+                      roundness="10%"
+                      url="#"
+                      size="30"
                     />
                   </div>
-                  <div className="social__media__icons">
-                    <FontAwesomeIcon
-                      icon={faCoffee}
-                      style={{ color: "#fff" }}
-                    />
-                  </div>
-                  <div className="social__media__icons">
-                    <FontAwesomeIcon
-                      icon={faCoffee}
-                      style={{ color: "#fff" }}
-                    />
-                  </div>
+                  <SocialMediaIconsReact
+                    borderColor="rgba(0,0,0,0.25)"
+                    borderWidth="0"
+                    borderStyle="solid"
+                    icon="instagram"
+                    iconColor="rgba(255,255,255,1)"
+                    backgroundColor="rgba(183,181,182,1)"
+                    iconSize="5"
+                    roundness="10%"
+                    url="#"
+                    size="30"
+                  />
                 </div>
               </div>
             </div>

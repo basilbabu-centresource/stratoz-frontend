@@ -7,10 +7,6 @@ const Sidebar: React.FC = () => {
 
   return (
     <>
-      {/* {isOpen && (
-        
-      )} */}
-
       <nav className={isOpen ? "sub-menu" : "sub-menu  oppenned"}>
         <div className={styles.sidebar__icon}>
           <button
@@ -31,13 +27,13 @@ const Sidebar: React.FC = () => {
               <h5>CATEGORY</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="">Basins</a>
+                  <a href="/categories/basin">Basins</a>
                 </li>
                 <li>
-                  <a href="">WCS</a>
+                  <a href="/categories/wcs">WCS</a>
                 </li>
                 <li>
-                  <a href="">Taps</a>
+                  <a href="/categories/baths">Baths</a>
                 </li>
                 <li>
                   <a href="">Showering</a>

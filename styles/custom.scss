@@ -7,6 +7,10 @@ $primary: #455052;
 
 @import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
 
+:root {
+  scroll-behavior: unset;
+}
+
 body {
   font-size: 14px;
   font-family: GothamPro;
@@ -450,4 +454,14 @@ p {
 .error {
   font-size: 13px;
   font-weight: 300;
+}
+
+.favourite__icon {
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  top: 20px;
+  // pointer-events: none;
+  height: 30px;
+  width: 30px;
 }

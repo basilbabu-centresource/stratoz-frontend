@@ -5,17 +5,67 @@ import LayoutDefault from "../../../layout/Default";
 import styles from "../../../../styles/Categories.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../features/auth/authSlice";
+import api from "../../../api";
+import router from "next/router";
 
 const Categories: NextPage = ({
   products,
   category,
   count,
   cat_listing,
+  pageId,
 }: any) => {
-  const handlePageChange = (pageNumber: number) => {
-    //console.log(pageNumber + 1);
+  const [productsState, setProductsState] = useState<any>(null);
 
+  const { user } = useSelector(selectUser);
+
+  const getProductList = async () => {
+    // alert(pageId);
+    // Fetch product list form API
+    const productsRes = await api.get(
+      `${
+        process.env.NEXT_PUBLIC_API_BASE_URL
+      }/products?category.slug=${category}&_start=${(pageId - 1) * 9}&_limit=9`
+    );
+
+    const productsArray = productsRes.data;
+
+    console.log("DDDDDD", productsArray);
+
+    setProductsState(productsArray);
+  };
+
+  useEffect(() => {
+    getProductList();
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
+    getProductList();
+  }, [user]);
+
+  const handlePageChange = (pageNumber: number) => {
     Router.push(`/categories/${category}/${pageNumber + 1}`);
+  };
+
+  const handleAddFavourite = (isFavourite: boolean, productId: number) => {
+    if (!user) {
+      router.push("/login");
+    }
+
+    if (isFavourite) {
+      api.delete(`/unfavorite/${productId}`).then(() => {
+        getProductList();
+      });
+    } else {
+      api.post(`/favorite`, { products: productId }).then(() => {
+        getProductList();
+      });
+    }
   };
 
   return (
@@ -228,8 +278,9 @@ const Categories: NextPage = ({
                                   : "/products/5.png"
                               }
                               alt={category.name}
-                              height={400}
-                              width={500}
+                              height="100%"
+                              width="100%"
+                              layout="responsive"
                             />
                             <div className={styles.middle}>
                               <div className={styles.text}>
@@ -243,63 +294,160 @@ const Categories: NextPage = ({
                   </div>
 
                   <div className="row">
-                    <div className="col-md-8">
-                      <div className={styles.searchProduct}>
-                        <div className="m-auto">
-                          <button>
-                            <img src="/icons/searchpl.png" />
-                          </button>
-                          <input type="text" />
-                        </div>
-                      </div>
-                    </div>
+                    <div className="col-md-8"></div>
                   </div>
 
                   {console.log("products", products)}
                   <div className="row">
-                    {products &&
-                      products.map((product: any, index: number) => (
-                        <>
-                          <div
-                            key={index}
-                            className={"col-md-4 " + styles.mb25}
-                          >
-                            <a href={`/products/${product.slug}`}>
+                    {productsState
+                      ? productsState &&
+                        productsState.map((product: any, index: number) => (
+                          <>
+                            <div
+                              key={index}
+                              className={"col-md-4 " + styles.mb25}
+                            >
                               <div className={styles.col4fav}>
-                                {/* <div className={styles.fIcon}>
-                                  <Image
-                                    src="/icons/like.svg"
-                                    alt="favourite-icon"
-                                    height={50}
-                                    width={50}
-                                  />
-                                </div> */}
+                                <div
+                                  onClick={() =>
+                                    handleAddFavourite(
+                                      product.is_favorite,
+                                      product.id
+                                    )
+                                  }
+                                  className="favourite__icon"
+                                >
+                                  {!product.is_favorite ? (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-6 w-6"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                      />
+                                    </svg>
+                                  ) : (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-5 w-5"
+                                      viewBox="0 0 20 20"
+                                      fill="currentColor"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
 
                                 <div>
-                                  <Image
-                                    alt="product_image"
-                                    src={
-                                      product.images[0]
-                                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
-                                        : "/product2.png"
-                                    }
-                                    layout="responsive"
-                                    height="100%"
-                                    width="100%"
-                                    objectFit="cover"
-                                  />
+                                  <a href={`/products/${product.slug}`}>
+                                    <Image
+                                      alt="product_image"
+                                      src={
+                                        product.images[0]
+                                          ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                          : "/product2.png"
+                                      }
+                                      layout="responsive"
+                                      height="100%"
+                                      width="100%"
+                                      objectFit="cover"
+                                    />
+                                  </a>
                                 </div>
                                 <div className={styles.favDetails}>
-                                  <h4>{product.title}</h4>
+                                  <a href={`/products/${product.slug}`}>
+                                    <h4>{product.title}</h4>
+                                  </a>
                                   <h5>
                                     {product.code} - {product?.colour?.name}
                                   </h5>
                                 </div>
                               </div>
-                            </a>
-                          </div>
-                        </>
-                      ))}
+                            </div>
+                          </>
+                        ))
+                      : products &&
+                        products.map((product: any, index: number) => (
+                          <>
+                            <div
+                              key={index}
+                              className={"col-md-4 " + styles.mb25}
+                            >
+                              <div className={styles.col4fav}>
+                                <div
+                                  onClick={() => alert("sdsd")}
+                                  className="favourite__icon"
+                                >
+                                  {product.is_favorite ? (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-6 w-6"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                      />
+                                    </svg>
+                                  ) : (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-5 w-5"
+                                      viewBox="0 0 20 20"
+                                      fill="currentColor"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  )}
+                                </div>
+
+                                <div>
+                                  <a href={`/products/${product.slug}`}>
+                                    <Image
+                                      alt="product_image"
+                                      src={
+                                        product.images[0]
+                                          ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                          : "/product2.png"
+                                      }
+                                      layout="responsive"
+                                      height="100%"
+                                      width="100%"
+                                      objectFit="cover"
+                                    />
+                                  </a>
+                                </div>
+                                <div className={styles.favDetails}>
+                                  <a href={`/products/${product.slug}`}>
+                                    <h4>{product.title}</h4>
+                                  </a>
+                                  <h5>
+                                    {product.code} - {product?.colour?.name}
+                                  </h5>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        ))}
+                    {}
                   </div>
 
                   <ReactPaginate
@@ -351,7 +499,7 @@ export async function getServerSideProps({ query }: any) {
   const { category } = query;
 
   // Pass data to the page via props
-  return { props: { products, category, count, cat_listing } };
+  return { props: { products, category, count, cat_listing, pageId } };
 }
 
 export default Categories;

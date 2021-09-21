@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
+import router from "next/router";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { user } = useSelector(selectUser);
+
+  const [keyword, setKeyword] = useState("");
 
   const getInitials = (name: any) => {
     let rgx = new RegExp(/(\p{L}{1})\p{L}+/, "gu");
@@ -19,6 +22,11 @@ const Header: React.FC = () => {
     ).toUpperCase();
 
     return initials;
+  };
+
+  const handleSearch = (event: any) => {
+    event?.preventDefault();
+    router.push(`/products/search?q=${keyword}`);
   };
 
   return (
@@ -48,31 +56,36 @@ const Header: React.FC = () => {
               {!isOpen ? (
                 <>
                   <div className={styles.search}>
-                    <input
-                      type="text"
-                      name="search"
-                      required
-                      aria-label="Search"
-                      placeholder="Search here"
-                      className="header-search"
-                    />
-                    <button type="submit">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="#fff"
-                        height="22px"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
-                    </button>
+                    <form onSubmit={handleSearch}>
+                      <input
+                        type="text"
+                        name="search"
+                        required
+                        aria-label="Search"
+                        placeholder="Search here"
+                        className="header-search"
+                        onChange={(e: any) => {
+                          setKeyword(e.target.value);
+                        }}
+                      />
+                      <button type="submit">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="#fff"
+                          height="22px"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                          />
+                        </svg>
+                      </button>
+                    </form>
                   </div>
                 </>
               ) : (

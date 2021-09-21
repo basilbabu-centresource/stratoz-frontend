@@ -23,7 +23,7 @@
 
 .right__text {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   color: #4a4644;
 }
 
@@ -33,6 +33,7 @@
 
 .footer__link {
   margin-bottom: 1rem;
+  font-weight: 300;
 }
 
 .newsletter {
@@ -50,6 +51,7 @@
     border-radius: 0;
     margin-right: 10px;
     font-size: 13px;
+    font-weight: 300;
   }
 
   &__button {
@@ -62,6 +64,8 @@
     color: #fff;
     font-size: 13px;
     display: grid;
+    font-weight: 300;
+
     place-content: center;
   }
 }

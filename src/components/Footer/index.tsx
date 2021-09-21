@@ -89,10 +89,18 @@ const Footer: React.FC = () => {
 
               <div className="col-lg-2"></div>
               <div className="col-lg-4">
-                <p className={styles.right__text}>
-                  Stratoz Ceramics <br />
-                  Redefining luxury
-                </p>
+                <div className="d-flex align-items-center">
+                  <Image
+                    src={"/logo-dark.png"}
+                    alt={"logo"}
+                    height={60}
+                    width={40}
+                  />
+                  <p className={styles.right__text + " ms-3"}>
+                    Stratoz Ceramicsgg <br />
+                    Redefining luxury
+                  </p>
+                </div>
                 <br />
                 <p className={"mt-2 " + styles.newsletter__title}>
                   Subscribe to newsletter{" "}

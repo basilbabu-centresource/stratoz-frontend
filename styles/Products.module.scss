@@ -37,13 +37,13 @@
 
   h6 {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     transform: translate(-50%, -50%);
     left: 50%;
     font-size: 1rem;
     color: #ffffff;
-    opacity: 0.8;
   }
+
   h6:before {
     content: "";
     position: absolute;
