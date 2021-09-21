@@ -31,13 +31,15 @@ const Collections: NextPage = () => {
                                                 src="/collections/1.png"
                                                 className={styles.overlayImg}
                                             />
-                                            <div
-                                                className={
-                                                    styles.overlayContent
-                                                }
-                                            >
-                                                ALASK
-                                            </div>
+                                            <a href="/collections/alask">
+                                                <div
+                                                    className={
+                                                        styles.overlayContent
+                                                    }
+                                                >
+                                                    ALASK
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div className={styles.col7}>
@@ -57,13 +59,15 @@ const Collections: NextPage = () => {
                                                             styles.middle
                                                         }
                                                     >
-                                                        <div
-                                                            className={
-                                                                styles.text
-                                                            }
-                                                        >
-                                                            ORION
-                                                        </div>
+                                                        <a href="/collections/orion">
+                                                            <div
+                                                                className={
+                                                                    styles.text
+                                                                }
+                                                            >
+                                                                ORION
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,13 +82,15 @@ const Collections: NextPage = () => {
                                                             styles.middle
                                                         }
                                                     >
-                                                        <div
-                                                            className={
-                                                                styles.text
-                                                            }
-                                                        >
-                                                            ARAZ
-                                                        </div>
+                                                        <a href="/collections/orion">
+                                                            <div
+                                                                className={
+                                                                    styles.text
+                                                                }
+                                                            >
+                                                                ARAZ
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,13 +105,15 @@ const Collections: NextPage = () => {
                                                             styles.middle
                                                         }
                                                     >
-                                                        <div
-                                                            className={
-                                                                styles.text
-                                                            }
-                                                        >
-                                                            FUSION
-                                                        </div>
+                                                        <a href="/collections/orion">
+                                                            <div
+                                                                className={
+                                                                    styles.text
+                                                                }
+                                                            >
+                                                                FUSION
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,13 +130,15 @@ const Collections: NextPage = () => {
                                                             styles.middle
                                                         }
                                                     >
-                                                        <div
-                                                            className={
-                                                                styles.text
-                                                            }
-                                                        >
-                                                            MIRRORS
-                                                        </div>
+                                                        <a href="/collections/orion">
+                                                            <div
+                                                                className={
+                                                                    styles.text
+                                                                }
+                                                            >
+                                                                MIRRORS
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,13 +153,15 @@ const Collections: NextPage = () => {
                                                             styles.middle
                                                         }
                                                     >
-                                                        <div
-                                                            className={
-                                                                styles.text
-                                                            }
-                                                        >
-                                                            OVO
-                                                        </div>
+                                                        <a href="/collections/orion">
+                                                            <div
+                                                                className={
+                                                                    styles.text
+                                                                }
+                                                            >
+                                                                OVO
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

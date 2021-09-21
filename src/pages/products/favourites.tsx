@@ -44,7 +44,7 @@ const Favorites: NextPage = () => {
                   )}
                   {data &&
                     data[0].products.map((product: any, index: number) => (
-                      <div className="col-md-4 " key={index}>
+                      <div className="col-md-4 mb-4" key={index}>
                         <a href={"/products/" + product.slug}>
                           {console.log(product)}
                           <div className={styles.col4fav}>

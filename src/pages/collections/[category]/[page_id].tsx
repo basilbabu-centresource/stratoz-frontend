@@ -6,7 +6,7 @@ import styles from "../../../../styles/Favorites.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
 
-const Collections: NextPage = ({ products, category, count }: any) => {
+const Collections: NextPage = ({ products, category, count, slug }: any) => {
     const handlePageChange = (pageNumber: number) => {
         console.log(pageNumber + 1);
 
@@ -29,59 +29,90 @@ const Collections: NextPage = ({ products, category, count }: any) => {
                     <main className={styles.main}>
                         <div className={styles.title_desc}>
                             <div className={"container " + styles.mb50}>
-                                <h2 className={styles.h2_title}>
-                                    <span>Favourite </span> Products
+                                <h2
+                                    className={
+                                        styles.h2_title + " text-uppercase mt-5"
+                                    }
+                                >
+                                    <span>{slug} </span>
                                 </h2>
-                                {console.log(products)}
+                                {console.log("Products", products)}
                                 <hr />
                             </div>
                         </div>
                         <div className={styles.products}>
                             <div className="container">
-                                <div className={styles.row}>
-                                    {products.map((product: any) => (
-                                        <>
-                                            <a
-                                                href={`/products/${product.slug}`}
-                                            >
-                                                <div className={styles.col4}>
-                                                    <div
-                                                        className={
-                                                            styles.col4fav
+                                <div className="row">
+                                    {products.map(
+                                        (product: any, index: number) => (
+                                            <>
+                                                <div
+                                                    className="col-md-4 mb-4"
+                                                    key={index}
+                                                >
+                                                    <a
+                                                        href={
+                                                            "/products/" +
+                                                            product.slug
                                                         }
                                                     >
+                                                        {console.log(product)}
                                                         <div
                                                             className={
-                                                                styles.fIcon
+                                                                styles.col4fav
                                                             }
                                                         >
-                                                            <img src="/icons/like.svg" />
-                                                        </div>
-                                                        <img src="/product2.png" />
-                                                        <div
-                                                            className={
-                                                                styles.favDetails
-                                                            }
-                                                        >
-                                                            <h4>
-                                                                {product.title}
-                                                            </h4>
-                                                            <h5>
-                                                                product_code -{" "}
-                                                                {
-                                                                    product
-                                                                        ?.colour
-                                                                        ?.name
+                                                            <div
+                                                                className={
+                                                                    styles.fIcon
                                                                 }
-                                                            </h5>
+                                                            >
+                                                                <img src="/icons/like.svg" />
+                                                            </div>
+                                                            <Image
+                                                                alt="product_image"
+                                                                src={
+                                                                    product
+                                                                        .images[0]
+                                                                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                                                        : "/product2.png"
+                                                                }
+                                                                layout="responsive"
+                                                                height="100%"
+                                                                width="100%"
+                                                                objectFit="cover"
+                                                            />
+                                                            <div
+                                                                className={
+                                                                    styles.favDetails
+                                                                }
+                                                            >
+                                                                <h4 className="mt-4">
+                                                                    {
+                                                                        product.title
+                                                                    }
+                                                                </h4>
+                                                                <h5>
+                                                                    {" "}
+                                                                    {
+                                                                        product.code
+                                                                    }{" "}
+                                                                    -{" "}
+                                                                    {
+                                                                        product
+                                                                            ?.colour
+                                                                            ?.name
+                                                                    }
+                                                                </h5>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
-                                            </a>
-                                        </>
-                                    ))}
+                                            </>
+                                        )
+                                    )}
                                 </div>
-                                <ReactPaginate
+                                {/* <ReactPaginate
                                     previousLabel={"previous"}
                                     nextLabel={"next"}
                                     breakLabel={"..."}
@@ -94,7 +125,7 @@ const Collections: NextPage = ({ products, category, count }: any) => {
                                     }
                                     containerClassName={"pagination"}
                                     activeClassName={"active"}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </main>
@@ -110,9 +141,16 @@ export async function getServerSideProps({ query }: any) {
 
     // Fetch product list form API
     const productsRes = await fetch(
+        `${process.env.API_BASE_URL}/products?category.slug=bathing&_start=${
+            (pageId - 1) * 9
+        }&_limit=9`
+    );
+
+    console.log(
+        "URL",
         `${process.env.API_BASE_URL}/products?category.slug=${
             query.category
-        }&_start=${pageId * 9}&_limit=9`
+        }&_start=${(pageId - 1) * 9}&_limit=9`
     );
 
     // Fetch product count form API
@@ -127,7 +165,7 @@ export async function getServerSideProps({ query }: any) {
     const { category } = query;
 
     // Pass data to the page via props
-    return { props: { products, category, count } };
+    return { props: { products, category, count, slug: query.category } };
 }
 
 export default Collections;
