@@ -6,7 +6,9 @@ import styles from "../../../styles/Brochures.module.scss";
 import Hero from "../../components/Brochures/Hero";
 import React, { Component, useState } from "react";
 
-import { Document, Page } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Brochures: NextPage = ({ brochure }: any) => {
   const settings = {
@@ -54,13 +56,13 @@ const Brochures: NextPage = ({ brochure }: any) => {
                       <Document
                         file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`}
                         onLoadSuccess={onDocumentLoadSuccess}
+                        onLoadError={(error) => console.log("doc", error)}
                       >
-                        <Page pageNumber={pageNumber} />
+                        <div className="d-flex">
+                          <Page pageNumber={pageNumber} />
+                          <Page pageNumber={pageNumber} />
+                        </div>
                       </Document>
-
-                      <p>
-                        Page {pageNumber} of {numPages}
-                      </p>
 
                       <div className="row">
                         <div className={"col-md-6 col-6 " + styles.mt25}>
