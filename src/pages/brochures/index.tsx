@@ -8,6 +8,8 @@ import React, { Component, useState } from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
 
+import HTMLFlipBook from "react-pageflip";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Brochures: NextPage = ({ brochure }: any) => {
@@ -23,8 +25,9 @@ const Brochures: NextPage = ({ brochure }: any) => {
 
   const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages }: any) {
+  function onDocumentLoadSuccess(numPages: any) {
     setNumPages(numPages);
+    console.log("num pages", numPages);
   }
 
   return (
@@ -49,20 +52,54 @@ const Brochures: NextPage = ({ brochure }: any) => {
                   <div className={"row " + styles.mb35} key={i}>
                     <div className="col-md-12">
                       <h5 className={styles.titleh5}>{value.title}</h5>
-                      {console.log(
-                        "Edwin",
-                        `${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`
-                      )}
-                      <Document
-                        file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`}
-                        onLoadSuccess={onDocumentLoadSuccess}
-                        onLoadError={(error) => console.log("doc", error)}
-                      >
-                        <div className="d-flex">
+
+                      <div className="borde">
+                        <Document
+                          file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`}
+                          onLoadSuccess={onDocumentLoadSuccess}
+                          onLoadError={(error) => console.log("doc", error)}
+                        >
+                          {/* <div className="d-flex">
                           <Page pageNumber={pageNumber} />
-                          <Page pageNumber={pageNumber} />
-                        </div>
-                      </Document>
+                        </div> */}
+
+                          <HTMLFlipBook
+                            width={550}
+                            height={550}
+                            startPage={1}
+                            size={"stretch"}
+                            minWidth={315}
+                            maxWidth={568}
+                            minHeight={400}
+                            autoSize={true}
+                            maxHeight={1333}
+                            maxShadowOpacity={0.5}
+                            showCover={false}
+                            drawShadow={false}
+                            mobileScrollSupport={true}
+                            onFlip={(e) => console.log(e)}
+                            onChangeOrientation={(e) => console.log(e)}
+                            onChangeState={(e) => console.log(e)}
+                            className="demo-book"
+                            style={{ height: "auto" }}
+                            flippingTime={1000}
+                            usePortrait={true}
+                            swipeDistance={200}
+                            showPageCorners={false}
+                            disableFlipByClick={false}
+                            useMouseEvents={true}
+                            clickEventForward={true}
+                            startZIndex={2}
+                            // ref={(el) => (this.flipBook = el)}
+                          >
+                            {[...Array(10)].map((e, i) => (
+                              <div key={i} className="demoPage border">
+                                <Page pageNumber={pageNumber + i + 1} />
+                              </div>
+                            ))}
+                          </HTMLFlipBook>
+                        </Document>
+                      </div>
 
                       <div className="row">
                         <div className={"col-md-6 col-6 " + styles.mt25}>
@@ -75,7 +112,8 @@ const Brochures: NextPage = ({ brochure }: any) => {
                             </button>
                           </a>
                         </div>
-                        <div
+
+                        {/* <div
                           className={
                             "col-md-6 col-6 text-end " +
                             styles.mt25 +
@@ -83,13 +121,13 @@ const Brochures: NextPage = ({ brochure }: any) => {
                             styles.slideBtn
                           }
                         >
-                          <button>
+                          <button onClick={() => setPageNumber(pageNumber - 1)}>
                             <img src="/icons/left.png" />
                           </button>
-                          <button>
+                          <button onClick={() => setPageNumber(pageNumber + 1)}>
                             <img src="/icons/right.png" />
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

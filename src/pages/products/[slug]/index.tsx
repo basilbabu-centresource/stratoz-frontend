@@ -57,6 +57,11 @@ const Products: NextPage = ({ product, slug }: any) => {
   const handleFavourites = () => {
     const body = { products: product.id };
 
+    if (!user) {
+      router.push("/login");
+      return;
+    }
+
     if (isFavourite) {
       api.delete(`/unfavorite/${product.id}`).then(() => {
         setisFavourite(false);
@@ -147,7 +152,10 @@ const Products: NextPage = ({ product, slug }: any) => {
                     <FontAwesomeIcon icon={faCoffee} />
                   </span> */}
                     {isFavourite ? <HeartSolidIcon /> : <HeartOutlineIcon />}
-                    <span className="ms-2">Add to Favourites</span>
+                    <span className="ms-2">
+                      {isFavourite ? "Added " : "Add "}
+                      to Favourites
+                    </span>
                   </div>
                   <div
                     className="btn btn-outline-primary w-50"
