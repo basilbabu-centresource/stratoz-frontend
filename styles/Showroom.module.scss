@@ -12,41 +12,40 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x)/ -2);
-  margin-left: calc(var(--bs-gutter-x)/ -2);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
 
   img {
     width: 100%;
     object-fit: cover;
   }
-
 }
 .col7 {
   flex: 0 0 auto;
   width: 58.3333333333%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col6 {
   flex: 0 0 auto;
   width: 50%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col5 {
   flex: 0 0 auto;
   width: 41.6666666667%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 .col4 {
   flex: 0 0 auto;
   width: 33.3333333333%;
-  padding-right: calc(var(--bs-gutter-x)/ 2);
-  padding-left: calc(var(--bs-gutter-x)/ 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
   margin-bottom: 35px;
 }
@@ -55,25 +54,25 @@
 }
 
 .title_desc h2 {
-  color: #70797B;
+  color: #70797b;
   font-size: 1.2rem;
   line-height: 20px;
   font-weight: 300;
 
   span {
-    color: #373F41;
+    color: #373f41;
     font-weight: 500;
   }
 }
 .title_desc p {
-  color: #70797B;
+  color: #70797b;
   font-size: 1rem;
   margin-bottom: 35px;
 }
 .title_desc hr {
   height: 2px;
   border-width: 0;
-  background-color: #373F41;
+  background-color: #373f41;
   width: 2%;
   margin-left: 0;
 }
@@ -88,7 +87,7 @@
 }
 
 .showroomBox {
-  background: #F8F8F8;
+  background: #f8f8f8;
   padding: 20px;
 
   .mapBox {
@@ -105,13 +104,17 @@
   }
   select {
     height: 46px;
-    background: #FFFFFF;
-    border: 1px solid #4550522E;
+    background: #ffffff;
+    border: 1px solid #4550522e;
     width: 96%;
     margin-bottom: 17px;
     padding: 15px;
     outline: unset;
     color: #171717ad;
+
+    option {
+      padding: 10px;
+    }
   }
 
   .addressBox {
@@ -119,8 +122,8 @@
     overflow-y: scroll;
   }
   .individualBox {
-    background: #FFFFFF;
-    border: 1px solid #7070702E;
+    background: #ffffff;
+    border: 1px solid #7070702e;
     padding: 14px 15px 32px;
     margin-bottom: 12px;
 
@@ -136,8 +139,6 @@
     }
   }
   .activeBox {
-    background: #EFEFEF;
+    background: #efefef;
   }
 }
-
-
