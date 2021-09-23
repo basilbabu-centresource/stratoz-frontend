@@ -133,16 +133,16 @@
     color: #ffffff;
     font-weight: 400;
   }
-  // h6:before {
-  //   content: "";
-  //   position: absolute;
-  //   left: 50%;
-  //   bottom: -5px;
-  //   height: 1px;
-  //   width: 50%;
-  //   transform: translate(-50%, -50%);
-  //   border-bottom: 1px solid #fafafa;
-  // }
+  h6.active:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 1px;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 1px solid #fafafa;
+  }
 }
 
 .overlay {

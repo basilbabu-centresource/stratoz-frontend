@@ -547,6 +547,12 @@ p {
   .slidenavLine .carousel-caption {
     left: 22%;
   }
+  .pagination {
+    overflow: scroll;
+  }
+  .pagination::-webkit-scrollbar {
+    display: none;
+  }
 }
 @include media-breakpoint-only(sm) {
   .web-only {
@@ -577,6 +583,12 @@ p {
   }
   .slidenavLine .carousel-caption {
     left: 22%;
+  }
+  .pagination {
+    overflow: scroll;
+  }
+  .pagination::-webkit-scrollbar {
+    display: none;
   }
 }
 
