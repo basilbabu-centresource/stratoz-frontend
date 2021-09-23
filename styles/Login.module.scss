@@ -23,6 +23,8 @@
 .bgContainer {
   height: 70vh;
   margin-top: 95px;
+  display: flex;
+  align-items: center;
 }
 
 .row {
@@ -108,20 +110,6 @@
       }
     }
 
-    // .chkBox input {
-    //   margin: auto;
-    //   vertical-align: middle;
-    //   margin-right: 15px;
-    //   width: 20px;
-    //   height: 20px;
-    //   background: rgba(40, 40, 40, 0.2);
-    //   -webkit-appearance: none;
-    //   -moz-appearance: none;
-    //   appearance: none;
-    // }
-    // .chkBox input:checked {
-    //   background: rgb(74, 95, 151);
-    // }
     .checkboxButton {
       cursor: pointer;
       position: relative;

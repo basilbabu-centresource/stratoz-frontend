@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import styles from "./Slider.module.scss";
-import Slider from "react-slick";
+import ReactHtmlParser from 'react-html-parser';
+import Image from "next/image";
 
-const Hero: React.FC = () => {
+const Slider: React.FC = ({slider}: any) => {
+  //console.log(slider);
   const settings = {
     dots: true,
     infinite: true,
@@ -44,30 +46,48 @@ const Hero: React.FC = () => {
                 ></button>
               </div>
               <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img
-                    src="/banner.png"
-                  />
-                  <div className="carousel-caption">
-                    <h1>Experience <br/><span>Design Perfection</span></h1>
-                  </div>
-                </div>
-                <div className="carousel-item ">
-                  <img
-                    src="/banner.png"
-                  />
-                  <div className="carousel-caption">
-                    <h1>Experience <br/><span>Design Perfection</span></h1>
-                  </div>
-                </div>
-                <div className="carousel-item ">
-                  <img
-                    src="/banner.png"
-                  />
-                  <div className="carousel-caption">
-                    <h1>Experience <br/><span>Design Perfection</span></h1>
-                  </div>
-                </div>
+                
+                  {slider.map((content: any, i: number) => (
+                    i == 0 ? (
+                      <div className="carousel-item active" key={i}>
+                        <img
+                          src={
+                            content.image
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
+                              : "/about-bathroom.png"
+                          }
+                        />
+                        {/* <Image
+                          alt="about_image"
+                          src={
+                            content.image
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
+                              : "/about-bathroom.png"
+                          }
+                          layout="responsive"
+                          height="50%"
+                          width="100%"
+                          objectFit="cover"
+                        />  */}
+                        <div className="carousel-caption">
+                          <h1>{ ReactHtmlParser(content.title) }</h1>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="carousel-item " key={i}>
+                        <img
+                          src={
+                            content.image
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
+                              : "/about-bathroom.png"
+                          }
+                        />
+                        <div className="carousel-caption">
+                          <h1>{ ReactHtmlParser(content.title) }</h1>
+                        </div>
+                      </div>
+                    )
+                  ))}
               </div>
             </div>
             
@@ -87,4 +107,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default Slider;

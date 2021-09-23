@@ -68,7 +68,6 @@ const Showroom: NextPage = () => {
                 <h2 className={styles.h2_title}>
                   <span>Warranty </span> Registration
                 </h2>
-                <hr />
                 {/* {JSON.stringify(data)} */}
                 <form
                   onSubmit={handleSubmit(onSubmit)}
@@ -110,8 +109,8 @@ const Showroom: NextPage = () => {
                       />
                     </div>
                   </div> */}
-                  <div className={styles.row}>
-                    <div className={styles.col6}>
+                  <div className="row">
+                    <div className="col-md-6 col-12">
                       <label>Purchased From</label>
                       <select
                         {...register("purchasedFrom", { required: true })}
@@ -124,7 +123,7 @@ const Showroom: NextPage = () => {
                           ))}
                       </select>
                     </div>
-                    <div className={styles.col6}>
+                    <div className="col-md-6 col-12">
                       <label>Date of Purchase</label>
                       <input
                         type="date"
@@ -133,18 +132,17 @@ const Showroom: NextPage = () => {
                       />
                     </div>
                   </div>
-                  <div className={styles.row}>
-                    <div className={styles.col6}>
+                  <div className="row">
+                    <div className="col-md-6 col-12">
                       <label>Upload Invoice</label>
                       <div className="fileUpload">
                         <input
                           type="file"
                           {...register("invoice", { required: true })}
                         />
-                        {/* <img src="" /> */}
                       </div>
                     </div>
-                    <div className={styles.col6}>
+                    <div className="col-md-6 col-12">
                       <label>Product Code</label>
                       <input
                         type="text"
@@ -153,8 +151,8 @@ const Showroom: NextPage = () => {
                       />
                     </div>
                   </div>
-                  <div className={styles.row}>
-                    <div className={styles.col12 + " " + styles.txtrgt}>
+                  <div className="row">
+                    <div className={"col-md-12 col-12 " + styles.txtrgt}>
                       <input type="submit" value="Submit" />
                     </div>
                   </div>

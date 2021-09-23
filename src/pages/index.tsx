@@ -3,12 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../layout/Default";
 import styles from "../../styles/Home.module.scss";
-import Sliders from "../components/Home/Slider";
+import BannerSlider from "../components/Home/Slider";
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
+import HtmlParser from "react-html-parser";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ index }: any) => {
+  console.log(index);
   const slider = React.useRef<any>(null);
   const simDesignslider = React.useRef<any>(null);
   const excRangeslider = React.useRef<any>(null);
@@ -20,6 +22,17 @@ const Home: NextPage = () => {
     speed: 500,
     slidesToShow: 1.09,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          slidesPerRow: 1,
+          rows: 1,
+        }
+      }
+    ]
   };
 
   const simDesignsettings = {
@@ -35,7 +48,7 @@ const Home: NextPage = () => {
   const excRangesettings1 = {
     dots: false,
     infinite: false,
-    slidesToShow: 2.5,
+    slidesToShow: 2.45,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -44,14 +57,13 @@ const Home: NextPage = () => {
 
   const excRangesettings2 = {
     dots: false,
-    slidesToShow: 2.5,
+    slidesToShow: 1.9,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     arrows: false,
     centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
+    centerPadding: '60px',
   };
 
   const preSettings = {
@@ -61,6 +73,17 @@ const Home: NextPage = () => {
     slidesToShow: 3.5,
     slidesToScroll: 3,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          slidesPerRow: 1,
+          rows: 2,
+        }
+      }
+    ]
   };
   
   const bgSlidesettings = {
@@ -72,10 +95,14 @@ const Home: NextPage = () => {
     arrows: false,
   };
 
+  const sliderProps = { 
+    slider: index.main_banner
+  }
+
   return (
     <>
       <LayoutDefault>
-        <Sliders />
+        <BannerSlider {...(sliderProps as any)}/>
         <main className={styles.main}>
           <div className="container">
             <Head>
@@ -137,7 +164,7 @@ const Home: NextPage = () => {
                         </div>
                       </div>
                       <div className={"col-md-5 " + styles.col5}>
-                        <div className={"row"}>
+                        <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
                               <img src="/home/2.png" />
@@ -171,86 +198,37 @@ const Home: NextPage = () => {
                 </button>
               </div>
               <div className="col-md-6 col-6 text-end">
-                <a href="#">
-                  <Link href="/products">
-                    <a>
-                      <button>View all</button>
-                    </a>
-                  </Link>
-                </a>
+                <Link href="/products">
+                  <a>
+                    <button>View all</button>
+                  </a>
+                </Link>
               </div>
             </div>
+            
           </div>
         </main>
 
         <section className={styles.bgblack}>
           <div className="container">
             <div className={"row " + styles.excRange}>
-              <div className={"col-md-3 "}>
-                <Slider ref={excRangeslider} {...excRangesettings1}>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
-                </Slider>
-              </div>
-              <div className={"col-md-3 "}>
-                <Slider ref={excRangeslider} {...excRangesettings2}>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
-                </Slider>
-              </div>
-              <div className="col-md-6">
+              <div className="col-md-6  d-md-none ">
                 <div
                   className={"row justify-content-center align-items-center"}
                 >
                   <div className={styles.width405}>
                     <div className={"row " + styles.mb35}>
-                      <div className="col-md-12 p-0">
+                      <div className={"col-md-12 p-0 " +styles.p0}>
                         <h2 className={styles.mb35}>
-                          Introducing <br />
-                          <span>Our Exclusive Range</span>
+                          { HtmlParser(index.exclusive_products.title) }
                         </h2>
                         <p>
-                          All new collection for your dream home. This is a
-                          breakthrough of traditional design. The basin forms a
-                          75 degree angle with the counter to break the space
-                          balance.
+                          { index.exclusive_products.description }
                         </p>
                       </div>
                     </div>
                     <div className="row ">
-                      <div className="col-md-6 col-6 p-0">
+                      <div className={"col-md-6 col-6 p-0 "+styles.p0}>
                         <button
                           onClick={() => excRangeslider?.current?.slickPrev()}
                         >
@@ -262,8 +240,81 @@ const Home: NextPage = () => {
                           <img src="/icons/right.png" />
                         </button>
                       </div>
-                      <div className="col-md-6 col-6 p-0 text-end">
-                        <Link href="/products">
+                      <div className={"col-md-6 col-6 p-0 text-end "+styles.p0}>
+                        <Link href={ index.exclusive_products.link }>
+                          <a>
+                            <button>View all</button>
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={"col-md-3 col-6 pt-4"}>
+                <Slider ref={excRangeslider} {...excRangesettings1}>
+                   {index.exclusive_products.image_1.map((content: any, i: number) =>(
+                    <>
+                      <div className={ styles.mx1rem } key={i}>
+                        <img
+                          src={
+                            content
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.url}`
+                              : "/about-bathroom.png"
+                          }
+                        />
+                      </div>
+                    </>
+                  ))} 
+                </Slider>
+              </div>
+              <div className={"col-md-3 col-6 "}>
+                <Slider ref={excRangeslider} {...excRangesettings2}>
+                  {index.exclusive_products.image_2.map((content: any, i: number) =>(
+                    <>
+                      <div className={ styles.mx2rem } key={i}>
+                        <img
+                          src={
+                            content
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.url}`
+                              : "/about-bathroom.png"
+                          }
+                        />
+                      </div>
+                    </>
+                  ))}
+                </Slider>
+              </div>
+              <div className="col-md-6  d-none d-md-flex justify-content-center">
+                <div
+                  className={"row justify-content-center align-items-center"}
+                >
+                  <div className={styles.width405}>
+                    <div className={"row " + styles.mb35}>
+                      <div className={"col-md-12 p-0 "+styles.p0}>
+                        <h2 className={styles.mb35}>
+                          { HtmlParser(index.exclusive_products.title) }
+                        </h2>
+                        <p>
+                          { index.exclusive_products.description }
+                        </p>
+                      </div>
+                    </div>
+                    <div className="row ">
+                      <div className={"col-md-6 col-6 p-0 "+styles.p0}>
+                        <button
+                          onClick={() => excRangeslider?.current?.slickPrev()}
+                        >
+                          <img src="/icons/left.png" />
+                        </button>
+                        <button
+                          onClick={() => excRangeslider?.current?.slickNext()}
+                        >
+                          <img src="/icons/right.png" />
+                        </button>
+                      </div>
+                      <div className={"col-md-6 col-6 p-0 text-end "+styles.p0}>
+                        <Link href={ index.exclusive_products.link }>
                           <a>
                             <button>View all</button>
                           </a>
@@ -362,6 +413,7 @@ const Home: NextPage = () => {
                   </div>
                 </Slider>
               </div>
+              
               <div className="col-md-6 col-6">
                 <button onClick={() => preSlider?.current?.slickPrev()}>
                   <img src="/icons/left.png" />
@@ -386,22 +438,32 @@ const Home: NextPage = () => {
             <div className={"row " + styles.bgSlide}>
               <div className={"col-md-12 "}>
                 <Slider {...bgSlidesettings}>
-                  <div>
-                    <div className={styles.carouselItem}>
-                      <img src="/home/g1.png" />
-                      <div className={styles.carouselCaption}>
-                        <h2>
-                          German <br />
-                          <span>Perfected Design</span>
-                        </h2>
-                        <p>
-                          Designed and tuned with Stratoz concepts, Designing
-                          with humble shades of black and white is as exciting
-                          as it would be challenging.
-                        </p>
+                  
+                  {index.banner_2.map((content: any, i: number) => (
+                    <>
+                      <div key={i}>
+                        <div className={styles.carouselItem}>
+                          
+                          <img src={
+                            content.image
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
+                              : "/home/g1.png"
+                            } />
+                          <div className={styles.carouselCaption}>
+                            <h2>
+                              German <br />
+                              <span>Perfected Design</span>
+                            </h2>
+                            <p>
+                              Designed and tuned with Stratoz concepts, Designing
+                              with humble shades of black and white is as exciting
+                              as it would be challenging.
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </>
+                  ))}
                   <div>
                     <div className={styles.carouselItem}>
                       <img src="/home/g1.png" />
@@ -449,19 +511,19 @@ const Home: NextPage = () => {
                   <h2>Timeless Designs</h2>
                 </div>
               </div>
-              <div className="col-md-9 p-0">
+              <div className={"col-md-9 p-0" +styles.p0}>
                 <div className={"row " + styles.row1}>
-                  <div className="col-md-4 p-0">
+                  <div className={"col-md-4 p-0 "+styles.p0}>
                     <div className={styles.flipImg}>
                       <img src="/home/f2.png" />
                     </div>
                   </div>
-                  <div className="col-md-4 p-0">
+                  <div className={"col-md-4 p-0 " +styles.p0}>
                     <div className={styles.flipImg}>
                       <img src="/home/f3.png" />
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle1}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle1 + " "+styles.p0}>
                     <div className={styles.flipTitle}>
                       <h6>
                         Classic Black <br />
@@ -471,7 +533,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className={"row " + styles.row2}>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle2}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle2+ " "+styles.p0}>
                     <div className={styles.flipcontent}>
                       <p>Envision the future of bathware</p>
                       <a>
@@ -479,7 +541,7 @@ const Home: NextPage = () => {
                       </a>
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle3}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle3+ " "+styles.p0}>
                     <div className={styles.flipcontent}>
                       <p>
                         Designed and tuned with Stratoz concepts, Designing with
@@ -488,7 +550,7 @@ const Home: NextPage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="col-md-4 p-0">
+                  <div className={"col-md-4 p-0 "+styles.p0}>
                     <div className="flipImg">
                       <img src="/home/f4.png" />
                     </div>
@@ -508,7 +570,7 @@ const Home: NextPage = () => {
                 >
                   <div className={styles.width365}>
                     <div className={"row " + styles.mb35}>
-                      <div className="col-md-12 p-0">
+                      <div className={"col-md-12 p-0 "+ styles.p0}>
                         <h2 className={styles.mb35}>
                           Simple Design <br />
                           <span>
@@ -525,7 +587,7 @@ const Home: NextPage = () => {
                       </div>
                     </div>
                     <div className="row ">
-                      <div className="col-md-6 col-6 p-0">
+                      <div className={"col-md-6 col-6 p-0 "+ styles.p0}>
                         <button
                           onClick={() => simDesignslider?.current?.slickPrev()}
                         >
@@ -537,7 +599,7 @@ const Home: NextPage = () => {
                           <img src="/icons/right.png" />
                         </button>
                       </div>
-                      <div className="col-md-6 col-6 p-0 text-end">
+                      <div className={"col-md-6 col-6 p-0 text-end "+ styles.p0}>
                         <Link href="/products">
                           <a>
                             <button>View all</button>
@@ -578,4 +640,17 @@ const Home: NextPage = () => {
   );
 };
 
+
+export async function getStaticProps() {
+  
+  // Fetch all categories form API
+  const home = await fetch(`${process.env.API_BASE_URL}/home`);
+  
+  const index = await home.json();
+
+  return {
+    props: { index },
+    revalidate: 1,
+  };
+}
 export default Home;

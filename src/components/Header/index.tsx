@@ -176,35 +176,44 @@ const Header: React.FC = () => {
                       <h5>CATEGORY</h5>
                       <ul className="list-unstyled">
                         <li>
-                          <a href="">Basins</a>
+                          <a href="/categories/basin">Basins</a>
                         </li>
                         <li>
-                          <a href="">WCS</a>
+                          <a href="/categories/wcs">WCS</a>
                         </li>
                         <li>
-                          <a href="">Taps</a>
+                          <a href="/categories/bathing">Bathing</a>
                         </li>
                         <li>
-                          <a href="">Showering</a>
+                          <a href="/categories/taps">Taps</a>
                         </li>
                       </ul>
                       <h5>QUICK LINKS</h5>
                       <ul className="list-unstyled">
                         <li>
-                          <a href="">Contact Us</a>
+                          <Link href="/contact">
+                            <a>Contact Us</a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="">Register & Warranty</a>
+                          <Link href="/warranty">
+                            <a>Register & Warranty</a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="">Nearest Showrooms</a>
+                          <Link href="/find-showrooms">
+                            <a>Nearest Showrooms</a>
+                          </Link>
                         </li>
                       </ul>
                       <h5>Social Media</h5>
                       <div className={"smlinks " + styles.qlinks}>
                         <ul className="list-unstyled">
                           <li>
-                            <a href="#" className="me-2">
+                            <a
+                              href="https://www.facebook.com/stratozceramica/"
+                              className="me-2"
+                            >
                               <Image
                                 src="/icons/facebook.png"
                                 alt={"Facebook icon"}
@@ -214,7 +223,10 @@ const Header: React.FC = () => {
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="me-2">
+                            <a
+                              href="https://www.facebook.com/stratozceramica/"
+                              className="me-2"
+                            >
                               <Image
                                 src="/icons/linkedin.png"
                                 alt={"Facebook icon"}
@@ -224,7 +236,10 @@ const Header: React.FC = () => {
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="me-2">
+                            <a
+                              href="https://www.facebook.com/stratozceramica/"
+                              className="me-2"
+                            >
                               <Image
                                 src="/icons/instagram.png"
                                 alt={"Facebook icon"}
