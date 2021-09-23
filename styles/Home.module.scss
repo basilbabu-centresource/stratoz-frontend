@@ -82,6 +82,14 @@
 .mb25 {
   margin-bottom: 25px;
 }
+.mx2rem,
+.mx1rem {
+  margin: 1rem 0;
+}
+.mx1rem:first-child {
+  margin-top: 0;
+  padding-top: 1rem;
+}
 .col6 {
   width: 54%;
 }
@@ -94,7 +102,6 @@
 }
 .bgblack {
   background: #292d2e;
-  padding: 50px 0 0;
 }
 .width405 {
   width: 405px;
@@ -295,6 +302,7 @@
   }
   .width405 {
     width: auto;
+    margin: 60px 0 30px;
   }
   .p0 {
     padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
@@ -304,8 +312,9 @@
     bottom: 0px;
     left: 15px;
     width: auto;
+    padding: 10px 0 15px;
     h2 {
-      margin-bottom: 3px;
+      margin-bottom: 10px;
       font-size: 14pt;
     }
     p {
@@ -318,6 +327,25 @@
   }
   .width365 {
     width: auto;
+  }
+  .premium,
+  .simDesign {
+    h2 {
+      font-size: 20pt;
+      margin: 15px 0 20px;
+    }
+    h3 {
+      font-size: 18pt;
+    }
+    p {
+      font-weight: 100;
+    }
+    .slideInd p {
+      margin: 10px 0 15px;
+    }
+  }
+  .mb30 {
+    margin-bottom: 10px;
   }
 }
 @media (max-width: 600px) {

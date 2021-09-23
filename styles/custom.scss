@@ -539,10 +539,13 @@ p {
   }
   .slidenavLine .carousel-caption h1,
   .slidenavLine .carousel-caption .h1 {
-    font-size: 21pt;
+    font-size: 19pt;
   }
   .slidenavLine .slick-dots {
     bottom: -35px;
+  }
+  .slidenavLine .carousel-caption {
+    left: 22%;
   }
 }
 @include media-breakpoint-only(sm) {
@@ -567,10 +570,13 @@ p {
   }
   .slidenavLine .carousel-caption h1,
   .slidenavLine .carousel-caption .h1 {
-    font-size: 21pt;
+    font-size: 19pt;
   }
   .slidenavLine .slick-dots {
     bottom: -35px;
+  }
+  .slidenavLine .carousel-caption {
+    left: 22%;
   }
 }
 

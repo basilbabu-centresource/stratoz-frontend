@@ -49,7 +49,7 @@ const Slider: React.FC = ({slider}: any) => {
                 
                   {slider.map((content: any, i: number) => (
                     i == 0 ? (
-                      <div className="carousel-item active">
+                      <div className="carousel-item active" key={i}>
                         <img
                           src={
                             content.image
@@ -74,7 +74,7 @@ const Slider: React.FC = ({slider}: any) => {
                         </div>
                       </div>
                     ) : (
-                      <div className="carousel-item ">
+                      <div className="carousel-item " key={i}>
                         <img
                           src={
                             content.image
