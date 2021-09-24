@@ -9,12 +9,8 @@ import { useRouter } from "next/router";
 import api from "../../api";
 import { useState } from "react";
 
-const searchProducts = (keyword: string) => {
-  api.get(`/search?q=${keyword}`).then((res) => {});
-};
-
 const Search: NextPage = () => {
-  const { data } = useFavourites();
+  const [searching, setSearching] = useState(true);
 
   const { query } = useRouter();
 
@@ -26,7 +22,9 @@ const Search: NextPage = () => {
       .then((res: any) => {
         console.log(res);
         setResults(res.data);
-      });
+        setSearching(false);
+      })
+      .catch(() => setSearching(false));
   };
 
   useEffect(() => {
@@ -58,45 +56,51 @@ const Search: NextPage = () => {
             <div className={styles.products}>
               <div className="container">
                 <div className="row">
-                  {results.length === 0 && (
-                    <h3>There are no resulsts for "{query.q}".</h3>
-                  )}
-                  {console.log(results)}
-                  {results &&
-                    results.map((product: any, index: number) => (
-                      <div className="col-md-4 " key={index}>
-                        <a href={"/products/" + product.slug}>
-                          {console.log(product)}
-                          <div className={styles.col4fav + " mb-4"}>
-                            <div className={styles.fIcon}>
-                              <img src="/icons/like.svg" />
-                            </div>
-                            <Image
-                              alt="product_image"
-                              src={
-                                product.images[0]
-                                  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
-                                  : "/product2.png"
-                              }
-                              layout="responsive"
-                              height="100%"
-                              width="100%"
-                              objectFit="cover"
-                            />
-                            <div className={styles.favDetails}>
-                              <h4 className="mt-4">{product.title}</h4>
-                              <h5>
-                                {" "}
-                                {product.code} -{" "}
-                                <span className="text-capitalize">
-                                  {product?.colour?.name}
-                                </span>
-                              </h5>
-                            </div>
+                  {searching ? (
+                    <h3>Searching results for "{query.q}".</h3>
+                  ) : (
+                    <>
+                      {results.length === 0 && (
+                        <h3>There are no results for "{query.q}".</h3>
+                      )}
+
+                      {results &&
+                        results.map((product: any, index: number) => (
+                          <div className="col-md-4 " key={index}>
+                            <a href={"/products/" + product.slug}>
+                              {console.log(product)}
+                              <div className={styles.col4fav + " mb-4"}>
+                                <div className={styles.fIcon}>
+                                  <img src="/icons/like.svg" />
+                                </div>
+                                <Image
+                                  alt="product_image"
+                                  src={
+                                    product.images[0]
+                                      ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].url}`
+                                      : "/product2.png"
+                                  }
+                                  layout="responsive"
+                                  height="100%"
+                                  width="100%"
+                                  objectFit="cover"
+                                />
+                                <div className={styles.favDetails}>
+                                  <h4 className="mt-4">{product.title}</h4>
+                                  <h5>
+                                    {" "}
+                                    {product.code} -{" "}
+                                    <span className="text-capitalize">
+                                      {product?.colour?.name}
+                                    </span>
+                                  </h5>
+                                </div>
+                              </div>
+                            </a>
                           </div>
-                        </a>
-                      </div>
-                    ))}
+                        ))}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
