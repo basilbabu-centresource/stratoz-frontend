@@ -4,9 +4,69 @@ import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/Showroom.module.scss";
 import Hero from "../../components/Showroom/Hero";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../api";
 
 const Showroom: NextPage = () => {
+  const [stores, setStores] = useState([]);
+
+  const [cities, setCities] = useState<any>([]);
+
+  const [countries, setCountries] = useState([]);
+
+  const [selectedStore, setSelectedStore] = useState(null);
+
+  const [selectedCity, setSelectedCity] = useState<any>(null);
+
+  const [selectedCountry, setsetSelectedCountry] = useState<any>(null);
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  useEffect(() => {
+    if (!selectedCountry) return;
+
+    fetchCities(selectedCountry);
+  }, [selectedCountry]);
+
+  useEffect(() => {
+    if (!selectedCity) return;
+
+    fetchStores(selectedCity);
+  }, [selectedCity]);
+
+  const fetchCities = (countryCode: any) => {
+    api.get(`/cities?country.code=${countryCode}`).then(({ data }) => {
+      console.log("Cities", data);
+
+      setCities(data);
+    });
+  };
+
+  const fetchCountries = () => {
+    api.get("/countries").then(({ data }) => {
+      console.log("Countries", data);
+
+      setCountries(data);
+    });
+  };
+
+  const fetchStores = (cityId: number) => {
+    api.get(`/store-details?city.id=${cityId}`).then(({ data }) => {
+      // setCities(data);
+      setStores(data);
+
+      console.log("Stores", stores);
+    });
+  };
+
+  const handleCityChange = () => {};
+
+  const handleCountryChange = () => {};
+
+  const handleStoreChange = () => {};
+
   return (
     <>
       <LayoutDefault>
@@ -48,17 +108,27 @@ const Showroom: NextPage = () => {
                   </div>
                   <div className={styles.col5}>
                     <h6>Country</h6>
-                    <select>
-                      <option>United Arab Emirates</option>
-                      <option>Dubai</option>
+                    <select
+                      onChange={(e) => setsetSelectedCountry(e.target.value)}
+                    >
+                      {/* <option>United Arab Emirates</option>
+                      <option>Dubai</option> */}
+                      {countries.map((country: any, index: number) => (
+                        <option value={country.code} key={index}>
+                          {country.name}
+                        </option>
+                      ))}
                     </select>
                     <h6>City</h6>
-                    <select>
-                      <option>Dubai</option>
-                      <option>United Arab Emirates</option>
+                    <select onChange={(e) => setSelectedCity(e.target.value)}>
+                      {cities.map((country: any, index: number) => (
+                        <option value={country.id} key={index}>
+                          {country.name}
+                        </option>
+                      ))}
                     </select>
                     <div className={styles.addressBox + " " + styles.mt15}>
-                      <div
+                      {/* <div
                         className={
                           styles.individualBox + " " + styles.activeBox
                         }
@@ -69,23 +139,33 @@ const Showroom: NextPage = () => {
                           Bhavan Sasthamngalam Road, <br />
                           Vellayambalam - Trivandrum
                         </p>
-                      </div>
-                      <div className={styles.individualBox}>
+                      </div> */}
+                      {/* <div className={styles.individualBox}>
                         <h5>Amset Ambience</h5>
                         <p>
                           Thomas Towers Opp. Indira <br />
                           Bhavan Sasthamngalam Road, <br />
                           Vellayambalam - Trivandrum
                         </p>
-                      </div>
-                      <div className={styles.individualBox}>
+                      </div> */}
+
+                      {stores.map((store: any) => (
+                        <>
+                          <div className={styles.individualBox}>
+                            {console.log(store)}
+                            <h5>{store.name}</h5>
+                            <p>{store.address_line_1}</p>
+                          </div>
+                        </>
+                      ))}
+                      {/* <div className={styles.individualBox}>
                         <h5>Amset Ambience</h5>
                         <p>
                           Thomas Towers Opp. Indira <br />
                           Bhavan Sasthamngalam Road, <br />
                           Vellayambalam - Trivandrum
                         </p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

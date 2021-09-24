@@ -39,9 +39,8 @@ const Showroom: NextPage = () => {
       product_code: data.productCode,
     };
 
-    console.log(data.invoice);
-
     formData.append("data", JSON.stringify(saticData));
+
     formData.append("files.invoice", data.invoice[0]);
 
     mutate(formData, {

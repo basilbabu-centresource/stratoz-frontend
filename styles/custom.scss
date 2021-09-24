@@ -86,8 +86,6 @@ a {
 }
 
 .pagination {
-  //   border: 1px solid red;
-
   li {
     border: 1px solid grey;
     padding: 10px;
@@ -96,6 +94,10 @@ a {
     min-width: 50px;
     height: 50px;
     position: relative;
+
+    &.active {
+      border-width: 2px;
+    }
 
     &.previous {
       min-width: unset;
@@ -122,6 +124,10 @@ a {
 }
 
 li.previous.disabled {
+  background: rgb(221, 221, 221);
+}
+
+li.next.disabled {
   background: rgb(221, 221, 221);
 }
 
@@ -242,38 +248,9 @@ li.previous.disabled {
   &.oppenned {
     left: 0;
     width: 310px;
-    // display: block;
   }
-  // ul {
-  //   margin: 0;
-  // }
-  // li {
-  //   display: block;
-  //   list-style: none;
-  //   height: auto;
-  //   margin-left: 0;
-  //   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-  //   &:first-child {
-  //     margin-top: 100px;
-  //   }
-
-  //   a {
-  //     color: #fff;
-  //     font-size: 16px;
-  //     width: 100%;
-  //     display: block;
-  //     float: left;
-  //     text-transform: uppercase;
-  //     line-height: 30px;
-
-  //     &:hover {
-  //       font-weight: bold;
-  //       text-decontarion: none;
-  //     }
-  //   }
-  // }
 }
+
 p {
   font-size: 1rem;
 }

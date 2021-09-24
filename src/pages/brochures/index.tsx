@@ -8,6 +8,8 @@ import React, { Component, useState } from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
 
+import HTMLFlipBook from "react-pageflip";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Brochures: NextPage = ({ brochure }: any) => {
@@ -23,7 +25,7 @@ const Brochures: NextPage = ({ brochure }: any) => {
 
   const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages }: any) {
+  function onDocumentLoadSuccess(numPages: any) {
     setNumPages(numPages);
   }
 
@@ -44,56 +46,192 @@ const Brochures: NextPage = ({ brochure }: any) => {
                 <h2 className={styles.h2_title}>
                   <span>Brochures</span>
                 </h2>
-
-                {brochure.brochure.map((value: any, i: number) => (
-                  <div className={"row " + styles.mb35} key={i}>
-                    <div className="col-md-12">
-                      <h5 className={styles.titleh5}>{value.title}</h5>
-                      {console.log(
-                        "Edwin",
-                        `${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`
-                      )}
+                {/* <div className={"row " + styles.mb35} key={1}>
+                  <div className="col-md-12">
+                    <h5 className={styles.titleh5}>
+                      {brochure.brochure[2].title}
+                    </h5>
+                    <div className="border">
                       <Document
-                        file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`}
+                        file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[2].brochure[0]?.url}`}
                         onLoadSuccess={onDocumentLoadSuccess}
                         onLoadError={(error) => console.log("doc", error)}
                       >
-                        <div className="d-flex">
-                          <Page pageNumber={pageNumber} />
-                          <Page pageNumber={pageNumber} />
-                        </div>
-                      </Document>
-
-                      <div className="row">
-                        <div className={"col-md-6 col-6 " + styles.mt25}>
-                          <a
-                            href={`${process.env.NEXT_PUBLIC_API_BASE_URL}${value.brochure[0]?.url}`}
-                          >
-                            <button className={styles.broBtn}>
-                              <img src="/icons/download.png" />
-                              Download
-                            </button>
-                          </a>
-                        </div>
-                        <div
-                          className={
-                            "col-md-6 col-6 text-end " +
-                            styles.mt25 +
-                            " " +
-                            styles.slideBtn
-                          }
+                        <HTMLFlipBook
+                          width={550}
+                          height={1150}
+                          startPage={1}
+                          size={"stretch"}
+                          minWidth={315}
+                          maxWidth={568}
+                          minHeight={400}
+                          autoSize={false}
+                          maxHeight={1333}
+                          maxShadowOpacity={0.5}
+                          showCover={false}
+                          drawShadow={false}
+                          mobileScrollSupport={true}
+                          onFlip={(e) => console.log(e)}
+                          onChangeOrientation={(e) => console.log(e)}
+                          onChangeState={(e) => console.log(e)}
+                          className="demo-book"
+                          style={{ height: "auto" }}
+                          flippingTime={1000}
+                          usePortrait={true}
+                          swipeDistance={200}
+                          showPageCorners={false}
+                          disableFlipByClick={false}
+                          useMouseEvents={true}
+                          clickEventForward={true}
+                          startZIndex={2}
+                          // ref={(el) => (this.flipBook = el)}
                         >
-                          <button>
-                            <img src="/icons/left.png" />
+                          {[...Array(10)].map((e, i) => (
+                            <div key={i} className="demoPage">
+                              <Page pageNumber={pageNumber + i + 1} />
+                            </div>
+                          ))}
+                        </HTMLFlipBook>
+                      </Document>
+                    </div>
+                    <div className="row">
+                      <div className={"col-md-6 col-6 " + styles.mt25}>
+                        <a
+                          href={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[2].brochure[0]?.url}`}
+                        >
+                          <button className={styles.broBtn}>
+                            <img src="/icons/download.png" />
+                            Download
                           </button>
-                          <button>
-                            <img src="/icons/right.png" />
-                          </button>
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div> */}
+                <div className={"row " + styles.mb35} key={1}>
+                  <div className="col-md-12">
+                    <h5 className={styles.titleh5}>
+                      {brochure.brochure[0].title}
+                    </h5>
+                    <div className="borde">
+                      <Document
+                        file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[0].brochure[0]?.url}`}
+                        onLoadSuccess={onDocumentLoadSuccess}
+                        onLoadError={(error) => console.log("doc", error)}
+                      >
+                        <HTMLFlipBook
+                          width={300}
+                          height={395}
+                          startPage={1}
+                          size={"stretch"}
+                          minWidth={315}
+                          maxWidth={568}
+                          minHeight={400}
+                          autoSize={true}
+                          maxHeight={1333}
+                          maxShadowOpacity={0.5}
+                          showCover={false}
+                          drawShadow={false}
+                          mobileScrollSupport={true}
+                          onFlip={(e) => console.log(e)}
+                          onChangeOrientation={(e) => console.log(e)}
+                          onChangeState={(e) => console.log(e)}
+                          className="demo-book"
+                          style={{ height: "auto" }}
+                          flippingTime={1000}
+                          usePortrait={true}
+                          swipeDistance={200}
+                          showPageCorners={false}
+                          disableFlipByClick={false}
+                          useMouseEvents={true}
+                          clickEventForward={true}
+                          startZIndex={2}
+                          // ref={(el) => (this.flipBook = el)}
+                        >
+                          {[...Array(10)].map((e, i) => (
+                            <div key={i} className="demoPage bordr">
+                              <Page pageNumber={pageNumber + i + 1} />
+                            </div>
+                          ))}
+                        </HTMLFlipBook>
+                      </Document>
+                    </div>
+                    <div className="row">
+                      <div className={"col-md-6 col-6 " + styles.mt25}>
+                        <a
+                          href={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[0].brochure[0]?.url}`}
+                        >
+                          <button className={styles.broBtn}>
+                            <img src="/icons/download.png" />
+                            Download
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={"row " + styles.mb35} key={1}>
+                  <div className="col-md-12">
+                    <h5 className={styles.titleh5}>
+                      {brochure.brochure[1].title}
+                    </h5>
+                    <div className="borde">
+                      <Document
+                        file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[1].brochure[0]?.url}`}
+                        onLoadSuccess={onDocumentLoadSuccess}
+                        onLoadError={(error) => console.log("doc", error)}
+                      >
+                        <HTMLFlipBook
+                          width={550}
+                          height={550}
+                          startPage={1}
+                          size={"stretch"}
+                          minWidth={315}
+                          maxWidth={568}
+                          minHeight={400}
+                          autoSize={true}
+                          maxHeight={1333}
+                          maxShadowOpacity={0.5}
+                          showCover={false}
+                          drawShadow={false}
+                          mobileScrollSupport={true}
+                          onFlip={(e) => console.log(e)}
+                          onChangeOrientation={(e) => console.log(e)}
+                          onChangeState={(e) => console.log(e)}
+                          className="demo-book"
+                          style={{ height: "auto" }}
+                          flippingTime={1000}
+                          usePortrait={true}
+                          swipeDistance={200}
+                          showPageCorners={false}
+                          disableFlipByClick={false}
+                          useMouseEvents={true}
+                          clickEventForward={true}
+                          startZIndex={2}
+                          // ref={(el) => (this.flipBook = el)}
+                        >
+                          {[...Array(10)].map((e, i) => (
+                            <div key={i} className="demoPage">
+                              <Page pageNumber={pageNumber + i + 1} />
+                            </div>
+                          ))}
+                        </HTMLFlipBook>
+                      </Document>
+                    </div>
+                    <div className="row">
+                      <div className={"col-md-6 col-6 " + styles.mt25}>
+                        <a
+                          href={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[1].brochure[0]?.url}`}
+                        >
+                          <button className={styles.broBtn}>
+                            <img src="/icons/download.png" />
+                            Download
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </main>
