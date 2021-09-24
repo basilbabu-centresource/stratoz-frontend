@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/auth/authSlice";
 import api from "../../../api";
 import router from "next/router";
+import Slider from "react-slick";
+import Link from "next/link";
 
 const Categories: NextPage = ({
   products,
@@ -68,6 +70,25 @@ const Categories: NextPage = ({
       });
     }
   };
+  const preSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          slidesPerRow: 1,
+          rows: 2,
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -90,16 +111,23 @@ const Categories: NextPage = ({
                         <a href="">Home</a>
                       </li>
                       <li>
-                        <a href="">Products</a>
+                        <Link href="/products">
+                          <a>Products</a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="">{category}</a>
+                        <Link href="#">
+                          <a>{category}</a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="accordion filterCheck" id="accordionExample">
-                    <div className="accordion-item">
+                  <div
+                    className="accordion filterCheck row"
+                    id="accordionExample"
+                  >
+                    <div className="accordion-item col-md-12 col-6">
                       <h2 className="accordion-header" id="headingOne">
                         <button
                           className="accordion-button"
@@ -213,7 +241,7 @@ const Categories: NextPage = ({
                         </div>
                       </div>
                     </div>
-                    <div className="accordion-item">
+                    <div className="accordion-item col-md-12 col-6">
                       <h2 className="accordion-header" id="headingTwo">
                         <button
                           className="accordion-button collapsed"
@@ -266,32 +294,34 @@ const Categories: NextPage = ({
                 </div>
                 <div className="col-md-9">
                   <div className={"row " + styles.catList}>
-                    {cat_listing.map((category: any, index: number) => (
-                      <div key={index} className="col-md-2">
-                        <a href={`/categories/${category.slug}`}>
-                          <div
-                            className={styles.col4img + " " + styles.overlay}
-                          >
-                            <Image
-                              src={
-                                category.image
-                                  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${category?.image?.url}`
-                                  : "/products/5.png"
-                              }
-                              alt={category.name}
-                              height="100%"
-                              width="100%"
-                              layout="responsive"
-                            />
-                            <div className={styles.middle}>
-                              <div className={styles.text}>
-                                <h6>{category.name}</h6>
+                    <Slider {...preSettings}>
+                      {cat_listing.map((cate: any, index: number) => (
+                        <div key={index} className="p-2">
+                          <a href={`/categories/${cate.slug}`}>
+                            <div
+                              className={styles.col4img + " " + styles.overlay}
+                            >
+                              <Image
+                                src={
+                                  cate.image
+                                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${cate?.image?.url}`
+                                    : "/products/5.png"
+                                }
+                                alt={cate.name}
+                                height="100%"
+                                width="100%"
+                                layout="responsive"
+                              />
+                              <div className={styles.middle}>
+                                <div className={styles.text}>
+                                  <h6 className={styles.active}>{cate.name}</h6>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </a>
-                      </div>
-                    ))}
+                          </a>
+                        </div>
+                      ))}
+                    </Slider>
                   </div>
 
                   <div className="row">
@@ -451,20 +481,18 @@ const Categories: NextPage = ({
                     {}
                   </div>
 
-                  {count > 9 && (
-                    <ReactPaginate
-                      previousLabel={"previous"}
-                      nextLabel={"next"}
-                      breakLabel={"..."}
-                      breakClassName={"break-me"}
-                      pageCount={Math.round(count / 9)}
-                      marginPagesDisplayed={5}
-                      pageRangeDisplayed={5}
-                      onPageChange={(e: any) => handlePageChange(e.selected)}
-                      containerClassName={"pagination"}
-                      activeClassName={"active"}
-                    />
-                  )}
+                  <ReactPaginate
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.round(count / 9)}
+                    marginPagesDisplayed={5}
+                    pageRangeDisplayed={5}
+                    onPageChange={(e: any) => handlePageChange(e.selected)}
+                    containerClassName={"pagination"}
+                    activeClassName={"active"}
+                  />
                 </div>
               </div>
             </div>

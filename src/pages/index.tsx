@@ -22,6 +22,7 @@ const Home: NextPage = ({ index }: any) => {
     speed: 500,
     slidesToShow: 1.09,
     slidesToScroll: 1,
+    arrows: false,
     responsive: [
       {
         breakpoint: 767,
@@ -438,7 +439,6 @@ const Home: NextPage = ({ index }: any) => {
             <div className={"row " + styles.bgSlide}>
               <div className={"col-md-12 "}>
                 <Slider {...bgSlidesettings}>
-                  
                   {index.banner_2.map((content: any, i: number) => (
                     <>
                       <div key={i}>
@@ -451,58 +451,23 @@ const Home: NextPage = ({ index }: any) => {
                             } />
                           <div className={styles.carouselCaption}>
                             <h2>
-                              German <br />
-                              <span>Perfected Design</span>
+                              {HtmlParser(content.title)}
                             </h2>
                             <p>
-                              Designed and tuned with Stratoz concepts, Designing
-                              with humble shades of black and white is as exciting
-                              as it would be challenging.
+                              {content.description}
                             </p>
                           </div>
                         </div>
                       </div>
                     </>
                   ))}
-                  <div>
-                    <div className={styles.carouselItem}>
-                      <img src="/home/g1.png" />
-                      <div className={styles.carouselCaption}>
-                        <h2>
-                          German <br />
-                          <span>Perfected Design</span>
-                        </h2>
-                        <p>
-                          Designed and tuned with Stratoz concepts, Designing
-                          with humble shades of black and white is as exciting
-                          as it would be challenging.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.carouselItem}>
-                      <img src="/home/g1.png" />
-                      <div className={styles.carouselCaption}>
-                        <h2>
-                          German <br />
-                          <span>Perfected Design</span>
-                        </h2>
-                        <p>
-                          Designed and tuned with Stratoz concepts, Designing
-                          with humble shades of black and white is as exciting
-                          as it would be challenging.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </Slider>
               </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.flipSect}>
+        <section className={"d-none d-md-flex " +styles.flipSect}>
           <div className="container">
             <div className="row">
               <div className="col-md-3 ">
@@ -511,7 +476,7 @@ const Home: NextPage = ({ index }: any) => {
                   <h2>Timeless Designs</h2>
                 </div>
               </div>
-              <div className={"col-md-9 p-0" +styles.p0}>
+              <div className={"col-md-9 p-0 " +styles.p0}>
                 <div className={"row " + styles.row1}>
                   <div className={"col-md-4 p-0 "+styles.p0}>
                     <div className={styles.flipImg}>
@@ -560,10 +525,70 @@ const Home: NextPage = ({ index }: any) => {
             </div>
           </div>
         </section>
+        <section className={"d-md-none " +styles.flipSect}>
+          <div className="container">
+            <div className="row">
+              <div className="col-8  p-0">
+                <div className={styles.flipMain}>
+                  <img src="/home/f1.png" />
+                  <h2>Timeless Designs</h2>
+                </div>
+              </div>
+              <div className="col-4">
+                <div className={"row h-100"}>
+                  <div className={"col-12 p-0 "}>
+                    <div className={styles.flipImg}>
+                      <img src="/home/f2.png" />
+                    </div>
+                  </div>
+                  <div className={"col-12 p-0 " + styles.bgTitle2 }>
+                    <div className={styles.flipcontent}>
+                      <p>Envision the future of bathware</p>
+                      <a>
+                        <button>View all</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className={"col-6 p-0 "}>
+                <div className={styles.flipImg}>
+                  <img src="/home/f3.png" />
+                </div>
+              </div>
+              <div className={"col-6 p-0 " + styles.bgTitle1 }>
+                <div className={styles.flipTitle}>
+                  <h6>
+                    Classic Black <br />
+                    Interior
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className={"col-6 p-0 " + styles.bgTitle3}>
+                <div className={styles.flipcontent}>
+                  <p>
+                    Designed and tuned with Stratoz concepts, Designing with
+                    humble shades of black and white is as exciting as it
+                    would be challenging.
+                  </p>
+                </div>
+              </div>
+              <div className={"col-6 p-0 "}>
+                <div className="flipImg">
+                  <img src="/home/f4.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className={styles.bgblack}>
           <div className="container">
-            <div className={"row " + styles.simDesign}>
+            <div className={"row align-items-center " + styles.simDesign}>
               <div className="col-md-6">
                 <div
                   className={"row justify-content-center align-items-center"}
@@ -572,17 +597,10 @@ const Home: NextPage = ({ index }: any) => {
                     <div className={"row " + styles.mb35}>
                       <div className={"col-md-12 p-0 "+ styles.p0}>
                         <h2 className={styles.mb35}>
-                          Simple Design <br />
-                          <span>
-                            Modern Bath ware <br />
-                            Solutions
-                          </span>
+                          { index.footer_top.title }
                         </h2>
                         <p>
-                          Weather traditional or contemporary, a faucet that
-                          bears the name stratoz carries with it the pride of
-                          having been designed to be exceptional on its own way,
-                          and each collection is perfectly proportioned.
+                          { index.footer_top.description }
                         </p>
                       </div>
                     </div>
@@ -610,26 +628,21 @@ const Home: NextPage = ({ index }: any) => {
                   </div>
                 </div>
               </div>
-              <div className={"col-md-6 "}>
+              <div className={"col-md-6 pt-4"}>
                 <Slider ref={simDesignslider} {...simDesignsettings}>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd1.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd2.png" />
-                  </div>
-                  <div>
-                    <img src="/home/sd3.png" />
-                  </div>
+                  
+                  {index.footer_top.image.map((content: any, i: number) => (
+                    <>
+                      <div key={i} className={ "m-1" }>
+                        <img 
+                          src={
+                            content
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.url}`
+                              : "/home/sd1.png"
+                          } />
+                      </div>
+                    </>
+                  ))}
                 </Slider>
               </div>
             </div>

@@ -120,8 +120,8 @@ const Products: NextPage = ({ product, slug }: any) => {
               <h4>Product description</h4>
               <p>{product.code}</p>
               <p>
-                SIZE: {product.size.Height} x {product.size.Width} x{" "}
-                {product.size.Length} MM
+                SIZE: {product?.size?.Height} x {product?.size?.Width} x{" "}
+                {product?.size?.Length} MM
               </p>
               {product.avail_colours.length > 0 && (
                 <div className="d-flex align-items-center">
