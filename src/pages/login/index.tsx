@@ -72,7 +72,7 @@ const Login: NextPage = () => {
                               placeholder="jonathandoe@gamil.com"
                               {...register("email", { required: true })}
                             />
-                            <label>Mobile</label>
+                            <label>Password</label>
                             <input
                               type="password"
                               placeholder="****************"
@@ -80,9 +80,18 @@ const Login: NextPage = () => {
                             />
                             <div className={styles.chkBox}>
                               <label className={styles.checkboxButton}>
-                                <input type="checkbox" className={styles.checkboxButtonInput} name="choice1"/>
-                                  <span className={styles.checkboxButtonControl}></span>
-                                  <span className={styles.checkboxButtonLabel}> Keep me signed in</span>
+                                <input
+                                  type="checkbox"
+                                  className={styles.checkboxButtonInput}
+                                  name="choice1"
+                                />
+                                <span
+                                  className={styles.checkboxButtonControl}
+                                ></span>
+                                <span className={styles.checkboxButtonLabel}>
+                                  {" "}
+                                  Keep me signed in
+                                </span>
                               </label>
                             </div>
                           </div>
