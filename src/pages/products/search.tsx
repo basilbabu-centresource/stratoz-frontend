@@ -20,10 +20,19 @@ const Search: NextPage = () => {
 
   const [results, setResults] = useState([]);
 
+  const searchProducts = (query: string | string[]) => {
+    api
+      .get(`/products?_start=0&_limit=10&title_contains=${query}`)
+      .then((res: any) => {
+        console.log(res);
+        setResults(res.data);
+      });
+  };
+
   useEffect(() => {
     if (!query.q) return;
 
-    // alert(query.q);
+    searchProducts(query.q);
   }, [query.q]);
 
   return (
@@ -49,16 +58,16 @@ const Search: NextPage = () => {
             <div className={styles.products}>
               <div className="container">
                 <div className="row">
-                  {console.log("data", data)}
                   {results.length === 0 && (
                     <h3>There are no resulsts for "{query.q}".</h3>
                   )}
-                  {/* {data &&
-                    data[0].products.map((product: any, index: number) => (
+                  {console.log(results)}
+                  {results &&
+                    results.map((product: any, index: number) => (
                       <div className="col-md-4 " key={index}>
                         <a href={"/products/" + product.slug}>
                           {console.log(product)}
-                          <div className={styles.col4fav}>
+                          <div className={styles.col4fav + " mb-4"}>
                             <div className={styles.fIcon}>
                               <img src="/icons/like.svg" />
                             </div>
@@ -78,13 +87,16 @@ const Search: NextPage = () => {
                               <h4 className="mt-4">{product.title}</h4>
                               <h5>
                                 {" "}
-                                {product.code} - {product?.colour?.name}
+                                {product.code} -{" "}
+                                <span className="text-capitalize">
+                                  {product?.colour?.name}
+                                </span>
                               </h5>
                             </div>
                           </div>
                         </a>
                       </div>
-                    ))} */}
+                    ))}
                 </div>
               </div>
             </div>
