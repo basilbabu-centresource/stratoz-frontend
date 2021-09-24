@@ -287,7 +287,7 @@ const Categories: NextPage = ({
                   {console.log("products", products)}
                   <div className="row">
                     {productsState?.length === 0 && (
-                      <h3 className="mb-5 text-center"> </h3>
+                      <h3 className="mb-5 text-center">Coming soon</h3>
                     )}
                     {productsState
                       ? productsState &&
