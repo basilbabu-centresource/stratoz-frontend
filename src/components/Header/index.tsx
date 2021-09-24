@@ -6,11 +6,14 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/auth/authSlice";
 import router from "next/router";
 import SBstyles from "../Sidebar/Sidebar.module.scss";
+import { selectMenu } from "../../features/menu/menuSlice";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isActive, setIsActive] = useState(true);
   const { user } = useSelector(selectUser);
+
+  const { categories } = useSelector(selectMenu);
 
   const [keyword, setKeyword] = useState("");
 
@@ -175,18 +178,14 @@ const Header: React.FC = () => {
                       <h6>MENU</h6>
                       <h5>CATEGORY</h5>
                       <ul className="list-unstyled">
-                        <li>
-                          <a href="/categories/basin">Basins</a>
-                        </li>
-                        <li>
-                          <a href="/categories/wcs">WCS</a>
-                        </li>
-                        <li>
-                          <a href="/categories/bathing">Bathing</a>
-                        </li>
-                        <li>
-                          <a href="/categories/taps">Taps</a>
-                        </li>
+                        {categories &&
+                          categories.map((category: any, index: number) => (
+                            <li key={index}>
+                              <a href={`/categories/${category.slug}`}>
+                                {category.name}
+                              </a>
+                            </li>
+                          ))}
                       </ul>
                       <h5>QUICK LINKS</h5>
                       <ul className="list-unstyled">

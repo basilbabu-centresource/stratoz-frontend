@@ -2,8 +2,12 @@ import Image from "next/image";
 import React from "react";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { selectMenu } from "../../features/menu/menuSlice";
 
 const Footer: React.FC = () => {
+  const { categories } = useSelector(selectMenu);
+
   return (
     <>
       <footer className={styles.footer}>
@@ -15,33 +19,30 @@ const Footer: React.FC = () => {
             <div className="row">
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Categories</div>
-                <div className={styles.footer__link}>
-                  <a href="#">Basins</a>
-                </div>
-                <div className={styles.footer__link}>
-                  <a href="#">Bathing</a>
-                </div>
-                <div className={styles.footer__link}>
-                  <a href="#">WCS</a>
-                </div>
-                <div className={styles.footer__link}>
-                  <a href="#">Accessories</a>
-                </div>
-                <div className={styles.footer__link}>
-                  <a href="#">Taps</a>
-                </div>
-                <div className={styles.footer__link}>
-                  <a href="#">Showering</a>
-                </div>
+                {categories &&
+                  categories.map((category: any, index: number) => (
+                    <div className={styles.footer__link} key={index}>
+                      <a href={`/categories/${category.slug}`}>
+                        {category.name}
+                      </a>
+                    </div>
+                  ))}
               </div>
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Quick links</div>
                 <div className={styles.footer__link}>
-                  <a href="#">Contact us</a>
+                  <Link href="/contact">
+                    <a>Contact us</a>
+                  </Link>
                 </div>
                 <div className={styles.footer__link}>
                   <Link href="/warranty">
                     <a> Register & Warranty</a>
+                  </Link>
+                </div>
+                <div className={styles.footer__link}>
+                  <Link href="/find-showrooms">
+                    <a>Nearest showrooms</a>
                   </Link>
                 </div>
                 {/* <div className={styles.footer__link}>
@@ -128,7 +129,11 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className={styles.bktop}>
-          <a href="#top"><button><img src="/icons/top.png"/></button></a>
+          <a href="#top">
+            <button>
+              <img src="/icons/top.png" />
+            </button>
+          </a>
         </div>
       </footer>
       <div className={"py-3 text-center " + styles.footer__text}>

@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import LayoutDefault from "../../../layout/Default";
-import styles from "../../../../styles/Categories.module.scss";
+import LayoutDefault from "../../../../layout/Default";
+import styles from "../../../../../styles/Categories.module.scss";
 import ReactPaginate from "react-paginate";
 import Router from "next/router";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../../features/auth/authSlice";
-import api from "../../../api";
+import { selectUser } from "../../../../features/auth/authSlice";
+import api from "../../../../api";
 import router from "next/router";
 import Slider from "react-slick";
 import Link from "next/link";
@@ -16,12 +16,13 @@ import Link from "next/link";
 const Categories: NextPage = ({
   products,
   category,
+  series,
   count,
   cat_listing,
-  pageId,
+  page,
 }: any) => {
   const [productsState, setProductsState] = useState<any>(null);
-  const [series, setSeries] = useState<any>(null);
+  const [seriesState, setSeriesState] = useState<any>(null);
 
   const { user } = useSelector(selectUser);
 
@@ -30,7 +31,9 @@ const Categories: NextPage = ({
     const productsRes = await api.get(
       `${
         process.env.NEXT_PUBLIC_API_BASE_URL
-      }/products?category.slug=${category}&_start=${(pageId - 1) * 9}&_limit=9`
+      }/products?category.slug=${category}&series.slug=${series}&_start=${
+        (page - 1) * 9
+      }&_limit=9`
     );
 
     const productsArray = productsRes.data;
@@ -44,15 +47,17 @@ const Categories: NextPage = ({
       `/product-series?category.slug=${category}`
     );
 
+    console.log(seriesRes);
+
     const series = seriesRes.data;
 
-    setSeries(series);
+    setSeriesState(series);
   };
 
   useEffect(() => {
     getProductList();
     getSeriesList();
-  }, []);
+  }, [series, page]);
 
   useEffect(() => {
     if (!user) return;
@@ -61,7 +66,7 @@ const Categories: NextPage = ({
   }, [user]);
 
   const handlePageChange = (pageNumber: number) => {
-    Router.push(`/categories/${category}/${pageNumber + 1}`);
+    Router.push(`/categories/${category}/${series}/?page=${pageNumber + 1}`);
   };
 
   const handleAddFavourite = (isFavourite: boolean, productId: number) => {
@@ -80,6 +85,7 @@ const Categories: NextPage = ({
       });
     }
   };
+
   const preSettings = {
     dots: false,
     infinite: false,
@@ -126,8 +132,13 @@ const Categories: NextPage = ({
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href={`/categories/${category}`}>
                           <a>{category}</a>
+                        </Link>
+                      </li>{" "}
+                      <li>
+                        <Link href="#">
+                          <a>{series}</a>
                         </Link>
                       </li>
                     </ul>
@@ -158,8 +169,8 @@ const Categories: NextPage = ({
                         data-bs-parent="#accordionExample"
                       >
                         <div className="accordion-body">
-                          {series &&
-                            series.map((item: any, index: number) => (
+                          {seriesState &&
+                            seriesState.map((item: any, index: number) => (
                               <div
                                 className="example"
                                 key={index}
@@ -171,7 +182,7 @@ const Categories: NextPage = ({
                               >
                                 <label className="checkbox-button">
                                   <input
-                                    type="checkbox"
+                                    type="radio"
                                     className="checkbox-button__input"
                                     name="choice1"
                                   />
@@ -188,7 +199,7 @@ const Categories: NextPage = ({
                         </div>
                       </div>
                     </div>
-                    <div className="accordion-item col-md-12 col-6">
+                    {/* <div className="accordion-item col-md-12 col-6">
                       <h2 className="accordion-header" id="headingTwo">
                         <button
                           className="accordion-button collapsed"
@@ -236,7 +247,7 @@ const Categories: NextPage = ({
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="col-md-9">
@@ -270,13 +281,14 @@ const Categories: NextPage = ({
                       ))}
                     </Slider>
                   </div>
-
                   <div className="row">
                     <div className="col-md-8"></div>
                   </div>
-
                   {console.log("products", products)}
                   <div className="row">
+                    {productsState?.length === 0 && (
+                      <h3 className="mb-5 text-center"> </h3>
+                    )}
                     {productsState
                       ? productsState &&
                         productsState.map((product: any, index: number) => (
@@ -434,7 +446,7 @@ const Categories: NextPage = ({
                       nextLabel={">>"}
                       breakLabel={"..."}
                       breakClassName={"break-me"}
-                      pageCount={Math.round(count / 9)}
+                      pageCount={Math.ceil(count / 9)}
                       marginPagesDisplayed={5}
                       pageRangeDisplayed={5}
                       onPageChange={(e: any) => handlePageChange(e.selected)}
@@ -454,18 +466,21 @@ const Categories: NextPage = ({
 
 // This gets called on every request
 export async function getServerSideProps({ query }: any) {
-  const pageId = query.page_id ? Number(query.page_id) : 1;
+  const page = query.page ? Number(query.page) : 1;
+  const { category, series } = query;
 
   // Fetch product list form API
   const productsRes = await fetch(
-    `${process.env.API_BASE_URL}/products?category.slug=${
-      query.category
-    }&_start=${(pageId - 1) * 9}&_limit=9`
+    `${
+      process.env.API_BASE_URL
+    }/products?category.slug=${category}&series.slug=${series}&_start=${
+      (page - 1) * 9
+    }&_limit=9`
   );
 
   // Fetch product count form API
   const countRes = await fetch(
-    `${process.env.API_BASE_URL}/products/count?category.slug=${query.category}`
+    `${process.env.API_BASE_URL}/products/count?category.slug=${query.category}&series.slug=${series}`
   );
 
   const categoriesRes = await fetch(`${process.env.API_BASE_URL}/categories`);
@@ -476,10 +491,10 @@ export async function getServerSideProps({ query }: any) {
 
   const count = await countRes.json();
 
-  const { category } = query;
-
   // Pass data to the page via props
-  return { props: { products, category, count, cat_listing, pageId } };
+  return {
+    props: { products, category, series, count, cat_listing, page },
+  };
 }
 
 export default Categories;

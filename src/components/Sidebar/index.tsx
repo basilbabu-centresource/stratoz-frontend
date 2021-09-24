@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Sidebar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories, selectMenu } from "../../features/menu/menuSlice";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const { categories } = useSelector(selectMenu);
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   return (
     <>
@@ -26,19 +36,16 @@ const Sidebar: React.FC = () => {
             <div className={styles.sideMenu}>
               <h6>MENU</h6>
               <h5>CATEGORY</h5>
+              {console.log(categories)}
               <ul className="list-unstyled">
-                <li>
-                  <a href="/categories/basin">Basins</a>
-                </li>
-                <li>
-                  <a href="/categories/wcs">WCS</a>
-                </li>
-                <li>
-                  <a href="/categories/bathing">Bathing</a>
-                </li>
-                <li>
-                  <a href="/categories/taps">Taps</a>
-                </li>
+                {categories &&
+                  categories.map((category: any, index: number) => (
+                    <li key={index}>
+                      <a href={`/categories/${category.slug}`}>
+                        {category.name}
+                      </a>
+                    </li>
+                  ))}
               </ul>
               <h5>QUICK LINKS</h5>
               <ul className="list-unstyled">
