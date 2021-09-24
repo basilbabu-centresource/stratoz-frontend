@@ -347,6 +347,29 @@
   .mb30 {
     margin-bottom: 10px;
   }
+  .flipSect {
+    .bgTitle2,
+    .bgTitle3 {
+      .flipcontent {
+        padding: 10px;
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .custContainer {
+    max-width: 640px;
+  }
+}
+@media (min-width: 992px) {
+  .custContainer {
+    max-width: 860px;
+  }
+}
+@media (min-width: 1200px) {
+  .custContainer {
+    max-width: 1085px;
+  }
 }
 @media (max-width: 600px) {
   .grid {

@@ -113,7 +113,7 @@ const Brochures: NextPage = ({ brochure }: any) => {
                     <h5 className={styles.titleh5}>
                       {brochure.brochure[0].title}
                     </h5>
-                    <div className="borde">
+                    <div className={"borde " +styles.border}>
                       <Document
                         file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[0].brochure[0]?.url}`}
                         onLoadSuccess={onDocumentLoadSuccess}
@@ -175,7 +175,7 @@ const Brochures: NextPage = ({ brochure }: any) => {
                     <h5 className={styles.titleh5}>
                       {brochure.brochure[1].title}
                     </h5>
-                    <div className="borde">
+                    <div id="flip-book" className={"borde " +styles.border}>
                       <Document
                         file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${brochure.brochure[1].brochure[0]?.url}`}
                         onLoadSuccess={onDocumentLoadSuccess}

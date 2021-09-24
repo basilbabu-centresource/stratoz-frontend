@@ -111,6 +111,7 @@ const Showroom: NextPage = () => {
                     <select
                       onChange={(e) => setsetSelectedCountry(e.target.value)}
                     >
+                      <option value="">Choose Country</option>
                       {/* <option>United Arab Emirates</option>
                       <option>Dubai</option> */}
                       {countries.map((country: any, index: number) => (
@@ -121,6 +122,7 @@ const Showroom: NextPage = () => {
                     </select>
                     <h6>City</h6>
                     <select onChange={(e) => setSelectedCity(e.target.value)}>
+                      <option value="">Choose City</option>
                       {cities.map((country: any, index: number) => (
                         <option value={country.id} key={index}>
                           {country.name}

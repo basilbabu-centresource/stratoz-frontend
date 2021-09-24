@@ -120,8 +120,9 @@ const Products: NextPage = ({ product, slug }: any) => {
               <h4>Product description</h4>
               <p>{product.code}</p>
               <p>
-                SIZE: {product.size.Height} x {product.size.Width} x{" "}
-                {product.size.Length} MM
+                SIZE: {(product?.size?.Height) ? product?.size?.Height + "x " : "_ X " } 
+                {(product?.size?.Width) ? product?.size?.Width + "x " : "_ X " } 
+                {(product?.size?.Length)? product?.size?.Length : "_ "} MM
               </p>
               {product.avail_colours.length > 0 && (
                 <div className="d-flex align-items-center">
@@ -272,7 +273,7 @@ const Products: NextPage = ({ product, slug }: any) => {
                     src={
                       item.images.length !== 0
                         ? process.env.NEXT_PUBLIC_API_BASE_URL +
-                          item.images[0].url
+                          item?.images[0]?.url
                         : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/counter_basin_500x500_2f4fee6d5e.PNG`
                     }
                     height={340}

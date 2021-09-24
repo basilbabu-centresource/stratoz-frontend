@@ -23,7 +23,7 @@ const Slider: React.FC = ({slider}: any) => {
               className="carousel slide carousel-fade"
               data-bs-ride="carousel"
             >
-              <div className="carousel-indicators">
+              <div className="carousel-indicators  d-none d-md-flex">
                 <button
                   type="button"
                   data-bs-target="#carouselExampleDark"
@@ -91,7 +91,7 @@ const Slider: React.FC = ({slider}: any) => {
               </div>
             </div>
             
-            <div className="scrollanim">
+            <div className="scrollanim d-none d-md-flex">
               <span>.</span>
             </div>
 
