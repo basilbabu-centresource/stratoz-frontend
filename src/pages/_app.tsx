@@ -20,7 +20,6 @@ const getTokenFromLocalStorage = async () => {
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     getTokenFromLocalStorage().then((token) => {
-      console.log("token", token);
       if (!token) {
         // Remove default headers from axios
         api.defaults.headers.common["Authorization"] = ``;

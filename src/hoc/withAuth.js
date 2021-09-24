@@ -13,11 +13,7 @@ export function withAuth(Component) {
       }
     }, [user]);
 
-    return (
-      <>
-        <Component />
-      </>
-    );
+    return <>{user ? <h1>Loading</h1> : <Component />}</>;
   };
 }
 
