@@ -188,7 +188,7 @@ const Categories: NextPage = ({
                         </div>
                       </div>
                     </div>
-                    <div className="accordion-item col-md-12 col-6">
+                    {/* <div className="accordion-item col-md-12 col-6">
                       <h2 className="accordion-header" id="headingTwo">
                         <button
                           className="accordion-button collapsed"
@@ -236,7 +236,7 @@ const Categories: NextPage = ({
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="col-md-9">

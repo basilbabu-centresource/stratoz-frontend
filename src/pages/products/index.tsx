@@ -70,8 +70,6 @@ const Products: NextPage = ({ categories }: any) => {
   );
 };
 
-const categories_API_URl = "http://192.168.1.13:1339/categories";
-
 export async function getServerSideProps() {
   // Fetch all categories form API
   const categoriesRes = await fetch(`${process.env.API_BASE_URL}/categories`);

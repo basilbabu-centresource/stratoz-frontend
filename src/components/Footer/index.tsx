@@ -4,9 +4,29 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { selectMenu } from "../../features/menu/menuSlice";
+import api from "../../api";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Footer: React.FC = () => {
   const { categories } = useSelector(selectMenu);
+
+  const [email, setEmail] = useState(null);
+
+  const handleSubmitNewsletter = (event: any) => {
+    event.preventDefault();
+
+    if (!email) return;
+
+    api
+      .post("/newsletters", { email })
+      .then(() => {
+        toast.success("Email submitted successfully");
+      })
+      .catch(() => {
+        toast.error("Something went wrong. try again!");
+      });
+  };
 
   return (
     <>
@@ -98,7 +118,7 @@ const Footer: React.FC = () => {
                     width={40}
                   />
                   <p className={styles.right__text + " ms-3"}>
-                    Stratoz Ceramicsgg <br />
+                    Stratoz Ceramics <br />
                     Redefining luxury
                   </p>
                 </div>
@@ -106,13 +126,17 @@ const Footer: React.FC = () => {
                 <p className={"mt-2 " + styles.newsletter__title}>
                   Subscribe to newsletter{" "}
                 </p>
-                <form className="form-inline d-flex">
+                <form
+                  className="form-inline d-flex"
+                  onSubmit={handleSubmitNewsletter}
+                >
                   <div className="form-group  mb-2">
                     <input
                       type="email"
                       className={"form-control " + styles.newsletter__input}
                       id="inputPassword2"
                       placeholder="Your email  address"
+                      onChange={(e: any) => setEmail(e.target.value)}
                     />
                   </div>
                   <div>

@@ -10,9 +10,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/auth/authSlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { SocialMediaIconsReact } from "social-media-icons-react";
 
 const HeartOutlineIcon = () => (
@@ -174,15 +171,31 @@ const Products: NextPage = ({ product, slug }: any) => {
               </div>
               <div className="mt-5 mb-3">
                 {product.technical_specs && (
-                  <a
-                    href={
-                      process.env.NEXT_PUBLIC_API_BASE_URL +
-                      product.technical_specs.url
-                    }
-                    download
-                  >
-                    Technical specifications
-                  </a>
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 me-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      height="20px"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+
+                    <a
+                      href={
+                        process.env.NEXT_PUBLIC_API_BASE_URL +
+                        product.technical_specs.url
+                      }
+                      download
+                    >
+                      Technical specifications
+                    </a>
+                  </>
                 )}
               </div>
               <div>
