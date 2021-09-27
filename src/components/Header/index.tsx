@@ -8,6 +8,12 @@ import router from "next/router";
 import SBstyles from "../Sidebar/Sidebar.module.scss";
 import { selectMenu } from "../../features/menu/menuSlice";
 
+const CloseIcon: React.FC = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 w19" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isActive, setIsActive] = useState(true);
@@ -37,7 +43,7 @@ const Header: React.FC = () => {
   return (
     <>
       <div className={styles.navbar}>
-        <div className="container d-flex justify-content-between ">
+        <div className="container headContainer d-flex justify-content-between ">
           <div className="logoCustom">
             <Link href="/">
               <a>
@@ -61,6 +67,9 @@ const Header: React.FC = () => {
               {!isOpen ? (
                 <>
                   <div className={styles.search}>
+                    <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+                      <CloseIcon/>
+                    </button>
                     <form onSubmit={handleSearch}>
                       <input
                         type="text"
@@ -115,7 +124,7 @@ const Header: React.FC = () => {
                 </>
               )}
             </div>
-            <div className={styles.right__menu__items}>
+            <div className={"d-none d-md-flex " +styles.right__menu__items}>
               <Link href="/products/favourites">
                 <a>
                   <span style={{ color: "#fff" }}>
@@ -139,7 +148,7 @@ const Header: React.FC = () => {
                 </a>
               </Link>
             </div>
-            <div className={styles.right__menu__items}>
+            <div className={"d-none d-md-flex " +styles.right__menu__items}>
               {user ? (
                 <Link href="/profile">
                   <a>
@@ -151,11 +160,58 @@ const Header: React.FC = () => {
               ) : (
                 <Link href="/login">
                   <a>
-                    <div className="btn__outline">Sign in</div>
+                    <div className={styles.sigBtn +" btn__outline"}>Sign in</div>
                   </a>
                 </Link>
               )}
             </div>
+              
+            {isOpen ? (
+              <>
+                <div className={"d-md-none " + styles.right__menu__items}>
+                  <Link href="/products/favourites">
+                    <a>
+                      <span style={{ color: "#fff" }}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          height="22px"
+                          stroke="#fff"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                          />
+                          Favs
+                        </svg>
+                      </span>
+                    </a>
+                  </Link>
+                </div>
+                <div className={"d-md-none " +styles.right__menu__items}>
+                  {user ? (
+                    <Link href="/profile">
+                      <a>
+                        <div className="btn__outline">
+                          {getInitials(user?.name)}
+                        </div>
+                      </a>
+                    </Link>
+                  ) : (
+                    <Link href="/login">
+                      <a>
+                        <div className={styles.sigBtn +" btn__outline"}>Sign in</div>
+                      </a>
+                    </Link>
+                  )}
+                </div>
+              </>
+              ) : null}
+            
             <div className={"d-md-none " + styles.right__menu__items}>
               <nav
                 className={isActive ? "mobile-menu" : "mobile-menu  oppenned"}

@@ -481,18 +481,20 @@ const Categories: NextPage = ({
                     {}
                   </div>
 
-                  <ReactPaginate
-                    previousLabel={"<<"}
-                    nextLabel={">>"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={Math.round(count / 9)}
-                    marginPagesDisplayed={5}
-                    pageRangeDisplayed={5}
-                    onPageChange={(e: any) => handlePageChange(e.selected)}
-                    containerClassName={"pagination"}
-                    activeClassName={"active"}
-                  />
+                  {count > 9 && (
+                    <ReactPaginate
+                      previousLabel={"<<"}
+                      nextLabel={">>"}
+                      breakLabel={"..."}
+                      breakClassName={"break-me"}
+                      pageCount={Math.ceil(count / 9)}
+                      marginPagesDisplayed={5}
+                      pageRangeDisplayed={5}
+                      onPageChange={(e: any) => handlePageChange(e.selected)}
+                      containerClassName={"pagination"}
+                      activeClassName={"active"}
+                    />
+                  )}
                 </div>
               </div>
             </div>

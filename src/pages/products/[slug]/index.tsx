@@ -292,7 +292,7 @@ const Products: NextPage = ({ product, slug }: any) => {
                     src={
                       item.images.length !== 0
                         ? process.env.NEXT_PUBLIC_API_BASE_URL +
-                          item.images[0].url
+                          item?.images[0]?.url
                         : `${process.env.NEXT_PUBLIC_API_BASE_URL}/uploads/counter_basin_500x500_2f4fee6d5e.PNG`
                     }
                     height={340}

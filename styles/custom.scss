@@ -230,7 +230,7 @@ li.next.disabled {
 }
 
 .sub-menu {
-  padding: 0 0 0 2%;
+  padding: 0 0 0 75px;
   float: right;
   left: 0px;
   top: 0;
@@ -507,6 +507,7 @@ p {
   }
   .mobileSidebar {
     z-index: auto;
+    height: 100vh;
   }
   .logoCustom {
     position: absolute;
@@ -608,10 +609,51 @@ p {
   font-size: 13px;
   font-weight: 300;
 }
+.btn {
+  padding: 0.8rem 0rem;
+}
+.btn__outline {
+  font-size: 12px;
+  font-weight: 200;
+}
 @media (max-width: 340px) {
   .btn__outline {
     padding: 8px 10px;
   }
+  .mobileSidebar {
+    width: 65px;
+  }
+  .slidenavLine .carousel-caption {
+    left: 25%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+  .container.headContainer {
+    max-width: 725px;
+  }
+}
+@media (min-width: 992px) {
+  .container,
+  .container.headContainer {
+    max-width: 860px;
+  }
+}
+@media (min-width: 1200px) {
+  .container,
+  .container.headContainer {
+    max-width: 1085px;
+  }
+}
+.stf__parent canvas,
+div.react-pdf__Page__textContent {
+  width: 100% !important;
+}
+.w19 {
+  width: 19px;
 }
 
 #nprogress .bar {
