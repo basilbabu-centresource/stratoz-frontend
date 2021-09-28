@@ -50,6 +50,8 @@ export function login(credentials: any) {
       dispatch(getToken(data.jwt));
       dispatch(getUser(data.user));
     } catch (error: any) {
+      console.log("error", error);
+
       dispatch(getToken(null));
       dispatch(getUser(null));
     }
