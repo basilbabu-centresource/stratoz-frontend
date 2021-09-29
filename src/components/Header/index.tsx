@@ -9,8 +9,19 @@ import SBstyles from "../Sidebar/Sidebar.module.scss";
 import { selectMenu } from "../../features/menu/menuSlice";
 
 const CloseIcon: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 w19" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 w19"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 18L18 6M6 6l12 12"
+    />
   </svg>
 );
 
@@ -24,6 +35,8 @@ const Header: React.FC = () => {
   const [keyword, setKeyword] = useState("");
 
   const getInitials = (name: any) => {
+    if (!name) return null;
+
     let rgx = new RegExp(/(\p{L}{1})\p{L}+/, "gu");
 
     let initials = [...name.matchAll(rgx)] || [];
@@ -68,7 +81,7 @@ const Header: React.FC = () => {
                 <>
                   <div className={styles.search}>
                     <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
-                      <CloseIcon/>
+                      <CloseIcon />
                     </button>
                     <form onSubmit={handleSearch}>
                       <input
@@ -124,7 +137,7 @@ const Header: React.FC = () => {
                 </>
               )}
             </div>
-            <div className={"d-none d-md-flex " +styles.right__menu__items}>
+            <div className={"d-none d-md-flex " + styles.right__menu__items}>
               <Link href="/products/favourites">
                 <a>
                   <span style={{ color: "#fff" }}>
@@ -148,24 +161,26 @@ const Header: React.FC = () => {
                 </a>
               </Link>
             </div>
-            <div className={"d-none d-md-flex " +styles.right__menu__items}>
+            <div className={"d-none d-md-flex " + styles.right__menu__items}>
               {user ? (
                 <Link href="/profile">
                   <a>
                     <div className="btn__outline">
-                      {getInitials(user?.name)}
+                      {getInitials(user?.name) || "JD"}
                     </div>
                   </a>
                 </Link>
               ) : (
                 <Link href="/login">
                   <a>
-                    <div className={styles.sigBtn +" btn__outline"}>Sign in</div>
+                    <div className={styles.sigBtn + " btn__outline"}>
+                      Sign in
+                    </div>
                   </a>
                 </Link>
               )}
             </div>
-              
+
             {isOpen ? (
               <>
                 <div className={"d-md-none " + styles.right__menu__items}>
@@ -192,7 +207,7 @@ const Header: React.FC = () => {
                     </a>
                   </Link>
                 </div>
-                <div className={"d-md-none " +styles.right__menu__items}>
+                <div className={"d-md-none " + styles.right__menu__items}>
                   {user ? (
                     <Link href="/profile">
                       <a>
@@ -204,14 +219,16 @@ const Header: React.FC = () => {
                   ) : (
                     <Link href="/login">
                       <a>
-                        <div className={styles.sigBtn +" btn__outline"}>Sign in</div>
+                        <div className={styles.sigBtn + " btn__outline"}>
+                          Sign in
+                        </div>
                       </a>
                     </Link>
                   )}
                 </div>
               </>
-              ) : null}
-            
+            ) : null}
+
             <div className={"d-md-none " + styles.right__menu__items}>
               <nav
                 className={isActive ? "mobile-menu" : "mobile-menu  oppenned"}

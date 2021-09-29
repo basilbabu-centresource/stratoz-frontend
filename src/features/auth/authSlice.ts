@@ -51,6 +51,8 @@ export function login(credentials: any) {
       dispatch(getUser(data.user));
     } catch (error: any) {
       
+      console.log("error", error);
+
       dispatch(getToken(null));
       dispatch(getUser(null));
         return error.response;
