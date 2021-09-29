@@ -43,9 +43,7 @@ const Products: NextPage = ({ categories }: any) => {
                   {categories.map((category: any, index: number) => (
                     <div key={index} className="col-md-4">
                       <a href={`/categories/${category.slug}`}>
-                        <div
-                          className={styles.col4img + " " + styles.overlay}
-                        >
+                        <div className={styles.col4img + " " + styles.overlay}>
                           <Image
                             src={
                               category.image
@@ -65,29 +63,8 @@ const Products: NextPage = ({ categories }: any) => {
                         </div>
                       </a>
                     </div>
-                    // <div key={index} className="col-md-4">
-                    //   <a href={`/categories/${category.slug}`}>
-                    //     <div className={styles.col4img}>
-                    //       <Image
-                    //         src={
-                    //           category.image
-                    //             ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${category?.image?.url}`
-                    //             : "/products/5.png"
-                    //         }
-                    //         alt={category.name}
-                    //         height={400}
-                    //         width={500}
-                    //       />
-                    //       <div className="overlay">
-                    //         <h6>{category.name}</h6>
-                    //       </div>
-                          
-                    //     </div>
-                    //   </a>
-                    // </div>
                   ))}
                 </div>
-                {/* {console.log(categories)} */}
               </div>
             </div>
           </main>

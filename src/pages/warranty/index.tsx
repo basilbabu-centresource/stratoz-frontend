@@ -28,18 +28,21 @@ const Showroom: NextPage = () => {
     handleSubmit,
     reset,
     formState: { errors },
+    formState,
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const formData = new FormData();
 
-    const saticData = {
+    const staticData = {
       store: Number(data.purchasedFrom),
       purchase_date: data.dateOfPurchase,
       product_code: data.productCode,
     };
 
-    formData.append("data", JSON.stringify(saticData));
+    console.log("StaticData", staticData);
+
+    formData.append("data", JSON.stringify(staticData));
 
     formData.append("files.invoice", data.invoice[0]);
 
@@ -73,42 +76,6 @@ const Showroom: NextPage = () => {
                   onSubmit={handleSubmit(onSubmit)}
                   className={styles.formBox + " " + styles.mt30}
                 >
-                  {/* <div className={styles.row}>
-                    <div className={styles.col6}>
-                      <label>First Name</label>
-                      <input
-                        type="text"
-                        placeholder="Jonathan "
-                        {...register("firstName", { required: true })}
-                      />
-                    </div>
-                    <div className={styles.col6}>
-                      <label>Last Name</label>
-                      <input
-                        type="text"
-                        placeholder="Doe"
-                        {...register("lastName", { required: true })}
-                      />
-                    </div>
-                  </div> */}
-                  {/* <div className={styles.row}>
-                    <div className={styles.col6}>
-                      <label>Email ID</label>
-                      <input
-                        type="email"
-                        placeholder="jon.doe@gmail.com "
-                        {...register("email", { required: true })}
-                      />
-                    </div>
-                    <div className={styles.col6}>
-                      <label>Phone Number</label>
-                      <input
-                        type="text"
-                        placeholder="9731111000"
-                        {...register("phoneNumber", { required: true })}
-                      />
-                    </div>
-                  </div> */}
                   <div className="row">
                     <div className="col-md-6 col-12">
                       <label>Purchased From</label>
@@ -122,6 +89,16 @@ const Showroom: NextPage = () => {
                             </option>
                           ))}
                       </select>
+                      <span className="error">
+                        {errors.purchasedFrom &&
+                          errors.purchasedFrom.type === "required" && (
+                            <span>Name is required</span>
+                          )}
+                        {errors.purchasedFrom &&
+                          errors.purchasedFrom.type === "maxLength" && (
+                            <span>Max length exceeded</span>
+                          )}
+                      </span>
                     </div>
                     <div className="col-md-6 col-12">
                       <label>Date of Purchase</label>
@@ -130,6 +107,16 @@ const Showroom: NextPage = () => {
                         placeholder="Doe"
                         {...register("dateOfPurchase", { required: true })}
                       />
+                      <span className="error">
+                        {errors.dateOfPurchase &&
+                          errors.dateOfPurchase.type === "required" && (
+                            <span>Name is required</span>
+                          )}
+                        {errors.dateOfPurchase &&
+                          errors.dateOfPurchase.type === "maxLength" && (
+                            <span>Max length exceeded</span>
+                          )}
+                      </span>
                     </div>
                   </div>
                   <div className="row">
@@ -141,6 +128,16 @@ const Showroom: NextPage = () => {
                           {...register("invoice", { required: true })}
                         />
                       </div>
+                      <span className="error">
+                        {errors.purchasedFrom &&
+                          errors.purchasedFrom.type === "required" && (
+                            <span>Name is required</span>
+                          )}
+                        {errors.purchasedFrom &&
+                          errors.purchasedFrom.type === "maxLength" && (
+                            <span>Max length exceeded</span>
+                          )}
+                      </span>
                     </div>
                     <div className="col-md-6 col-12">
                       <label>Product Code</label>
@@ -149,8 +146,19 @@ const Showroom: NextPage = () => {
                         placeholder="LoreumIpsum"
                         {...register("productCode", { required: true })}
                       />
+                      <span className="error">
+                        {errors.productCode &&
+                          errors.productCode.type === "required" && (
+                            <span>Name is required</span>
+                          )}
+                        {errors.productCode &&
+                          errors.productCode.type === "maxLength" && (
+                            <span>Max length exceeded</span>
+                          )}
+                      </span>
                     </div>
                   </div>
+                  {JSON.stringify(formState)}
                   <div className="row">
                     <div className={"col-md-12 col-12 " + styles.txtrgt}>
                       <input type="submit" value="Submit" />

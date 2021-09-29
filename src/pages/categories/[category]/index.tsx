@@ -18,7 +18,7 @@ const Categories: NextPage = ({
   category,
   count,
   cat_listing,
-  pageId,
+  page,
 }: any) => {
   const [productsState, setProductsState] = useState<any>(null);
   const [series, setSeries] = useState<any>(null);
@@ -30,7 +30,7 @@ const Categories: NextPage = ({
     const productsRes = await api.get(
       `${
         process.env.NEXT_PUBLIC_API_BASE_URL
-      }/products?category.slug=${category}&_start=${(pageId - 1) * 9}&_limit=9`
+      }/products?category.slug=${category}&_start=${(page - 1) * 9}&_limit=9`
     );
 
     const productsArray = productsRes.data;
@@ -52,7 +52,7 @@ const Categories: NextPage = ({
   useEffect(() => {
     getProductList();
     getSeriesList();
-  }, []);
+  }, [page, category]);
 
   useEffect(() => {
     if (!user) return;
@@ -61,7 +61,7 @@ const Categories: NextPage = ({
   }, [user]);
 
   const handlePageChange = (pageNumber: number) => {
-    Router.push(`/categories/${category}/${pageNumber + 1}`);
+    Router.push(`/categories/${category}/?page=${pageNumber + 1}`);
   };
 
   const handleAddFavourite = (isFavourite: boolean, productId: number) => {
@@ -249,7 +249,7 @@ const Categories: NextPage = ({
                 <div className="col-md-9">
                   <div className={"row " + styles.catList}>
                     <Slider {...preSettings}>
-                      {cat_listing.map((cate: any, index: number) => ( 
+                      {cat_listing.map((cate: any, index: number) => (
                         <div key={index} className="p-2">
                           <a href={`/categories/${cate.slug}`}>
                             <div
@@ -268,7 +268,15 @@ const Categories: NextPage = ({
                               />
                               <div className={styles.middle}>
                                 <div className={styles.text}>
-                                  <h6 className={category === cate.slug ? styles.active : ""} >{cate.name}</h6>
+                                  <h6
+                                    className={
+                                      category === cate.slug
+                                        ? styles.active
+                                        : ""
+                                    }
+                                  >
+                                    {cate.name}
+                                  </h6>
                                 </div>
                               </div>
                             </div>
@@ -441,7 +449,7 @@ const Categories: NextPage = ({
                       nextLabel={">>"}
                       breakLabel={"..."}
                       breakClassName={"break-me"}
-                      pageCount={Math.round(count / 9)}
+                      pageCount={Math.ceil(count / 9)}
                       marginPagesDisplayed={5}
                       pageRangeDisplayed={5}
                       onPageChange={(e: any) => handlePageChange(e.selected)}
@@ -461,13 +469,13 @@ const Categories: NextPage = ({
 
 // This gets called on every request
 export async function getServerSideProps({ query }: any) {
-  const pageId = query.page_id ? Number(query.page_id) : 1;
+  const page = query.page ? Number(query.page) : 1;
 
   // Fetch product list form API
   const productsRes = await fetch(
     `${process.env.API_BASE_URL}/products?category.slug=${
       query.category
-    }&_start=${(pageId - 1) * 9}&_limit=9`
+    }&_start=${(page - 1) * 9}&_limit=9`
   );
 
   // Fetch product count form API
@@ -481,12 +489,12 @@ export async function getServerSideProps({ query }: any) {
 
   const products = await productsRes.json();
 
-  const count = await countRes.json();  
+  const count = await countRes.json();
 
   const { category } = query;
 
   // Pass data to the page via props
-  return { props: { products, category, count, cat_listing, pageId } };
+  return { props: { products, category, count, cat_listing, page } };
 }
 
 export default Categories;

@@ -72,17 +72,18 @@ const Collections: NextPage = ({ products, count, slug }: any) => {
                     </>
                   ))}
                 </div>
+
                 {count > 9 && (
                   <ReactPaginate
-                    previousLabel={"previous"}
-                    nextLabel={"next"}
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
-                    pageCount={Math.round(count / 9)}
+                    pageCount={Math.ceil(count / 9)}
                     marginPagesDisplayed={5}
                     pageRangeDisplayed={5}
                     onPageChange={(e: any) => handlePageChange(e.selected)}
-                    containerClassName={"pagination"}
+                    containerClassName={"pagination pb-4"}
                     activeClassName={"active"}
                   />
                 )}
