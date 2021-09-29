@@ -55,8 +55,8 @@ const About: NextPage = ({ about }: any) => {
                 <div className="row">
                   {about.content[0].content.map((content: any, i: number) => (
                     i < 2 ? (
-                    <div className="col-md-6" key={i}>
-                      <div className={styles.bgcol6}>
+                    <div className="col-md-6 mb-3" key={i}>
+                      <div className={"h-100 " + styles.bgcol6}>
                         <h5>{content.title}</h5>
                         <p>{content.description}</p>
                       </div>

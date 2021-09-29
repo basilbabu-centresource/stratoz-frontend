@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
             <div className={styles.sideMenu}>
               <h6>MENU</h6>
               <h5>CATEGORY</h5>
-              {console.log(categories)}
+              {/* {console.log(categories)} */}
               <ul className="list-unstyled">
                 {categories &&
                   categories.map((category: any, index: number) => (
@@ -74,7 +74,7 @@ const Sidebar: React.FC = () => {
                       className="me-2"
                     >
                       <Image
-                        src="/icons/facebook.png"
+                        src="/icons/facebookMob.png"
                         alt={"Facebook icon"}
                         height={18}
                         width={18}
@@ -87,7 +87,7 @@ const Sidebar: React.FC = () => {
                       className="me-2"
                     >
                       <Image
-                        src="/icons/linkedin.png"
+                        src="/icons/linkedinMob.png"
                         alt={"Facebook icon"}
                         height={18}
                         width={18}
@@ -100,7 +100,7 @@ const Sidebar: React.FC = () => {
                       className="me-2"
                     >
                       <Image
-                        src="/icons/instagram.png"
+                        src="/icons/instagramMob.png"
                         alt={"Facebook icon"}
                         height={18}
                         width={18}

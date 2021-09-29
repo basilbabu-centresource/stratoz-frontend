@@ -124,7 +124,9 @@ const Categories: NextPage = ({
                     <h1>{category}</h1>
                     <ul>
                       <li>
-                        <a href="">Home</a>
+                        <Link href="/">
+                          <a>Home</a>
+                        </Link>
                       </li>
                       <li>
                         <Link href="/products">
@@ -450,7 +452,7 @@ const Categories: NextPage = ({
                       marginPagesDisplayed={5}
                       pageRangeDisplayed={5}
                       onPageChange={(e: any) => handlePageChange(e.selected)}
-                      containerClassName={"pagination"}
+                      containerClassName={"pagination pb-4"}
                       activeClassName={"active"}
                     />
                   )}

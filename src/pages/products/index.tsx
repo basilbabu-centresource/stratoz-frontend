@@ -43,7 +43,9 @@ const Products: NextPage = ({ categories }: any) => {
                   {categories.map((category: any, index: number) => (
                     <div key={index} className="col-md-4">
                       <a href={`/categories/${category.slug}`}>
-                        <div className={styles.col4img}>
+                        <div
+                          className={styles.col4img + " " + styles.overlay}
+                        >
                           <Image
                             src={
                               category.image
@@ -51,16 +53,41 @@ const Products: NextPage = ({ categories }: any) => {
                                 : "/products/5.png"
                             }
                             alt={category.name}
-                            height={400}
-                            width={500}
+                            height="100%"
+                            width="100%"
+                            layout="responsive"
                           />
-                          <h6>{category.name}</h6>
+                          <div className={styles.middle}>
+                            <div className={styles.text}>
+                              <h6 className={styles.active}>{category.name}</h6>
+                            </div>
+                          </div>
                         </div>
                       </a>
                     </div>
+                    // <div key={index} className="col-md-4">
+                    //   <a href={`/categories/${category.slug}`}>
+                    //     <div className={styles.col4img}>
+                    //       <Image
+                    //         src={
+                    //           category.image
+                    //             ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${category?.image?.url}`
+                    //             : "/products/5.png"
+                    //         }
+                    //         alt={category.name}
+                    //         height={400}
+                    //         width={500}
+                    //       />
+                    //       <div className="overlay">
+                    //         <h6>{category.name}</h6>
+                    //       </div>
+                          
+                    //     </div>
+                    //   </a>
+                    // </div>
                   ))}
                 </div>
-                {console.log(categories)}
+                {/* {console.log(categories)} */}
               </div>
             </div>
           </main>

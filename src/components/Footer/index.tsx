@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
   const handleSubmitNewsletter = (event: any) => {
     event.preventDefault();
 
-    if (!email) return;
+    //if (!email) return;
 
     api
       .post("/newsletters", { email })
@@ -133,9 +133,10 @@ const Footer: React.FC = () => {
                   <div className="form-group  mb-2">
                     <input
                       type="email"
+                      required
                       className={"form-control " + styles.newsletter__input}
                       id="inputPassword2"
-                      placeholder="Your email  address"
+                      placeholder="Your email address"
                       onChange={(e: any) => setEmail(e.target.value)}
                     />
                   </div>
@@ -153,7 +154,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className={styles.bktop}>
-          <a href="#top">
+          <a href="#">
             <button>
               <img src="/icons/top.png" />
             </button>

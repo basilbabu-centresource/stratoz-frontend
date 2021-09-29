@@ -100,6 +100,11 @@ const Categories: NextPage = ({
     ],
   };
 
+  // const getActiveClass = (slug) => {
+  //   if(category === slug) return styles.active;
+  //   return "";
+  // }
+
   return (
     <>
       <LayoutDefault>
@@ -118,7 +123,9 @@ const Categories: NextPage = ({
                     <h1>{category}</h1>
                     <ul>
                       <li>
-                        <a href="">Home</a>
+                        <Link href="/">
+                          <a>Home</a>
+                        </Link>
                       </li>
                       <li>
                         <Link href="/products">
@@ -132,7 +139,7 @@ const Categories: NextPage = ({
                       </li>
                     </ul>
                   </div>
-                  {console.log("Series", series)}
+                  {/* {console.log("Series", series)} */}
 
                   <div
                     className="accordion filterCheck row"
@@ -242,7 +249,7 @@ const Categories: NextPage = ({
                 <div className="col-md-9">
                   <div className={"row " + styles.catList}>
                     <Slider {...preSettings}>
-                      {cat_listing.map((cate: any, index: number) => (
+                      {cat_listing.map((cate: any, index: number) => ( 
                         <div key={index} className="p-2">
                           <a href={`/categories/${cate.slug}`}>
                             <div
@@ -261,7 +268,7 @@ const Categories: NextPage = ({
                               />
                               <div className={styles.middle}>
                                 <div className={styles.text}>
-                                  <h6 className={styles.active}>{cate.name}</h6>
+                                  <h6 className={category === cate.slug ? styles.active : ""} >{cate.name}</h6>
                                 </div>
                               </div>
                             </div>
@@ -275,7 +282,7 @@ const Categories: NextPage = ({
                     <div className="col-md-8"></div>
                   </div>
 
-                  {console.log("products", products)}
+                  {/* {console.log("products", products)} */}
                   <div className="row">
                     {productsState
                       ? productsState &&
@@ -438,7 +445,7 @@ const Categories: NextPage = ({
                       marginPagesDisplayed={5}
                       pageRangeDisplayed={5}
                       onPageChange={(e: any) => handlePageChange(e.selected)}
-                      containerClassName={"pagination"}
+                      containerClassName={"pagination pb-4"}
                       activeClassName={"active"}
                     />
                   )}
@@ -474,7 +481,7 @@ export async function getServerSideProps({ query }: any) {
 
   const products = await productsRes.json();
 
-  const count = await countRes.json();
+  const count = await countRes.json();  
 
   const { category } = query;
 

@@ -68,7 +68,9 @@
   background-color: #f7f7f7;
   padding: 30px 50px 40px;
   text-align: center;
-  margin-bottom: 20px;
+  p {
+    margin-bottom: 0;
+  }
 }
 h2.h2title:after {
   left: 50%;

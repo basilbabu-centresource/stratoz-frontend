@@ -97,6 +97,7 @@
   ul {
     display: inline-flex;
     padding: 0;
+    flex-wrap: wrap;
     li {
       list-style-type: none !important;
       text-transform: capitalize;

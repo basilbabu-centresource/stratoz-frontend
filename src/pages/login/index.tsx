@@ -15,7 +15,7 @@ type Inputs = {
 };
 
 const Login: NextPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
 
   const { token, user } = useSelector(selectUser);
 
@@ -40,6 +40,14 @@ const Login: NextPage = () => {
     };
 
     dispatch(login(credentials));
+
+    // dispatch(login(credentials)).then((response: any) => {
+    //   console.log(response.status);
+    //   if(response.status == 400){
+    //     alert("Invalid username and password");
+    //   }
+    // });
+
   };
 
   return (
@@ -72,12 +80,27 @@ const Login: NextPage = () => {
                               placeholder="jonathandoe@gamil.com"
                               {...register("email", { required: true })}
                             />
+                            <span className="error">
+                              {errors.email && errors.email.type === "required" && (
+                                <span>Email is required</span>
+                              )}
+                            </span>
+                          </div>
+                            
+                          <div className={styles.col12}>
                             <label>Password</label>
                             <input
                               type="password"
                               placeholder="****************"
                               {...register("password", { required: true })}
                             />
+                            <span className="error">
+                              {errors.password && errors.password.type === "required" && (
+                                <span>Password is required</span>
+                              )}
+                            </span>
+                          </div>
+                          <div className={styles.col12}>
                             <div className={styles.chkBox}>
                               <label className={styles.checkboxButton}>
                                 <input
@@ -100,6 +123,7 @@ const Login: NextPage = () => {
                           <div className={styles.col12}>
                             <input type="submit" value="Sign In" />
                           </div>
+                          <div id="invalid"></div>
                           <div className={styles.col12}>
                             <p>
                               Not Registered?{" "}

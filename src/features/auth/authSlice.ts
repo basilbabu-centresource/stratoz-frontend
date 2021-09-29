@@ -41,7 +41,7 @@ export function login(credentials: any) {
         credentials
       );
 
-      console.log("Res", response.data);
+      //console.log("Res", response.data);
 
       const data = response.data;
 
@@ -50,8 +50,11 @@ export function login(credentials: any) {
       dispatch(getToken(data.jwt));
       dispatch(getUser(data.user));
     } catch (error: any) {
+      
       dispatch(getToken(null));
       dispatch(getUser(null));
+        return error.response;
+      
     }
   };
 }

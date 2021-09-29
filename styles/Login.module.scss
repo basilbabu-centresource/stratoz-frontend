@@ -42,6 +42,7 @@
   padding-right: calc(var(--bs-gutter-x) / 2);
   padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
+  margin-bottom: 20px;
 }
 .col6 {
   flex: 0 0 auto;
@@ -64,7 +65,7 @@
     h4 {
       font-size: 16px;
       margin: 0 0 30px;
-      font-weight: 400;
+      font-weight: 200;
       color: #ffffff;
     }
     label {
@@ -79,11 +80,12 @@
       background: #171717;
       border: 1px solid #ffffff80;
       border-radius: 5px;
-      margin: 10px 0 20px;
+      margin: 10px 0 0;
       height: 46px;
       outline: unset;
       color: #ffffff65;
       padding: 0 15px;
+      font-weight: 200;
     }
     input::placeholder,
     textarea::placeholder {

@@ -10,7 +10,7 @@ import Link from "next/link";
 import HtmlParser from "react-html-parser";
 
 const Home: NextPage = ({ index }: any) => {
-  console.log(index);
+  //console.log(index);
   const slider = React.useRef<any>(null);
   const simDesignslider = React.useRef<any>(null);
   const excRangeslider = React.useRef<any>(null);
