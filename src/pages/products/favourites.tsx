@@ -37,12 +37,11 @@ const Favorites: NextPage = () => {
             <div className={styles.products}>
               <div className="container">
                 <div className="row">
-                  {console.log("data", data)}
-                  {data && data[0].products.length === 0 && (
-                    <h3>There are no favourite products yet.</h3>
+                  {data && data[0]?.products.length === 0 && (
+                    <h3>There are no favourite products yet. </h3>
                   )}
                   {data &&
-                    data[0].products.map((product: any, index: number) => (
+                    data[0]?.products.map((product: any, index: number) => (
                       <div className="col-md-4 col-6 mb-4" key={index}>
                         <a href={"/products/" + product.slug}>
                           {console.log(product)}

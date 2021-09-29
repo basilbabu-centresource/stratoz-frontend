@@ -2,6 +2,7 @@ import router from "next/router";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/auth/authSlice";
+import Loading from "../layout/Loading";
 
 export function withAuth(Component) {
   return function AuthenticatedComponent() {
@@ -13,7 +14,11 @@ export function withAuth(Component) {
       }
     }, [user]);
 
-    return <>{user ? <h1>Loading</h1> : <Component />}</>;
+    return (
+      <>
+        <Component />
+      </>
+    );
   };
 }
 
