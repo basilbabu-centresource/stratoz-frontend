@@ -21,9 +21,7 @@ const Contact: NextPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
-    formState,
   } = useForm<Inputs>();
 
   const [isLoading, setisLoading] = useState(false);
@@ -51,6 +49,7 @@ const Contact: NextPage = () => {
         toast.error("Something went wrong!");
       });
   };
+
   return (
     <>
       <LayoutDefault>

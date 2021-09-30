@@ -3,8 +3,39 @@ import Head from "next/head";
 import Image from "next/image";
 import LayoutDefault from "../../layout/Default";
 import styles from "../../../styles/ResetPassword.module.scss";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import api from "../../api";
+import { toast } from "react-toastify";
 
-const Home: NextPage = () => {
+type Inputs = {
+  email: string;
+};
+
+const ForgotPassword: NextPage = () => {
+  const [isLoading, setisLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setisLoading(true);
+
+    api
+      .post("/auth/forgot-password", data)
+      .then(() => {
+        toast.success("Password reset request successfull.");
+        setisLoading(false);
+      })
+      .catch(() => {
+        setisLoading(false);
+        toast.error("Something went wrong!");
+      });
+  };
+
   return (
     <>
       <LayoutDefault>
@@ -13,20 +44,28 @@ const Home: NextPage = () => {
             <div className="container">
               <div className={styles.bgheroFrom}>
                 <div className={styles.heroFrom}>
-                  <h4>Reset Password</h4>
-                  <div className="row">
-                    <div className="col-md-8">
-                      <label>Enter your registered email to reset your password</label>
+                  <h4>Forgot Password</h4>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="row">
+                      <div className="col-md-8">
+                        <label>
+                          Enter your registered email to reset your password
+                        </label>
+                      </div>
+                      <div className="col-md-12">
+                        <input
+                          type="email"
+                          placeholder="john@doe.com"
+                          {...register("email", { required: true })}
+                        />
+                      </div>
                     </div>
-                    <div className="col-md-12">
-                      <input type="password" placeholder="****************" />
+                    <div className="row">
+                      <div className="col-md-12">
+                        <input type="submit" value="Submit" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <input type="submit" value="Change" />
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -37,4 +76,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default ForgotPassword;
