@@ -39,6 +39,9 @@ const ForgotPassword: NextPage = () => {
   return (
     <>
       <LayoutDefault>
+        <Head>
+          <title>Forgot Password</title>
+        </Head>
         <div className={styles.bghero}>
           <div className={styles.bgContainer}>
             <div className="container">
