@@ -47,7 +47,6 @@ const Login: NextPage = () => {
     //     alert("Invalid username and password");
     //   }
     // });
-
   };
 
   return (
@@ -81,12 +80,13 @@ const Login: NextPage = () => {
                               {...register("email", { required: true })}
                             />
                             <span className="error">
-                              {errors.email && errors.email.type === "required" && (
-                                <span>Email is required</span>
-                              )}
+                              {errors.email &&
+                                errors.email.type === "required" && (
+                                  <span>Email is required</span>
+                                )}
                             </span>
                           </div>
-                            
+
                           <div className={styles.col12}>
                             <label>Password</label>
                             <input
@@ -95,9 +95,10 @@ const Login: NextPage = () => {
                               {...register("password", { required: true })}
                             />
                             <span className="error">
-                              {errors.password && errors.password.type === "required" && (
-                                <span>Password is required</span>
-                              )}
+                              {errors.password &&
+                                errors.password.type === "required" && (
+                                  <span>Password is required</span>
+                                )}
                             </span>
                           </div>
                           <div className={styles.col12}>
@@ -122,8 +123,18 @@ const Login: NextPage = () => {
                         <div className={styles.row}>
                           <div className={styles.col12}>
                             <input type="submit" value="Sign In" />
+                            <div className="rowd">
+                              <p>
+                                <Link href="/forgot-password">
+                                  <a className="text-white">
+                                    {" "}
+                                    Forgot password?{" "}
+                                  </a>
+                                </Link>
+                              </p>
+                            </div>
                           </div>
-                          <div id="invalid"></div>
+
                           <div className={styles.col12}>
                             <p>
                               Not Registered?{" "}
