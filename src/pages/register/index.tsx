@@ -78,18 +78,40 @@ const Register: NextPage = () => {
                               placeholder="Jonathan Doe"
                               {...register("name", { required: true })}
                             />
+                            <span className="error">
+                              {errors.name && errors.name.type === "required" && (
+                                <span>Current Password is required</span>
+                              )}
+                            </span>
+                          </div>
+                          <div className={styles.col12}>
                             <label>Email</label>
                             <input
                               type="email"
                               placeholder="jonathandoe@gamil.com"
                               {...register("email", { required: true })}
                             />
+                            <span className="error">
+                              {errors.email && errors.email.type === "required" && (
+                                <span>Email is required</span>
+                              )}
+                              {errors.email && errors.email.type === "maxLength" && (
+                                <span>Max length exceeded</span>
+                              )}
+                            </span>
+                          </div>
+                          <div className={styles.col12}>
                             <label>Mobile</label>
                             <input
                               type="text"
                               placeholder="+976 256474473"
                               {...register("phoneNumber", { required: true })}
                             />
+                            <span className="error">
+                              {errors.phoneNumber && errors.phoneNumber.type === "required" && (
+                                <span>Phone Number is required</span>
+                              )}
+                            </span>
                           </div>
                         </div>
                         <div className={styles.row +" "+ styles.psw}>
@@ -100,6 +122,11 @@ const Register: NextPage = () => {
                               placeholder="****************"
                               {...register("password", { required: true })}
                             />
+                            <span className="error">
+                              {errors.password && errors.password.type === "required" && (
+                                <span>Password is required</span>
+                              )}
+                            </span>
                           </div>
                           <div className={styles.col6}>
                             <label>Repeat Password</label>
@@ -108,6 +135,11 @@ const Register: NextPage = () => {
                               placeholder="****************"
                               {...register("passwordConfirm", { required: true })}
                             />
+                            <span className="error">
+                              {errors.passwordConfirm && errors.passwordConfirm.type === "required" && (
+                                <span>Password is required</span>
+                              )}
+                            </span>
                           </div>
                         </div>
                         <div className={styles.row}>
