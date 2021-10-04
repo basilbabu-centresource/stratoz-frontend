@@ -42,6 +42,7 @@
   padding-right: calc(var(--bs-gutter-x) / 2);
   padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
+  margin-bottom: 20px;
 }
 .col6 {
   flex: 0 0 auto;
@@ -79,7 +80,7 @@
       background: #171717;
       border: 1px solid #ffffff80;
       border-radius: 5px;
-      margin: 10px 0 20px;
+      margin: 10px 0 0px;
       height: 46px;
       outline: unset;
       color: #ffffff65;
