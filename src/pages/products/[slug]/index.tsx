@@ -109,6 +109,7 @@ const Products: NextPage = ({ product, slug }: any) => {
                 height={340}
                 width={340}
                 alt={"sddsd"}
+                objectFit={"contain"}
               />
             </div>
             <div className="col-lg-7">

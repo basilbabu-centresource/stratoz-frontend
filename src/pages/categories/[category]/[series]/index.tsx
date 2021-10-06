@@ -145,7 +145,6 @@ const Categories: NextPage = ({
                       </li>
                     </ul>
                   </div>
-                  {console.log("Series", series)}
 
                   <div
                     className="accordion filterCheck row"
