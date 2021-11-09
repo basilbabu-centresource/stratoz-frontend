@@ -546,7 +546,7 @@ const Home: NextPage = ({ index }: any) => {
                         : "/home/f1.png"
                     } />
                   <h2>{index.collections[0].title}<br/>
-                  <a href="/blog">View all</a></h2>
+                  <Link href="/blog">View all</Link></h2>
                 </div>
               </div>
               <div className={"col-md-9 p-0 " +styles.p0}>
