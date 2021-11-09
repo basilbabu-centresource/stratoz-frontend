@@ -207,11 +207,16 @@
     position: relative;
     h2 {
       position: absolute;
-      bottom: 40px;
+      bottom: 37px;
       margin-bottom: 0;
       left: 40px;
       font-weight: 200;
       color: #ffffff;
+      a {
+        color: #f8f8f8;
+        font-weight: 200;
+        font-size: 1rem;
+      }
     }
   }
   // .row1 {
@@ -273,6 +278,18 @@
         font-weight: 200;
       }
     }
+  }
+}
+
+.homeImages {
+  overflow: hidden;
+  img {
+    transition: 0.9s all ease-in-out;
+  }
+}
+.homeImages:hover {
+  img {
+    transform: scale(1.2);
   }
 }
 

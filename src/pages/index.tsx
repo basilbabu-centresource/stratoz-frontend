@@ -23,6 +23,7 @@ const Home: NextPage = ({ index }: any) => {
     slidesToShow: 1.09,
     slidesToScroll: 1,
     arrows: false,
+      autoplay: true,
     responsive: [
       {
         breakpoint: 767,
@@ -38,22 +39,24 @@ const Home: NextPage = ({ index }: any) => {
 
   const simDesignsettings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     slidesToShow: 3.9,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     arrows: false,
+      autoplay: true,
   };
 
   const excRangesettings1 = {
     dots: false,
-    infinite: false,
+    infinite: true,
     slidesToShow: 2.45,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     arrows: false,
+      autoplay: true,
   };
 
   const excRangesettings2 = {
@@ -65,15 +68,18 @@ const Home: NextPage = ({ index }: any) => {
     arrows: false,
     centerMode: true,
     centerPadding: '60px',
+      autoplay: true,
+      autoplaySpeed: 2000
   };
 
   const preSettings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3.5,
     slidesToScroll: 3,
     arrows: false,
+      autoplay: true,
     responsive: [
       {
         breakpoint: 767,
@@ -89,12 +95,13 @@ const Home: NextPage = ({ index }: any) => {
   
   const bgSlidesettings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    adaptiveHeight: true
+    adaptiveHeight: true,
+      autoplay: true,
   };
 
   const sliderProps = { 
@@ -123,7 +130,7 @@ const Home: NextPage = ({ index }: any) => {
                     <div className={"row"}>
 
                       <div className={"col-md-6 " + styles.col6}>
-                        <div className={styles.epImages}>
+                        <div className={styles.epImages +" "+ styles.homeImages}>
                           <img
                             src={
                               index.product_banner[0]?.banner
@@ -139,7 +146,7 @@ const Home: NextPage = ({ index }: any) => {
                       <div className={"col-md-5 " + styles.col5}>
                         <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
-                            <div className={styles.epImages}>
+                            <div className={styles.epImages+" "+ styles.homeImages}>
                               <img
                                 src={
                                   index.product_banner[1]?.banner
@@ -153,7 +160,7 @@ const Home: NextPage = ({ index }: any) => {
                             </div>
                           </div>
                           <div className="col-md-12">
-                            <div className={styles.epImages}>
+                            <div className={styles.epImages+" "+ styles.homeImages}>
                               <img
                                 src={
                                   index.product_banner[2]?.banner
@@ -173,7 +180,7 @@ const Home: NextPage = ({ index }: any) => {
                   <div>
                     <div className={"row"}>
                       <div className={"col-md-6 " + styles.col6}>
-                        <div className={styles.epImages}>
+                        <div className={styles.epImages+" "+ styles.homeImages}>
                           <img
                             src={
                               index.product_banner[3]?.banner
@@ -189,7 +196,7 @@ const Home: NextPage = ({ index }: any) => {
                       <div className={"col-md-5 " + styles.col5}>
                         <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
-                            <div className={styles.epImages}>
+                            <div className={styles.epImages+" "+ styles.homeImages}>
                               <img
                                 src={
                                   index.product_banner[4]?.banner
@@ -203,7 +210,7 @@ const Home: NextPage = ({ index }: any) => {
                             </div>
                           </div>
                           <div className="col-md-12">
-                            <div className={styles.epImages}>
+                            <div className={styles.epImages+" "+ styles.homeImages}>
                               <img
                                 src={
                                   index.product_banner[5]?.banner
@@ -288,7 +295,7 @@ const Home: NextPage = ({ index }: any) => {
                 <Slider ref={excRangeslider} {...excRangesettings1}>
                    {index.exclusive_products.image_1.map((content: any, i: number) =>(
                     <>
-                      <div className={ styles.mx1rem } key={i}>
+                      <div className={ styles.mx1rem +" "+ styles.homeImages } key={i}>
                         <img
                           src={
                             content
@@ -305,7 +312,7 @@ const Home: NextPage = ({ index }: any) => {
                 <Slider ref={excRangeslider} {...excRangesettings2}>
                   {index.exclusive_products.image_2.map((content: any, i: number) =>(
                     <>
-                      <div className={ styles.mx2rem } key={i}>
+                      <div className={ styles.mx2rem+" "+ styles.homeImages } key={i}>
                         <img
                           src={
                             content
@@ -367,21 +374,18 @@ const Home: NextPage = ({ index }: any) => {
               <h3>
                 Touchless  <span>Products</span>
               </h3>
-              <div className={"col-md-8 col-sm-12 " + styles.mb30}>
+              <div className={"col-md-11 col-sm-12 " + styles.mb30}>
                 <div className={"row "}>
                   <div className="col-md-5">
-                    <div>
-                      <img src="/home/p1.png" />
+                    <div className={ styles.homeImages}>
+                      <img src="/home/tiles3.png" />
                     </div>
                   </div>
                   <div className="col-md-7">
-                    <h2 className={styles.mb35}>Ivory Floor Tiles</h2>
+                    <h2 className={styles.mb35}>The Sustainable Bathrooms</h2>
                     <p>
-                      As the era of `&apos;`less is more`&apos;` is fading, many
-                      look for new ways to express their personality in their
-                      private spaces. Some tips below on how to personalise your
-                      bathroom, by giving it a bold look through stylised
-                      fixtures and unconventional finishes.
+                      Ongoing research and development for optimal solutions. The sustainability of a product is not a matter of chance, rather it is decided well in advance, at product development. This is why, for decades, STRATOZ has been investing a considerable amount of time, money and energy in research and development - an investment that pays off later for the company, users and the environment. Developers and designers focus on water-saving and energy-efficient solutions, environment-friendly manufacturing, timeless forms that retain their appeal for years and simple product assembly. In order to achieve the best possible results.
+
                     </p>
                   </div>
                 </div>
@@ -514,7 +518,7 @@ const Home: NextPage = ({ index }: any) => {
                   
                   {index.footer_top.image.map((content: any, i: number) => (
                     <>
-                      <div key={i} className={ "m-1" }>
+                      <div key={i} className={ "m-1 "+ styles.homeImages}>
                         <img 
                           src={
                             content
@@ -530,59 +534,75 @@ const Home: NextPage = ({ index }: any) => {
           </div>
         </section>
 
-        
-
         <section className={"d-none d-md-flex " +styles.flipSect}>
           <div className={"container " +styles.custContainer}>
             <div className="row">
               <div className="col-md-3 ">
                 <div className={styles.flipMain}>
-                  <img src="/home/f1.png" />
-                  <h2>Timeless Designs</h2>
+                  <img 
+                    src={
+                      index.collections[0]
+                        ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index.collections[0]?.image?.url}`
+                        : "/home/f1.png"
+                    } />
+                  <h2>{index.collections[0].title}<br/>
+                  <a href="/blog">View all</a></h2>
                 </div>
               </div>
               <div className={"col-md-9 p-0 " +styles.p0}>
                 <div className={"row " + styles.row1}>
-                  <div className={"col-md-4 p-0 "+styles.p0}>
-                    <div className={styles.flipImg}>
-                      <img src="/home/f2.png" />
+                  <div className={"col-md-4 p-0 "+styles.p0} style={{ background : index.collections[1].bg_colour}}>
+                    <div className={styles.flipImg +" "+ styles.homeImages}>
+                      <img 
+                      src={
+                        index.collections[1]
+                          ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index.collections[1]?.image?.url}`
+                          : "/home/f2.png"
+                      } />
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 " +styles.p0}>
-                    <div className={styles.flipImg}>
-                      <img src="/home/f3.png" />
+                  <div className={"col-md-4 p-0 " +styles.p0} style={{ background : index.collections[2].bg_colour}}>
+                    <div className={styles.flipImg+" "+ styles.homeImages}>
+                      <img 
+                      src={
+                        index.collections[2]
+                          ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index.collections[2]?.image?.url}`
+                          : "/home/f3.png"
+                      } />
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle1 + " "+styles.p0}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle1 + " "+styles.p0} style={{ background : index.collections[3].bg_colour}}>
                     <div className={styles.flipTitle}>
                       <h6>
-                        Classic Black <br />
-                        Interior
+                        {HtmlParser(index.collections[3].title)}
                       </h6>
                     </div>
                   </div>
                 </div>
                 <div className={"row " + styles.row2}>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle2+ " "+styles.p0}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle2+ " "+styles.p0} style={{ background : index.collections[4].bg_colour}}>
                     <div className={styles.flipcontent}>
-                      <p>Envision the future of bathware</p>
+                      <p>{index.collections[4].title}</p>
                       <a>
                         <button>View all</button>
                       </a>
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 " + styles.bgTitle3+ " "+styles.p0}>
+                  <div className={"col-md-4 p-0 " + styles.bgTitle3+ " "+styles.p0} style={{ background : index.collections[5].bg_colour}}>
                     <div className={styles.flipcontent}>
                       <p>
-                        Designed and tuned with Stratoz concepts, Designing with
-                        humble shades of black and white is as exciting as it
-                        would be challenging.
+                        {index.collections[5].description}
                       </p>
                     </div>
                   </div>
-                  <div className={"col-md-4 p-0 "+styles.p0}>
-                    <div className="flipImg h-100">
-                      <img src="/home/f4.png" />
+                  <div className={"col-md-4 p-0 "+styles.p0} style={{ background : index.collections[6].bg_colour}}>
+                    <div className={" flipImg h-100 "+ styles.homeImages}>
+                      <img 
+                      src={
+                        index.collections[6]
+                          ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index.collections[6]?.image?.url}`
+                          : "/home/f4.png"
+                      } />
                     </div>
                   </div>
                 </div>

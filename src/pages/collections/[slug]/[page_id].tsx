@@ -40,7 +40,7 @@ const Collections: NextPage = ({ products, count, slug }: any) => {
                   )}
                   {products.map((product: any, index: number) => (
                     <>
-                      <div className="col-md-4 mb-4" key={index}>
+                      <div className="col-md-3 mb-4" key={index}>
                         <a href={"/products/" + product.slug}>
                           {console.log(product)}
                           <div className={styles.col4fav}>
@@ -63,7 +63,7 @@ const Collections: NextPage = ({ products, count, slug }: any) => {
                               <h4 className="mt-4">{product.title}</h4>
                               <h5>
                                 {" "}
-                                {product.code} - {product?.colour?.name}
+                                {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                               </h5>
                             </div>
                           </div>
