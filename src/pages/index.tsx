@@ -10,7 +10,7 @@ import Link from "next/link";
 import HtmlParser from "react-html-parser";
 
 const Home: NextPage = ({ index }: any) => {
-  //console.log(index);
+  console.log(index);
   const slider = React.useRef<any>(null);
   const simDesignslider = React.useRef<any>(null);
   const excRangeslider = React.useRef<any>(null);
@@ -121,12 +121,18 @@ const Home: NextPage = ({ index }: any) => {
                 <Slider ref={slider} {...settings}>
                   <div>
                     <div className={"row"}>
+
                       <div className={"col-md-6 " + styles.col6}>
                         <div className={styles.epImages}>
-                          <img src="/home/1.png" />
+                          <img
+                            src={
+                              index.product_banner[0]?.banner
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[0]?.banner?.url}`
+                                : "/home/1.png"
+                            }
+                          />
                           <h3>
-                            EXPERIENCE <br />
-                            <span>THE SPIRITS OF WATER</span>
+                            {HtmlParser(index.product_banner[0].title)}
                           </h3>
                         </div>
                       </div>
@@ -134,19 +140,29 @@ const Home: NextPage = ({ index }: any) => {
                         <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
-                              <img src="/home/2.png" />
+                              <img
+                                src={
+                                  index.product_banner[1]?.banner
+                                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[1]?.banner?.url}`
+                                    : "/home/1.png"
+                                }
+                              />
                               <h3>
-                                SENSUAL <br />
-                                <span>MOMENTS</span>
+                                {HtmlParser(index.product_banner[1].title)}
                               </h3>
                             </div>
                           </div>
                           <div className="col-md-12">
                             <div className={styles.epImages}>
-                              <img src="/home/3.png" />
+                              <img
+                                src={
+                                  index.product_banner[2]?.banner
+                                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[2]?.banner?.url}`
+                                    : "/home/1.png"
+                                }
+                              />
                               <h3>
-                                THE CLASSIC <br />
-                                <span>INTERPRETED</span>
+                                {HtmlParser(index.product_banner[2].title)}
                               </h3>
                             </div>
                           </div>
@@ -158,10 +174,15 @@ const Home: NextPage = ({ index }: any) => {
                     <div className={"row"}>
                       <div className={"col-md-6 " + styles.col6}>
                         <div className={styles.epImages}>
-                          <img src="/home/1.png" />
+                          <img
+                            src={
+                              index.product_banner[3]?.banner
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[3]?.banner?.url}`
+                                : "/home/1.png"
+                            }
+                          />
                           <h3>
-                            EXPERIENCE <br />
-                            <span>THE SPIRITS OF WATER</span>
+                            {HtmlParser(index.product_banner[3].title)}
                           </h3>
                         </div>
                       </div>
@@ -169,19 +190,29 @@ const Home: NextPage = ({ index }: any) => {
                         <div className={"row h-100"}>
                           <div className={"col-md-12 " + styles.mb25}>
                             <div className={styles.epImages}>
-                              <img src="/home/2.png" />
+                              <img
+                                src={
+                                  index.product_banner[4]?.banner
+                                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[4]?.banner?.url}`
+                                    : "/home/1.png"
+                                }
+                              />
                               <h3>
-                                SENSUAL <br />
-                                <span>MOMENTS</span>
+                                {HtmlParser(index?.product_banner[4]?.title)}
                               </h3>
                             </div>
                           </div>
                           <div className="col-md-12">
                             <div className={styles.epImages}>
-                              <img src="/home/3.png" />
+                              <img
+                                src={
+                                  index.product_banner[5]?.banner
+                                    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index?.product_banner[5]?.banner?.url}`
+                                    : "/home/1.png"
+                                }
+                              />
                               <h3>
-                                THE CLASSIC <br />
-                                <span>INTERPRETED</span>
+                                {HtmlParser(index?.product_banner[5]?.title)}
                               </h3>
                             </div>
                           </div>
@@ -334,7 +365,7 @@ const Home: NextPage = ({ index }: any) => {
           <div className={"container " +styles.custContainer}>
             <div className={"row " + styles.preTiles}>
               <h3>
-                Premium <span>Tiles & Ceramics</span>
+                Touchless  <span>Products</span>
               </h3>
               <div className={"col-md-8 col-sm-12 " + styles.mb30}>
                 <div className={"row "}>
@@ -435,30 +466,61 @@ const Home: NextPage = ({ index }: any) => {
           </div>
         </section>
 
-        <section className={"slidenavLine " + styles.bgImg}>
+
+        <section className={styles.bgblack}>
           <div className={"container " +styles.custContainer}>
-            <div className={"row " + styles.bgSlide}>
-              <div className={"col-md-12 "}>
-                <Slider {...bgSlidesettings}>
-                  {index.banner_2.map((content: any, i: number) => (
+            <div className={"row align-items-center " + styles.simDesign}>
+              <div className="col-md-6">
+                <div
+                  className={"row justify-content-center align-items-center"}
+                >
+                  <div className={styles.width365}>
+                    <div className={"row " + styles.mb35}>
+                      <div className={"col-md-12 p-0 "+ styles.p0}>
+                        <h2 className={styles.mb35}>
+                          { index.footer_top.title }
+                        </h2>
+                        <p>
+                          { index.footer_top.description }
+                        </p>
+                      </div>
+                    </div>
+                    <div className="row ">
+                      <div className={"col-md-6 col-6 p-0 "+ styles.p0}>
+                        <button
+                          onClick={() => simDesignslider?.current?.slickPrev()}
+                        >
+                          <img src="/icons/left.png" />
+                        </button>
+                        <button
+                          onClick={() => simDesignslider?.current?.slickNext()}
+                        >
+                          <img src="/icons/right.png" />
+                        </button>
+                      </div>
+                      <div className={"col-md-6 col-6 p-0 text-end "+ styles.p0}>
+                        <Link href="/products">
+                          <a>
+                            <button>View all</button>
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={"col-md-6 pt-4"}>
+                <Slider ref={simDesignslider} {...simDesignsettings}>
+                  
+                  {index.footer_top.image.map((content: any, i: number) => (
                     <>
-                      <div key={i}>
-                        <div className={styles.carouselItem}>
-                          
-                          <img src={
-                            content.image
-                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
-                              : "/home/g1.png"
-                            } />
-                          <div className={styles.carouselCaption}>
-                            <h2>
-                              {HtmlParser(content.title)}
-                            </h2>
-                            <p>
-                              {content.description}
-                            </p>
-                          </div>
-                        </div>
+                      <div key={i} className={ "m-1" }>
+                        <img 
+                          src={
+                            content
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.url}`
+                              : "/home/sd1.png"
+                          } />
                       </div>
                     </>
                   ))}
@@ -467,6 +529,8 @@ const Home: NextPage = ({ index }: any) => {
             </div>
           </div>
         </section>
+
+        
 
         <section className={"d-none d-md-flex " +styles.flipSect}>
           <div className={"container " +styles.custContainer}>
@@ -587,60 +651,30 @@ const Home: NextPage = ({ index }: any) => {
           </div>
         </section>
 
-        <section className={styles.bgblack}>
+        <section className={"slidenavLine " + styles.bgImg}>
           <div className={"container " +styles.custContainer}>
-            <div className={"row align-items-center " + styles.simDesign}>
-              <div className="col-md-6">
-                <div
-                  className={"row justify-content-center align-items-center"}
-                >
-                  <div className={styles.width365}>
-                    <div className={"row " + styles.mb35}>
-                      <div className={"col-md-12 p-0 "+ styles.p0}>
-                        <h2 className={styles.mb35}>
-                          { index.footer_top.title }
-                        </h2>
-                        <p>
-                          { index.footer_top.description }
-                        </p>
-                      </div>
-                    </div>
-                    <div className="row ">
-                      <div className={"col-md-6 col-6 p-0 "+ styles.p0}>
-                        <button
-                          onClick={() => simDesignslider?.current?.slickPrev()}
-                        >
-                          <img src="/icons/left.png" />
-                        </button>
-                        <button
-                          onClick={() => simDesignslider?.current?.slickNext()}
-                        >
-                          <img src="/icons/right.png" />
-                        </button>
-                      </div>
-                      <div className={"col-md-6 col-6 p-0 text-end "+ styles.p0}>
-                        <Link href="/products">
-                          <a>
-                            <button>View all</button>
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={"col-md-6 pt-4"}>
-                <Slider ref={simDesignslider} {...simDesignsettings}>
-                  
-                  {index.footer_top.image.map((content: any, i: number) => (
+            <div className={"row " + styles.bgSlide}>
+              <div className={"col-md-12 "}>
+                <Slider {...bgSlidesettings}>
+                  {index.banner_2.map((content: any, i: number) => (
                     <>
-                      <div key={i} className={ "m-1" }>
-                        <img 
-                          src={
-                            content
-                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.url}`
-                              : "/home/sd1.png"
-                          } />
+                      <div key={i}>
+                        <div className={styles.carouselItem}>
+                          
+                          <img src={
+                            content.image
+                              ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${content?.image?.url}`
+                              : "/home/g1.png"
+                            } />
+                          <div className={styles.carouselCaption}>
+                            <h2>
+                              {HtmlParser(content.title)}
+                            </h2>
+                            <p>
+                              {content.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </>
                   ))}
@@ -649,6 +683,8 @@ const Home: NextPage = ({ index }: any) => {
             </div>
           </div>
         </section>
+
+        
       </LayoutDefault>
     </>
   );

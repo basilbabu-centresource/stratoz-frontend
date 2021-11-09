@@ -1,10 +1,10 @@
 .hero {
   background-color: black;
-  background-image: url("/collectionsbanner.png");
+  background-image: url("/collection-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 65vh;
-  color: #E5EBEC;
+  color: #e5ebec;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -12,7 +12,7 @@
 
   h1 {
     font-size: large;
-    color: #E5EBEC;
+    color: #e5ebec;
     font-size: 3rem;
     font-weight: 700;
   }

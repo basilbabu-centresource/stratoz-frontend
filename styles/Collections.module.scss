@@ -154,3 +154,12 @@
 .overlayHalf:hover .overlayContent {
   opacity: 1;
 }
+
+.epImages {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.epImages:hover img {
+  transform: scale(1.2);
+}
