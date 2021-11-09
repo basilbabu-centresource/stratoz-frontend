@@ -241,7 +241,7 @@ const Brochures: NextPage = ({ brochure }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch all categories form API
   const brochures = await fetch(`${process.env.API_BASE_URL}/brochures`);
 
@@ -249,7 +249,6 @@ export async function getStaticProps() {
 
   return {
     props: { brochure },
-    revalidate: 1,
   };
 }
 

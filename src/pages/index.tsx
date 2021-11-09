@@ -691,7 +691,7 @@ const Home: NextPage = ({ index }: any) => {
 };
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   
   // Fetch all categories form API
   const home = await fetch(`${process.env.API_BASE_URL}/home`);
@@ -699,8 +699,7 @@ export async function getStaticProps() {
   const index = await home.json();
 
   return {
-    props: { index },
-    revalidate: 1,
+    props: { index }
   };
 }
 export default Home;

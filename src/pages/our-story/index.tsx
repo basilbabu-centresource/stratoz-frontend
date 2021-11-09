@@ -128,7 +128,7 @@ const About: NextPage = ({ about }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   
   // Fetch all categories form API
   const our_story = await fetch(`${process.env.API_BASE_URL}/our-story`);
@@ -137,7 +137,6 @@ export async function getStaticProps() {
 
   return {
     props: { about },
-    revalidate: 1,
   };
 }
 
