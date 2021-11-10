@@ -252,7 +252,9 @@ const Header: React.FC = () => {
                       <h5>CATEGORY</h5>
                       <ul className="list-unstyled">
                         {categories &&
-                          categories.map((category: any, index: number) => (
+                          categories.slice()
+                          .sort((a: any, b:any) => a.weight > b.weight ? 1 :-1)
+                          .map((category: any, index: number) => (
                             <li key={index}>
                               <a href={`/categories/${category.slug}`}>
                                 {category.name}
@@ -275,6 +277,21 @@ const Header: React.FC = () => {
                         <li>
                           <Link href="/find-showrooms">
                             <a>Nearest Showrooms</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/collections">
+                            <a>Collections</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/brochures">
+                            <a>Brochures</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/our-story">
+                            <a>Our story</a>
                           </Link>
                         </li>
                       </ul>

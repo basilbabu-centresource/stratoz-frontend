@@ -39,7 +39,9 @@ const Sidebar: React.FC = () => {
               {/* {console.log(categories)} */}
               <ul className="list-unstyled">
                 {categories &&
-                  categories.map((category: any, index: number) => (
+                  categories.slice()
+                  .sort((a: any, b:any) => a.weight > b.weight ? 1 :-1)
+                  .map((category: any, index: number) => (
                     <li key={index}>
                       <a href={`/categories/${category.slug}`}>
                         {category.name}

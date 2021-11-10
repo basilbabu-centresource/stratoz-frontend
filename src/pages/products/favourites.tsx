@@ -65,7 +65,7 @@ const Favorites: NextPage = () => {
                               <h4 className="mt-4">{product.title}</h4>
                               <h5>
                                 {" "}
-                                {product.code} - {product?.colour?.name}
+                                {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                               </h5>
                             </div>
                           </div>

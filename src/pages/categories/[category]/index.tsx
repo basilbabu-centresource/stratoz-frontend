@@ -300,7 +300,7 @@ const Categories: NextPage = ({
                               key={index}
                               className={"col-md-4 " + styles.mb25}
                             >
-                              <div className={styles.col4fav}>
+                              <div className={styles.col4fav + " h-100"}>
                                 <div
                                   onClick={() =>
                                     handleAddFavourite(
@@ -362,7 +362,7 @@ const Categories: NextPage = ({
                                     <h4>{product.title}</h4>
                                   </a>
                                   <h5>
-                                    {product.code} - {product?.colour?.name}
+                                    {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                                   </h5>
                                 </div>
                               </div>
@@ -376,7 +376,7 @@ const Categories: NextPage = ({
                               key={index}
                               className={"col-md-4 " + styles.mb25}
                             >
-                              <div className={styles.col4fav}>
+                              <div className={styles.col4fav + " h-100"}>
                                 <div
                                   onClick={() => alert("sdsd")}
                                   className="favourite__icon"
@@ -433,7 +433,7 @@ const Categories: NextPage = ({
                                     <h4>{product.title}</h4>
                                   </a>
                                   <h5>
-                                    {product.code} - {product?.colour?.name}
+                                    {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                                   </h5>
                                 </div>
                               </div>

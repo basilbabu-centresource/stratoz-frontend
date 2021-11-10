@@ -6,6 +6,8 @@ import styles from "../../../styles/Products.module.scss";
 import Hero from "../../components/Products/Hero";
 
 const Products: NextPage = ({ categories }: any) => {
+  console.log(categories);
+  
   return (
     <>
       <LayoutDefault>
@@ -40,7 +42,9 @@ const Products: NextPage = ({ categories }: any) => {
             <div className={styles.products}>
               <div className="container">
                 <div className="row">
-                  {categories.map((category: any, index: number) => (
+                  {categories
+                  .sort((a: any, b:any) => a.weight > b.weight ? 1 :-1)
+                  .map((category: any, index: number) => (
                     <div key={index} className="col-md-4">
                       <a href={`/categories/${category.slug}`}>
                         <div className={styles.col4img + " " + styles.overlay}>

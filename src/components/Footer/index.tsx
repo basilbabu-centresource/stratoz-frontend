@@ -40,7 +40,9 @@ const Footer: React.FC = () => {
               <div className="col-lg-2">
                 <div className={styles.footer__title}>Categories</div>
                 {categories &&
-                  categories.map((category: any, index: number) => (
+                  categories.slice()
+                  .sort((a: any, b:any) => a.weight > b.weight ? 1 :-1)
+                  .map((category: any, index: number) => (
                     <div className={styles.footer__link} key={index}>
                       <a href={`/categories/${category.slug}`}>
                         {category.name}

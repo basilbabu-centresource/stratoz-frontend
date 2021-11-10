@@ -9,8 +9,8 @@ import Slider from "react-slick";
 import Link from "next/link";
 import HtmlParser from "react-html-parser";
 
-const Home: NextPage = ({ index }: any) => {
-  console.log(index);
+const Home: NextPage = ({ index, related }: any) => {
+  //console.log(related, "relatedrelated");
   const slider = React.useRef<any>(null);
   const simDesignslider = React.useRef<any>(null);
   const excRangeslider = React.useRef<any>(null);
@@ -372,82 +372,52 @@ const Home: NextPage = ({ index }: any) => {
           <div className={"container " +styles.custContainer}>
             <div className={"row " + styles.preTiles}>
               <h3>
-                Touchless  <span>Products</span>
+                Touchless <span>Products</span>
               </h3>
-              <div className={"col-md-11 col-sm-12 " + styles.mb30}>
+              <div className={"col-md-9 col-sm-12 " + styles.mb30}>
                 <div className={"row "}>
                   <div className="col-md-5">
                     <div className={ styles.homeImages}>
                       <img src="/home/tiles3.png" />
                     </div>
                   </div>
-                  <div className="col-md-7">
-                    <h2 className={styles.mb35}>The Sustainable Bathrooms</h2>
+                  <div className="col-md-7 m-auto">
+                    <h2 className={styles.mb35}>Hygienic Waves</h2>
                     <p>
-                      Ongoing research and development for optimal solutions. The sustainability of a product is not a matter of chance, rather it is decided well in advance, at product development. This is why, for decades, STRATOZ has been investing a considerable amount of time, money and energy in research and development - an investment that pays off later for the company, users and the environment. Developers and designers focus on water-saving and energy-efficient solutions, environment-friendly manufacturing, timeless forms that retain their appeal for years and simple product assembly. In order to achieve the best possible results.
-
+                      STRATOZ Touchless is characterized by water control system that works without a visible sensor on the fitting. and can be used in combination with all STRATOZ series. The intuitive system offers ease of use and maximum design freedom The STRATOZ Touchless is ideal for guest bathrooms and use in semi - public areas.
                     </p>
                   </div>
                 </div>
               </div>
               <div className={"col-md-12 " + styles.mb30}>
                 <Slider ref={preSlider} {...preSettings}>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p2.png" />
-                      <p>
-                        Terrazzo Countertop <br />
-                        <span>Wash Basin STL-1905-GR-WB - Grey</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p3.png" />
-                      <p>
-                        Filita Close Coupled WC <br />
-                        <span>STL-1900-GR-FC - Crome</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p4.png" />
-                      <p>
-                        Marble Countertop Wash Basin
-                        <br />
-                        <span> STL-1906-GR-WB - White</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p2.png" />
-                      <p>
-                        Terrazzo Countertop <br />
-                        <span>Wash Basin STL-1905-GR-WB - Grey</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p3.png" />
-                      <p>
-                        Filita Close Coupled WC <br />
-                        <span>STL-1900-GR-FC - Crome</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className={styles.slideInd}>
-                      <img src="/home/p4.png" />
-                      <p>
-                        Marble Countertop Wash Basin
-                        <br />
-                        <span> STL-1906-GR-WB - White</span>
-                      </p>
-                    </div>
-                  </div>
+                  { related.map((data: any, index: number) => (
+                    //console.log(data.title)
+                    <>
+                      <div>
+                        <div className={styles.slideInd}>
+                          <Image
+                            alt="product_image"
+                            src={
+                              data.images
+                                ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${data?.images[0]?.url}`
+                                : "/home/p2.png"
+                            }
+                            layout="responsive"
+                            height="100%"
+                            width="100%"
+                            objectFit="cover"
+                          />
+                          <p>
+                            {data.title} <br />
+                            <span>{data.code} - </span><span style={{ textTransform: "capitalize"}} >{data?.colour?.name}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                    
+                  ))}
+                  
                 </Slider>
               </div>
               
@@ -460,7 +430,7 @@ const Home: NextPage = ({ index }: any) => {
                 </button>
               </div>
               <div className="col-md-6 col-6 text-end">
-                <Link href="/products">
+                <Link href="/categories/touchless">
                   <a>
                     <button>View all</button>
                   </a>
@@ -545,7 +515,7 @@ const Home: NextPage = ({ index }: any) => {
                         ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${index.collections[0]?.image?.url}`
                         : "/home/f1.png"
                     } />
-                  <h2>{index.collections[0].title}<br/>
+                  <h2>{HtmlParser(index.collections[0].title)}<br/>
                   <Link href="/blog">View all</Link></h2>
                 </div>
               </div>
@@ -582,7 +552,7 @@ const Home: NextPage = ({ index }: any) => {
                 <div className={"row " + styles.row2}>
                   <div className={"col-md-4 p-0 " + styles.bgTitle2+ " "+styles.p0} style={{ background : index.collections[4].bg_colour}}>
                     <div className={styles.flipcontent}>
-                      <p>{index.collections[4].title}</p>
+                      <p>{index.collections[4].description}</p>
                       <a>
                         <button>View all</button>
                       </a>
@@ -715,11 +685,13 @@ export async function getServerSideProps() {
   
   // Fetch all categories form API
   const home = await fetch(`${process.env.API_BASE_URL}/home`);
-  
   const index = await home.json();
 
+  const products = await fetch(`${process.env.API_BASE_URL}/products?category.slug=`+"touchless");
+  const related =  await products.json();
+
   return {
-    props: { index }
+    props: { index, related }
   };
 }
 export default Home;

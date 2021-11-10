@@ -400,7 +400,7 @@ const Categories: NextPage = ({
                                     <h4>{product.title}</h4>
                                   </a>
                                   <h5>
-                                    {product.code} - {product?.colour?.name}
+                                    {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                                   </h5>
                                 </div>
                               </div>
@@ -471,7 +471,7 @@ const Categories: NextPage = ({
                                     <h4>{product.title}</h4>
                                   </a>
                                   <h5>
-                                    {product.code} - {product?.colour?.name}
+                                    {product.code} - <span style={{ textTransform: "capitalize"}} >{product?.colour?.name}</span>
                                   </h5>
                                 </div>
                               </div>
