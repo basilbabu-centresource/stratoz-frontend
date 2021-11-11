@@ -722,3 +722,9 @@ div.react-pdf__Page__textContent {
 ::-webkit-scrollbar-thumb:hover {
   background: #e5ebec;
 }
+
+@media (max-width: 800px) {
+  .slidenavLine .scrollanim {
+    display: none !important;
+  }
+}
