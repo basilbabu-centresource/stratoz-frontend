@@ -728,3 +728,9 @@ div.react-pdf__Page__textContent {
     display: none !important;
   }
 }
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none;
+  }
+}
