@@ -179,11 +179,13 @@ const Brochure: NextPage = ({ catalogue, slug }: any) => {
                   </div>
                 </div> */}
                 <div className={"row " + styles.mb35} key={1}>
-                  <div className="col-md-12">
+                  <div className="col-md-12 ">
                     <h5 className={styles.titleh5}>
                       {catalogue.title}
                     </h5>
-                    <div id="flip-book" className={"d-none d-md-flex borde " +styles.border}>
+                  </div>
+                  <div className="col-md-12 mobile-hide">
+                    <div id="flip-book" className={"borde " +styles.border}>
                       <Document
                         file={`${process.env.NEXT_PUBLIC_API_BASE_URL}${catalogue.file?.url}`}
                         onLoadSuccess={onDocumentLoadSuccess}
