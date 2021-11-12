@@ -31,7 +31,7 @@ const Collections: NextPage = ({ collections }: any) => {
                             <div className="item" key={index}>
                               <div className={styles.overlay}>
                                 <img
-                                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${collection.thumbnail.url}`}
+                                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${collection?.thumbnail?.url}`}
                                   className={styles.image}
                                 />
                                 <div className={styles.middle}>
